@@ -8,81 +8,99 @@
     <script src="js/uikit.js"></script>
     <script src="js/uikit-icons.js"></script>
 
-    <title>Portfolio - Umutesa Munyurangabo</title>
+    <title>Umutesa Munyurangabo - Portfolio</title>
+
     <style>
         body {
-            background-color: #ffffff; /* Set white background */
-            font-family: Arial, sans-serif;
+            background-color: #ffffff; /* Clean white background */
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
-        h1, h3, p {
-            color: #333333; /* Dark text for readability */
+        header {
+            background-color: #00427a; /* Professional dark blue */
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
         }
-        nav a.uk-logo {
-            color: #333333; /* Neutral color for logo text */
+        nav a {
+            color: #00427a;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
         }
         .uk-navbar-container {
-            background-color: #f8f9fa; /* Light navbar background for academia style */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for aesthetics */
+            background-color: #f8f8f8; /* Subtle gray for contrast */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
         }
         .uk-button-secondary {
-            background-color: #007bff; /* Blue button */
-            color: #ffffff; /* White text */
+            background-color: #00427a;
+            color: white;
+        }
+        .section-heading {
+            color: #00427a;
+            font-weight: bold;
+        }
+        h1, h3, p {
+            margin: 10px;
+        }
+        .uk-card {
+            border: 1px solid #e0e0e0;
+        }
+        footer {
+            background-color: #f8f8f8;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #6c757d;
         }
     </style>
 </head>
 <body>
+<!-- Header -->
+<header>
+    <h1>Umutesa Munyurangabo</h1>
+    <p>Electrical and Computer Engineering Master's Student</p>
+</header>
+
 <!-- Navigation Bar -->
-<nav class="uk-navbar-container uk-margin-small-left uk-margin-small-right uk-visible@m uk-margin-xlarge-left uk-margin-xlarge-right" uk-navbar uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
+<nav class="uk-navbar-container" uk-navbar uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
     <div class="uk-navbar-left">
-        <a href="#" class="uk-navbar-item uk-logo">Umutesa Munyurangabo</a>
+        <a href="#" class="uk-navbar-item uk-logo">Home</a>
     </div>
     <div class="uk-navbar-right">
         <ul class="uk-navbar-nav">
             <li><a href="#about" uk-scroll>About</a></li>
             <li><a href="#projects" uk-scroll>Projects</a></li>
-            <li><a href="#projects" uk-scroll>Blogs</a></li>
-            <li><a href="mailto:" uk-scroll>Contact</a></li>
+            <li><a href="mailto:umutesa09@gmail.com" uk-scroll>Contact</a></li>
         </ul>
     </div>
 </nav>
-
-<!-- Mobile Navigation -->
-<nav class="uk-navbar-container uk-hidden@m" uk-navbar uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
-    <div class="uk-navbar-left">
-        <a href="#" class="uk-navbar-item uk-logo">Umutesa Munyurangabo</a>
-    </div>
-    <div class="uk-navbar-right">
-        <button uk-toggle="target: #offcanvas-nav" uk-navbar-toggle-icon></button>
-    </div>
-</nav>
-
-<div id="offcanvas-nav" uk-offcanvas="overlay: true">
-    <div class="uk-offcanvas-bar">
-        <ul class="uk-nav uk-nav-primary">
-            <li><a href="#" uk-scroll>Home</a></li>
-            <li><a href="#about" uk-scroll>About</a></li>
-            <li><a href="#projects" uk-scroll>Projects</a></li>
-            <li><a href="#projects" uk-scroll>Blogs</a></li>
-            <li><a href="mailto:umutesa09@gmail.com">Contact</a></li>
-        </ul>
-    </div>
-</div>
 
 <!-- Home Section -->
 <section class="uk-container uk-margin-large-top">
-    <h1>Hi, I’m Umutesa Munyurangabo</h1>
-    <p>I’m an Electrical and Computer Engineering master’s student at the University of Cape Town, with interests in computer vision, machine learning, natural language processing, and software development.</p>
-    <a href="#about" class="uk-button uk-button-secondary" uk-scroll>About Me</a>
+    <h1>Welcome!</h1>
+    <p>
+        I’m Umutesa Munyurangabo, a master’s student specializing in Electrical and Computer Engineering at the University of Cape Town. 
+        My academic interests include computer vision, machine learning, natural language processing, and data analysis. 
+    </p>
+    <a href="#about" class="uk-button uk-button-secondary uk-margin-top" uk-scroll>Learn More</a>
 </section>
 
 <hr>
 
 <!-- About Section -->
 <section id="about" class="uk-container uk-margin-large-top">
-    <h3>About Me</h3>
-    <p>My ultimate goal is to make meaningful decisions in finance, biomedical, autonomous systems, or other impactful fields, particularly in Africa. I strongly advocate for amplifying women’s voices in AI, ensuring diversity and inclusivity in this rapidly evolving field.</p>
+    <h3 class="section-heading">About Me</h3>
+    <p>
+        My goal is to contribute to impactful fields such as finance, biomedical systems, and autonomous systems—particularly addressing challenges in Africa. 
+        I’m passionate about diversity in artificial intelligence, particularly amplifying women’s voices to ensure more inclusive AI solutions. 
+    </p>
     <div>
-        <a href="#" uk-icon="icon: medium"></a>
+        <a href="#" uk-icon="icon: instagram"></a>
         <a href="#" uk-icon="icon: github"></a>
         <a href="#" uk-icon="icon: linkedin"></a>
     </div>
@@ -92,38 +110,25 @@
 
 <!-- Projects Section -->
 <section id="projects" class="uk-container uk-margin-large-top">
-    <h3>Projects</h3>
-    <p>Here are a few personal projects I’ve been working on:</p>
+    <h3 class="section-heading">Projects</h3>
+    <p>Here’s a showcase of my ongoing work:</p>
     <div class="uk-card uk-card-default uk-card-body uk-margin">
         <h4>Project 1</h4>
-        <p>Work in progress.</p>
-        <a href="#">Link</a>
+        <p>Work in progress</p>
+        <a href="#">View Details</a>
     </div>
     <div class="uk-card uk-card-default uk-card-body uk-margin">
         <h4>Project 2</h4>
-        <p>Work in progress.</p>
-        <a href="#">Link</a>
+        <p>Work in progress</p>
+        <a href="#">View Details</a>
     </div>
 </section>
 
 <hr>
-    <!-- Blogs Section -->
-<section id="projects" class="uk-container uk-margin-large-top">
-    <h3>Projects</h3>
-    <p>Here are a few personal blogs. I am not much of a writer but I thought the blogging as I learn will be a fun and challenging experience:</p>
-    <div class="uk-card uk-card-default uk-card-body uk-margin">
-        <h4>Blog 1</h4>
-        <p>Work in progress.</p>
-        <a href="#">Link</a>
-    </div>
-    <div class="uk-card uk-card-default uk-card-body uk-margin">
-        <h4>Blog 2</h4>
-        <p>Work in progress.</p>
-        <a href="#">Link</a>
-    </div>
-</section>
 
-   <hr> 
-    
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 Umutesa Munyurangabo. All Rights Reserved.</p>
+</footer>
 </body>
 </html>
