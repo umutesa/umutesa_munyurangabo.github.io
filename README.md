@@ -10,11 +10,6 @@ I’m actively engaged in masters research at the University of Cape Town. My th
 
 ---
 
-## ⚡ Passion for Diversity  
-I am deeply passionate about **diversity in artificial intelligence**, advocating for inclusive AI solutions that amplify underrepresented voices, particularly those of **women in technology**. 
-
----
-
 ## 💬 Stay Connected  
 Explore more of my journey and insights through my blogs! Check them out to dive into the fascinating world of AI, engineering, and innovation.
 
