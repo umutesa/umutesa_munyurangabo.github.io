@@ -1,161 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/uikit.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="js/uikit.js"></script>
-    <script src="js/uikit-icons.js"></script>
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Umutesa Munyurangabo - Portfolio</title>
 
+    <!-- UIkit CSS & Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.17.13/dist/css/uikit.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.17.13/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.17.13/dist/js/uikit-icons.min.js"></script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+
+    <!-- Custom Styles -->
     <style>
         body {
-            background-color: #ffffff; /* Clean white background */
             font-family: 'Roboto', Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #ffffff;
         }
         header {
-            background-color: #4682b4; /* Medium-dark blue */
-            color: #ffffff;
-            padding: 20px 0;
+            background-color: #4682b4;
+            color: #fff;
+            padding: 40px 20px;
             text-align: center;
+        }
+        nav.uk-navbar-container {
+            background-color: #f8f8f8;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         nav a {
             color: #00427a;
-            text-decoration: none;
             font-weight: bold;
         }
         nav a:hover {
             text-decoration: underline;
         }
-        .uk-navbar-container {
-            background-color: #f8f8f8; /* Subtle gray for contrast */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
-        }
-        .uk-button-secondary {
-            background-color: #00427a;
-            color: white;
-        }
         .section-heading {
             color: #00427a;
             font-weight: bold;
         }
-        h1, h3, p {
-            margin: 10px;
-        }
         .uk-card {
             border: 1px solid #e0e0e0;
+            transition: transform 0.2s ease;
+        }
+        .uk-card:hover {
+            transform: translateY(-5px);
         }
         footer {
             background-color: #f8f8f8;
             text-align: center;
-            padding: 10px 0;
-            margin-top: 20px;
-            font-size: 14px;
+            padding: 20px 0;
             color: #6c757d;
+            font-size: 14px;
+        }
+        .profile-img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
+
 <!-- Header -->
 <header>
     <h1>Umutesa Munyurangabo</h1>
-    <p>Electrical and Computer Engineer</p>
+    <p>Electrical and Computer Engineer | MSc Candidate, University of Cape Town</p>
 </header>
 
-<!-- Navigation Bar -->
+<!-- Navbar -->
 <nav class="uk-navbar-container" uk-navbar uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
     <div class="uk-navbar-left">
-        <a href="#" class="uk-navbar-item uk-logo">Home</a>
+        <a href="#" class="uk-navbar-item uk-logo">Portfolio</a>
     </div>
     <div class="uk-navbar-right">
         <ul class="uk-navbar-nav">
+            <li><a href="#home" uk-scroll>Home</a></li>
             <li><a href="#about" uk-scroll>About</a></li>
             <li><a href="#projects" uk-scroll>Projects</a></li>
-            <li><a href="#projects" uk-scroll>Blogs</a></li>
-            <li><a href="mailto:umutesa09@gmail.com" uk-scroll>Contact</a></li>
+            <li><a href="#blogs" uk-scroll>Blogs</a></li>
+            <li><a href="mailto:umutesa09@gmail.com">Contact</a></li>
         </ul>
     </div>
 </nav>
 
-<!-- Home Section -->
-<section class="uk-container uk-margin-large-top">
-        <h1>Hi!</h1>
+<!-- Home -->
+<section id="home" class="uk-container uk-margin-large-top" style="display: flex; flex-wrap: wrap; gap: 30px;">
+    <div style="flex: 1 1 300px;">
+        <img src="images/profile.jpg" alt="Umutesa Profile" class="profile-img" />
+    </div>
+    <div style="flex: 2 1 400px;">
+        <h2>Hello!</h2>
         <p>
-            I’m Umutesa Munyurangabo, a master’s student specializing in Electrical and Computer Engineering at the University of Cape Town. 
-            My academic interests include computer vision, deep learning, natural language processing, and data statistics. 
+            I'm Umutesa Munyurangabo, currently pursuing a Master’s in Electrical and Computer Engineering at the University of Cape Town.
+            My core interests lie in computer vision, deep learning, NLP, and data analytics.
+            I’m passionate about using engineering as a tool for social impact and inclusive innovation across Africa.
         </p>
+    </div>
 </section>
 
-    
-<!-- <section class="uk-container uk-margin-large-top" style="display: flex; align-items: center;">
-    <div style="flex: 2; padding-right: 20px;">
-        <h1>Hi!</h1>
-        <p>
-            I’m Umutesa Munyurangabo, a master’s student specializing in Electrical and Computer Engineering at the University of Cape Town. 
-            My academic interests include computer vision, machine learning, natural language processing, and data analysis. 
-        </p>
-    </div>
-    <div style="flex: 1;">
-        <img src="images/profile.jpg" alt="Profile Image" style="width: 100%; height: auto; border-radius: 10px;">
-    </div>
-</section> 
-
-<!-- About Section -->
+<!-- About -->
 <section id="about" class="uk-container uk-margin-large-top">
     <h3 class="section-heading">About Me</h3>
     <p>
-        I am deeply passionate about addressing complex challenges in Africa. I believe engineering decisions should be steered towards creating meaningful and impactful solutions. 
-        As a woman, I advocate for approaches that reflect the broader social contexts women represent—this means challenging biases and grounding decisions in empathy and ethics. 
-        Engineering at its best is not only about creating effective solutions—it involves understanding the human stories behind the challenges, ensuring that solutions align with people's
-        experiences, values, and identities.
+        I believe engineering should be human-centered—deeply rooted in empathy and driven by ethical decision-making. 
+        As a woman in tech, I advocate for inclusive practices and challenge biases that shape our digital futures.
     </p>
 </section>
 
-<!-- Projects Section -->
+<!-- Projects -->
 <section id="projects" class="uk-container uk-margin-large-top">
     <h3 class="section-heading">Projects</h3>
-    <p>Here’s a showcase of my ongoing work:</p>
-    <div class="uk-card uk-card-default uk-card-body uk-margin">
-        <h4>Project 1</h4>
-        <p>Work in progress</p>
-        <a href="#">View Details</a>
-    </div>
-    <div class="uk-card uk-card-default uk-card-body uk-margin">
-        <h4>Project 2</h4>
-        <p>Work in progress</p>
-        <a href="#">View Details</a>
+    <p>A snapshot of ongoing and past work:</p>
+    <div class="uk-grid-small uk-child-width-1-2@s uk-grid-match" uk-grid>
+        <div>
+            <div class="uk-card uk-card-default uk-card-body">
+                <h4>Computer Vision Application</h4>
+                <p>Using OpenCV and PyTorch to create real-time object detection models tailored for African urban settings.</p>
+                <a href="#">View Details</a>
+            </div>
+        </div>
+        <div>
+            <div class="uk-card uk-card-default uk-card-body">
+                <h4>Speech-to-Text Engine (Kinyarwanda)</h4>
+                <p>Developing NLP pipelines and training models to transcribe and analyze speech in indigenous languages.</p>
+                <a href="#">View Details</a>
+            </div>
+        </div>
     </div>
 </section>
 
-<!-- Blogs Section -->
-<section id="projects" class="uk-container uk-margin-large-top">
+<!-- Blogs -->
+<section id="blogs" class="uk-container uk-margin-large-top">
     <h3 class="section-heading">Blogs</h3>
-    <p>While writing isn't my usual strength, I see it as an exciting opportunity (yet challenging) to document my learning journey.
-       As I delve into fascinating subjects like deep learning, natural language processing, and statistics, writing is 
-        serve as a tool to reinforce my understanding and share my progress with others. </p>
-    <div class="uk-card uk-card-default uk-card-body uk-margin">
-        <h4>Blog 1</h4>
-        <p>Work in progress</p>
-        <a href="#">View Details</a>
-    </div>
-    <div class="uk-card uk-card-default uk-card-body uk-margin">
-        <h4>Blog 2</h4>
-        <p>Work in progress</p>
-        <a href="#">View Details</a>
+    <p>
+        Writing helps me internalize knowledge and reflect on technical challenges. Here's my journey in words:
+    </p>
+    <div class="uk-grid-small uk-child-width-1-2@s uk-grid-match" uk-grid>
+        <div>
+            <div class="uk-card uk-card-default uk-card-body">
+                <h4>Demystifying Transformers</h4>
+                <p>My take on understanding attention and transformer models from the ground up.</p>
+                <a href="#">Read More</a>
+            </div>
+        </div>
+        <div>
+            <div class="uk-card uk-card-default uk-card-body">
+                <h4>Intro to Statistical Learning</h4>
+                <p>How I use data visualization and inference to unpack patterns in complex datasets.</p>
+                <a href="#">Read More</a>
+            </div>
+        </div>
     </div>
 </section>
 
 <!-- Footer -->
 <footer>
     <p>&copy; 2025 Umutesa Munyurangabo. All Rights Reserved.</p>
-        <div>
-        <a href="#" uk-icon="icon: github"></a>
-        <a href="#" uk-icon="icon: linkedin"></a>
+    <div class="uk-flex-center" uk-grid>
+        <div><a href="https://github.com/yourusername" uk-icon="icon: github" target="_blank"></a></div>
+        <div><a href="https://linkedin.com/in/yourusername" uk-icon="icon: linkedin" target="_blank"></a></div>
     </div>
 </footer>
+
 </body>
 </html>
