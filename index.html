@@ -7,55 +7,76 @@
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/uikit.js"></script>
     <script src="js/uikit-icons.js"></script>
-
     <title>Umutesa Munyurangabo - Portfolio</title>
-
     <style>
         body {
-            background-color: #ffffff; /* Clean white background */
-            font-family: 'Roboto', Arial, sans-serif;
+            background-color: #fdfdfd; /* Soft gray background */
+            font-family: 'Lora', serif; /* Elegant serif font */
+            line-height: 1.8;
+            color: #333;
             margin: 0;
-            padding: 0;
         }
-       header {
+
+        header {
             background-color: #4682b4;
             color: #fff;
             padding: 20px 0;
             text-align: center;
         }
+
         nav a {
-            color: #00427a;
+            color: #007acc;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: normal;
         }
+
         nav a:hover {
+            color: #005fa3;
             text-decoration: underline;
         }
+
         .uk-navbar-container {
-            background-color: #f8f8f8; /* Subtle gray for contrast */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
+            background-color: #ffffff; /* Pure white */
+            border-bottom: 1px solid #e0e0e0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         }
-        .uk-button-secondary {
-            background-color: #00427a;
-            color: white;
-        }
+
         .section-heading {
-            color: #00427a;
-            font-weight: bold;
+            color: #444;
+            font-size: 1.8em;
+            margin-bottom: 20px;
         }
-        h1, h3, p {
-            margin: 10px;
-        }
+
         .uk-card {
-            border: 1px solid #e0e0e0;
+            border: none;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
         }
+
+        .uk-card:hover {
+            transform: translateY(-5px);
+        }
+
         footer {
-            background-color: #f8f8f8;
-            text-align: center;
-            padding: 10px 0;
-            margin-top: 20px;
+            background-color: #ffffff;
+            padding: 15px 0;
+            color: #666;
             font-size: 14px;
-            color: #6c757d;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        footer a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #333;
         }
     </style>
 </head>
@@ -76,43 +97,28 @@
         <ul class="uk-navbar-nav">
             <li><a href="#about" uk-scroll>About</a></li>
             <li><a href="#projects" uk-scroll>Projects</a></li>
-            <li><a href="#projects" uk-scroll>Blogs</a></li>
-            <li><a href="mailto:umutesa09@gmail.com" uk-scroll>Contact</a></li>
+            <li><a href="#blogs" uk-scroll>Blogs</a></li>
+            <li><a href="mailto:umutesa09@gmail.com">Contact</a></li>
         </ul>
     </div>
 </nav>
 
 <!-- Home Section -->
 <section class="uk-container uk-margin-large-top">
-        <h1>Hi!</h1>
-        <p>
-            I’m Umutesa Munyurangabo, a master’s student specializing in Electrical and Computer Engineering at the University of Cape Town. 
-            My academic interests include computer vision, deep learning, natural language processing, and data statistics. 
-        </p>
+    <h1>Hi!</h1>
+    <p>
+        I’m Umutesa Munyurangabo, a master’s student specializing in Electrical and Computer Engineering at the University of Cape Town.
+        My academic interests include computer vision, deep learning, natural language processing, and data statistics.
+    </p>
 </section>
-
-    
-<!-- <section class="uk-container uk-margin-large-top" style="display: flex; align-items: center;">
-    <div style="flex: 2; padding-right: 20px;">
-        <h1>Hi!</h1>
-        <p>
-            I’m Umutesa Munyurangabo, a master’s student specializing in Electrical and Computer Engineering at the University of Cape Town. 
-            My academic interests include computer vision, machine learning, natural language processing, and data analysis. 
-        </p>
-    </div>
-    <div style="flex: 1;">
-        <img src="images/profile.jpg" alt="Profile Image" style="width: 100%; height: auto; border-radius: 10px;">
-    </div>
-</section> 
 
 <!-- About Section -->
 <section id="about" class="uk-container uk-margin-large-top">
     <h3 class="section-heading">About Me</h3>
     <p>
-        I am deeply passionate about addressing complex challenges in Africa. I believe engineering decisions should be steered towards creating meaningful and impactful solutions. 
-        As a woman, I advocate for approaches that reflect the broader social contexts women represent—this means challenging biases and grounding decisions in empathy and ethics. 
-        Engineering at its best is not only about creating effective solutions—it involves understanding the human stories behind the challenges, ensuring that solutions align with people's
-        experiences, values, and identities.
+        I am deeply passionate about addressing complex challenges in Africa. I believe engineering decisions should be steered towards creating meaningful and impactful solutions.
+        As a woman, I advocate for approaches that reflect the broader social contexts women represent—this means challenging biases and grounding decisions in empathy and ethics.
+        Engineering at its best is not only about creating effective solutions—it involves understanding the human stories behind the challenges and ensuring that solutions align with people's experiences.
     </p>
 </section>
 
@@ -133,11 +139,12 @@
 </section>
 
 <!-- Blogs Section -->
-<section id="projects" class="uk-container uk-margin-large-top">
+<section id="blogs" class="uk-container uk-margin-large-top">
     <h3 class="section-heading">Blogs</h3>
-    <p>While writing isn't my usual strength, I see it as an exciting opportunity (yet challenging) to document my learning journey.
-       As I delve into fascinating subjects like deep learning, natural language processing, and statistics, writing is 
-        serve as a tool to reinforce my understanding and share my progress with others. </p>
+    <p>
+        While writing isn't my usual strength, I see it as an exciting opportunity (yet challenging) to document my learning journey.
+        As I delve into fascinating subjects like deep learning, natural language processing, and statistics, writing serves as a tool to reinforce my understanding and share my progress with others.
+    </p>
     <div class="uk-card uk-card-default uk-card-body uk-margin">
         <h4>Blog 1</h4>
         <p>Work in progress</p>
@@ -153,7 +160,7 @@
 <!-- Footer -->
 <footer>
     <p>&copy; 2025 Umutesa Munyurangabo. All Rights Reserved.</p>
-        <div>
+    <div>
         <a href="#" uk-icon="icon: github"></a>
         <a href="#" uk-icon="icon: linkedin"></a>
     </div>
