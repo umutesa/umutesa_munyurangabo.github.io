@@ -3,175 +3,326 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/uikit.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="js/uikit.js"></script>
-    <script src="js/uikit-icons.js"></script>
-    <title>Umutesa Munyurangabo - Portfolio</title>
+    <title>Umutesa Munyurangabo</title>
     <style>
+        /* Global Styles */
         body {
-            background-color: #fff; /* Soft gray background */
-            font-family: 'Calibri', Garamond; /* Elegant serif font */
-            line-height: 1.4;
+            font-family: 'Open Sans', Arial, sans-serif;
+            line-height: 1.6;
             color: #333;
             margin: 0;
-            font-size: 14px;
+            padding: 0;
+            display: flex;
+            min-height: 100vh;
+            background-color: #fff;
         }
 
-        header {
-            background-color: #000; /* Black header */
-            color: #fff; /* White text */
-            padding: 10px 0;
+        /* Sidebar Styles */
+        .sidebar {
+            width: 250px;
+            background-color: #f8f8f8;
+            padding: 30px;
+            position: fixed;
+            height: 100%;
+            overflow-y: auto;
+            box-sizing: border-box;
+            border-right: 1px solid #eaeaea;
+        }
+
+        .sidebar-header {
             text-align: center;
-            font-size: 16px; /* Distinct header font size */
+            margin-bottom: 30px;
         }
 
-    nav a {
-            color: #000; /* Black navigation links */
+        .sidebar-header img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .sidebar-header h1 {
+            margin: 0;
+            font-size: 1.8em;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .sidebar-header p {
+            margin: 5px 0 0;
+            font-size: 1em;
+            color: #666;
+        }
+
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-links li {
+            margin-bottom: 10px;
+        }
+
+        .nav-links a {
+            display: block;
+            padding: 8px 0;
+            color: #666;
             text-decoration: none;
-            font-weight: normal;
+            font-size: 1em;
+            font-weight: 500;
+            transition: color 0.3s;
         }
 
-    nav a:hover {
-            color: #fff; /* Slightly lighter hover effect */
+        .nav-links a:hover {
+            color: #3498db;
+        }
+
+        .social-links {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 8px;
+            color: #666;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #3498db;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            flex: 1;
+            padding: 40px;
+            margin-left: 310px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 2em;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: #333;
+            border-bottom: 1px solid #eaeaea;
+            padding-bottom: 10px;
+        }
+
+        /* Project & Blog Styles */
+        .project-card, .blog-card {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-left: 3px solid #3498db;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover, .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .card-title {
+            font-size: 1.4em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .card-content {
+            margin-bottom: 15px;
+        }
+
+        .card-link {
+            display: inline-block;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .card-link:hover {
+            color: #2980b9;
             text-decoration: underline;
         }
 
-    .section-heading {
-            color: #000; /* Solid black for headings */
-            font-size: 1.2em; /* Smaller than medium for compact appearance */
-            margin-bottom: 10px;
-    }
-
-    .uk-card {
-            border: 1px solid #ddd; /* Subtle border for separation */
-            background-color: #fff; /* White card background */
-            box-shadow: none; /* Minimalist look without shadows */
-            transition: transform 0.3s; /* Smooth hover effect */
-    }
-
-    .uk-card:hover {
-            transform: translateY(-3px); /* Slight lift on hover */
-    }
-
-    footer {
-            background-color: #f9f9f9; /* Light gray footer */
-            padding: 10px 0;
-            color: #333; /* Neutral gray text */
-            font-size: 10px; /* Compact footer font size */
-            border-top: 1px solid #e0e0e0;
-            text-align: center;
-    }
-
-    footer a {
-            color: #333; /* Match footer text color */
-            text-decoration: none;
-     }
-
-    footer a:hover {
-            color: #000; /* Bold black for hover links */
+        /* Interests List Styling */
+        .interests-list {
+            list-style: none;
+            padding: 0;
         }
-        
+
+        .interests-list li {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .interests-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eaeaea;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 900px) {
+            body {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding: 20px;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+
+            .sidebar-header img {
+                width: 100px;
+                height: 100px;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="/api/placeholder/200/200" alt="Umutesa Munyurangabo">
+            <h1>Umutesa Munyurangabo</h1>
+            <p>Electrical and Computer Engineer</p>
+        </div>
 
-<!-- Header -->
-<header>
-    <h1>Umutesa Munyurangabo</h1>
-    <p>Electrical and Computer Engineer</p>
-</header>
-
-<!-- Navigation Bar -->
-<nav class="uk-navbar-container" uk-navbar uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
-    <div class="uk-navbar-left">
-        <a href="#" class="uk-navbar-item uk-logo">Home</a>
-    </div>
-    <div class="uk-navbar-right">
-        <ul class="uk-navbar-nav">
-            <li><a href="#about" uk-scroll>About</a></li>
-            <li><a href="#projects" uk-scroll>Projects</a></li>
-            <li><a href="#blogs" uk-scroll>Blogs</a></li>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#blogs">Blogs</a></li>
             <li><a href="mailto:umutesa09@gmail.com">Contact</a></li>
         </ul>
-    </div>
-</nav>
 
-<!-- Home Section -->
-<section class="uk-container uk-margin-large-top">
-    <h1>Hi!</h1>
-    <p>
-        I’m Umutesa Munyurangabo, a junior electrical and computer engineer driven by a passion for merging engineering with empathy to create meaningful solutions within the Africa context.
-        My academic interests include computer vision, deep learning and natural language processing.
-    </p>
-</section>
+        <div class="social-links">
+            <a href="#" aria-label="GitHub">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+            </a>
+        </div>
+    </aside>
 
-<!-- About Section -->
-<section id="about" class="uk-container uk-margin-large-top">
-    <h3 class="section-heading">About Me</h3>
-    <p>
-        As a woman, I advocate for approaches that reflect the broader social contexts women represent— this means challenging biases and grounding decisions in empathy and ethics.
-        Engineering at its best is not only about creating effective solutions—it involves understanding the human stories behind the challenges to ensure solutions align with people's experiences, values and identities.
-    </p>
-     <p>
-        At the moment, I’m pursuing my Master of Science degree at the University of Cape Town (UCT), where my thesis, Vision-Only Socially Compliant Navigation Robotics, explores how computer vision and machine learning can advance the way robots navigate socially complex environments.
-         I hold a Bachelor of Science in Electrical and Computer Engineering from the University of Cape Town. This site serves as a living archive of my professional journey—and a glimpse into my creative pursuits along the way.
-    </p>
-    
-    <p>If you're curious, my areas of interest include:</p>
-    <ul>
-        <li>Machine Learning: Particularly deep learning.</li>
-        <li>Autonomous Navigation in Robotics and Vehicles: Safe and Compiliant navigation which lies at the heart of my master’s research (something I've spent countless hours refining).</li>
-        <li>Computer Vision: My interest extends to the contextual understanding within visual data.</li>
-        <li>Natural Language Processing (NLP): I’m drawn to the beautiful messiness of human language—the ambiguity, bias, cultural backgrounds, and their misinterpretations. I am interested in a neural approach to NLP, integrating visual, auditory and textual cues  to improve the understanding of human communication.</li>
-        <li>Empathy and Psychology in Engineering: Understanding the human stories behind the data, models and decisions we make is what drives meaningful innovation. </li>
-        <li>Women in STEM: Representing, and supporting women in STEM fields.</li>
-        <li>Reading: I’m trying to rekindle my love for fiction. Thus far, <em>The Alchemist</em> by Paulo Coelho stands out as a favorite.</li>
-    </ul>
-</section>
+    <!-- Main Content -->
+    <main class="main-content">
+        <section id="home" class="section">
+            <h2 class="section-title">Hi!</h2>
+            <p>
+                I'm Umutesa Munyurangabo, a junior electrical and computer engineer driven by a passion for merging engineering with empathy to create meaningful solutions within the African context.
+                My academic interests include computer vision, deep learning and natural language processing.
+            </p>
+        </section>
 
-<!-- Projects Section -->
-<section id="projects" class="uk-container uk-margin-large-top">
-    <h3 class="section-heading">Projects</h3>
-    <p>Here’s a showcase of my ongoing work:</p>
-    <div class="uk-card uk-card-default uk-card-body uk-margin">
-        <h4>Project 1</h4>
-        <p>Work in progress</p>
-        <a href="#">View Details</a>
-    </div>
-    <div class="uk-card uk-card-default uk-card-body uk-margin">
-        <h4>Project 2</h4>
-        <p>Work in progress</p>
-        <a href="#">View Details</a>
-    </div>
-</section>
-
-<!-- Blogs Section -->
-<section id="blogs" class="uk-container uk-margin-large-top">
-    <h3 class="section-heading">Blogs</h3>
-    <p>
-        While writing isn't my usual strength, I see it as an exciting opportunity (yet challenging) to document my learning journey.
-        As I delve into fascinating subjects like deep learning, natural language processing, and statistics, writing serves as a tool to reinforce my understanding and share my progress with others.
-    </p>
-    <div class="uk-card uk-card-default uk-card-body uk-margin">
-        <h4>Blog 1</h4>
-        <p>Work in progress</p>
-        <a href="#">View Details</a>
-    </div>
-    <div class="uk-card uk-card-default uk-card-body uk-margin">
-        <h4>Blog 2</h4>
-        <p>Work in progress</p>
-        <a href="#">View Details</a>
-    </div>
-</section>
-
-<!-- Footer -->
-<footer>
-    <p>&copy; 2025 Umutesa Munyurangabo. All Rights Reserved.</p>
-    <div>
-        <a href="#" uk-icon="icon: github"></a>
-        <a href="#" uk-icon="icon: linkedin"></a>
-    </div>
-</footer>
+        <section id="about" class="section">
+            <h2 class="section-title">About Me</h2>
+            <p>
+                As a woman, I advocate for approaches that reflect the broader social contexts women represent— this means challenging biases and grounding decisions in empathy and ethics.
+                Engineering at its best is not only about creating effective solutions—it involves understanding the human stories behind the challenges to ensure solutions align with people's experiences, values and identities.
+            </p>
+            <p>
+                At the moment, I'm pursuing my Master of Science degree at the University of Cape Town (UCT), where my thesis, Vision-Only Socially Compliant Navigation Robotics, explores how computer vision and machine learning can advance the way robots navigate socially complex environments.
+                I hold a Bachelor of Science in Electrical and Computer Engineering from the University of Cape Town. This site serves as a living archive of my professional journey—and a glimpse into my creative pursuits along the way.
+            </p>
+            
+            <p>My areas of interest include:</p>
+            <ul class="interests-list">
+                <li><strong>Machine Learning:</strong> Particularly deep learning.</li>
+                <li><strong>Autonomous Navigation in Robotics and Vehicles:</strong> Safe and Compliant navigation which lies at the heart of my master's research (something I've spent countless hours refining).</li>
+                <li><strong>Computer Vision:</strong> My interest extends to the contextual understanding within visual data.</li>
+                <li><strong>Natural Language Processing (NLP):</strong> I'm drawn to the beautiful messiness of human language—the ambiguity, bias, cultural backgrounds, and their misinterpretations. I am interested in a neural approach to NLP, integrating visual, auditory and textual cues to improve the understanding of human communication.</li>
+                <li><strong>Empathy and Psychology in Engineering:</strong> Understanding the human stories behind the data, models and decisions we make is what drives meaningful innovation.</li>
+                <li><strong>Women in STEM:</strong> Representing, and supporting women in STEM fields.</li>
+                <li><strong>Reading:</strong> I'm trying to rekindle my love for fiction. Thus far, <em>The Alchemist</em> by Paulo Coelho stands out as a favorite.</li>
+            </ul>
+        </section>
+        
+        <section id="projects" class="section">
+            <h2 class="section-title">Projects</h2>
+            <p>Here's a showcase of my ongoing work:</p>
+            
+            <div class="project-card">
+                <h3 class="card-title">Vision-Only Socially Compliant Navigation Robotics</h3>
+                <div class="card-content">
+                    <p>My Master's thesis research exploring how computer vision and machine learning can advance robot navigation in socially complex environments.</p>
+                </div>
+                <a href="#" class="card-link">View Details →</a>
+            </div>
+            
+            <div class="project-card">
+                <h3 class="card-title">Project 2</h3>
+                <div class="card-content">
+                    <p>Work in progress</p>
+                </div>
+                <a href="#" class="card-link">View Details →</a>
+            </div>
+        </section>
+        
+        <section id="blogs" class="section">
+            <h2 class="section-title">Blogs</h2>
+            <p>
+                While writing isn't my usual strength, I see it as an exciting opportunity (yet challenging) to document my learning journey.
+                As I delve into fascinating subjects like deep learning, natural language processing, and statistics, writing serves as a tool to reinforce my understanding and share my progress with others.
+            </p>
+            
+            <div class="blog-card">
+                <h3 class="card-title">Deep Learning: My Journey So Far</h3>
+                <div class="card-content">
+                    <p>Work in progress</p>
+                </div>
+                <a href="#" class="card-link">Read More →</a>
+            </div>
+            
+            <div class="blog-card">
+                <h3 class="card-title">Computer Vision Applications in Social Robotics</h3>
+                <div class="card-content">
+                    <p>Work in progress</p>
+                </div>
+                <a href="#" class="card-link">Read More →</a>
+            </div>
+        </section>
+        
+        <footer>
+            <p>&copy; 2025 Umutesa Munyurangabo. All Rights Reserved.</p>
+        </footer>
+    </main>
 </body>
 </html>
