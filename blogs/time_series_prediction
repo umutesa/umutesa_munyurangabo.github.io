@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Series Prediction for USD/ZAR Using Deep Learning Models</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 40px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #004080;
+        }
+        pre {
+            background: #eee;
+            padding: 10px;
+            border-left: 4px solid #004080;
+            overflow-x: auto;
+        }
+        code {
+            font-family: monospace;
+        }
+        section {
+            margin-bottom: 40px;
+        }
+        .note {
+            background-color: #e6f7ff;
+            border-left: 5px solid #0099cc;
+            padding: 10px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Time Series Prediction for USD/ZAR Using LSTM, RNN, GRU, and ANN Networks</h1>
+
+    <section>
+        <h2>Introduction</h2>
+        <p>Foreign exchange rates are among the most valuable financial variables, influenced by numerous factors such as political events, macroeconomic indicators, and investor sentiment. This report explores deep learning models—especially Recurrent Neural Networks (RNNs)—for predicting the USD/ZAR currency pair.</p>
+    </section>
+
+    <section>
+        <h2>Why Deep Learning for Time Series?</h2>
+        <p>Unlike standard regression models that assume independence between observations, time series models account for temporal dependencies. Deep learning excels here by learning patterns over time without extensive feature engineering.</p>
+        <div class="note"><strong>Note:</strong> Traditional models assume linearity, which can limit effectiveness in the presence of nonlinear patterns common in financial data.</div>
+    </section>
+
+    <section>
+        <h2>Recurrent Neural Networks (RNN)</h2>
+        <p>RNNs handle sequential data via hidden states that retain information from previous time steps. However, they suffer from the <strong>vanishing gradient problem</strong>, making them less suitable for long-term dependencies.</p>
+        <p><strong>Ideal for:</strong> Short-term predictions where recent data impacts currency movements.</p>
+    </section>
+
+    <section>
+        <h2>Long Short-Term Memory (LSTM)</h2>
+        <p>Introduced by Hochreiter and Schmidhuber (1997), LSTMs address the limitations of RNNs using memory cells and gating mechanisms. These help preserve information over long sequences.</p>
+        <p><strong>Ideal for:</strong> Long-term predictions
