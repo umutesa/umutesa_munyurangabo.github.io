@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Quiet Revolution: Large Language Models</title>
+  <title>The Quiet Revolution: How Large Language Models Are Changing the Way We Think About Language</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
@@ -27,73 +26,139 @@
     a:hover {
       text-decoration: underline;
     }
-    code {
+    ul, li {
+      margin-left: 20px;
+    }
+    pre, code {
       background-color: #eee;
       padding: 2px 4px;
       border-radius: 4px;
       font-size: 13px;
     }
+    .section {
+      margin-bottom: 40px;
+    }
   </style>
 </head>
 <body>
-
   <h1>The Quiet Revolution: How Large Language Models Are Changing the Way We Think About Language</h1>
 
-  <p>Not long ago, machines couldn’t hold a conversation, let alone write a story or answer your questions in real-time. That changed with the rise of Large Language Models (LLMs)—deep learning models trained on massive text corpora to understand, generate, and even reason with human language.</p>
+  <p>
+    In this project, I created a chatbot—an increasingly popular application powered by OpenAI. With the ease of constructing and deploying OpenAI large language models (LLMs), chatbots are rapidly becoming an essential tool for businesses such as restaurants and beyond. A key challenge in deploying these chatbots is customizing them to answer specific questions, thereby presenting tailored challenges that significantly enhance user engagement. Whether you’re designing interactive quizzes, achievement tasks, or adaptive conversation flows, aligning the chatbot’s behavior with your goals and the needs of your users is paramount.
+  </p>
 
-  <h2>What Is a Large Language Model?</h2>
-  <p>At its core, an LLM is a type of neural network trained to predict the next word in a sentence. It reads billions of lines of text, learning patterns, syntax, and meaning. This process—called tokenization and embedding—breaks language into digestible pieces and gives each one a numerical identity tied to its context.</p>
+  <div class="section">
+    <h2>Optimizing GPT-2 for Mental Health Support</h2>
+    <p>
+      In this project, I focused on optimizing a simple GPT-2 model. GPT-2 was chosen because it does not require an external API, is lightweight enough to run on low-end hardware, and facilitates online collaboration (such as through Jupyter notebooks). My aim was to fine-tune GPT-2 to answer mental health questions accurately and contextually.
+    </p>
+  </div>
 
-  <p>Ilya Sutskever, Oriol Vinyals, and Quoc V. Le introduced Sequence-to-Sequence (Seq2Seq) learning with an encoder-decoder structure. Dzmitry Bahdanau, Kyunghyun Cho, and Yoshua Bengio added attention mechanisms. Ashish Vaswani et al. revolutionized the field with Transformers in "<em>Attention is All You Need</em>" using self-attention to handle relationships in data more efficiently.</p>
+  <div class="section">
+    <h2>What Is a Large Language Model?</h2>
+    <p>
+      At its core, a Large Language Model (LLM) is a neural network trained to predict the next word in a sentence. It processes billions of lines of text to learn patterns, syntax, and meaning. The process—known as tokenization and embedding—breaks text into manageable pieces, with each token receiving a numerical identity based on its context.
+    </p>
+  </div>
 
-  <p>LLMs are built using this transformer architecture. They focus on relevant parts of a sentence regardless of order, which allows them to perform translation, summarization, and more by inferring context.</p>
+  <div class="section">
+    <h2>A Brief History of LLMs</h2>
+    <p>
+      The evolution of language models has been marked by several key innovations:
+    </p>
+    <ul>
+      <li>
+        <strong>Sequence-to-Sequence (Seq2Seq) Learning:</strong> Introduced by Ilya Sutskever, Oriol Vinyals, and Quoc V. Le, this approach uses an encoder-decoder architecture where the encoder compresses the input into a fixed-size vector and the decoder generates the output.
+      </li>
+      <li>
+        <strong>Attention Mechanisms:</strong> Dzmitry Bahdanau, Kyunghyun Cho, and Yoshua Bengio revolutionized the field by introducing attention in “Neural Machine Translation by Jointly Learning to Align and Translate.” This allowed the decoder to focus dynamically on relevant sections of the input rather than compressing all information into a single vector.
+      </li>
+      <li>
+        <strong>Transformers:</strong> Building on these ideas, Ashish Vaswani et al. proposed the transformer model in “Attention is All You Need.” Transformers use self-attention mechanisms to capture relationships between all elements of the input simultaneously.
+      </li>
+    </ul>
+    <p>
+      Modern LLMs are built using transformer architecture. This framework, based on self-attention, enables models to focus on relevant parts of a sentence regardless of word order, resulting in coherent and contextually informed responses.
+    </p>
+  </div>
 
-  <h2>How LLMs Work</h2>
-  <p>During training, LLMs predict the next word based on previous ones by analyzing language patterns. Text is tokenized into smaller units and converted into embeddings. This enables LLMs to grasp semantics and conceptual relationships. Once trained, they can generate coherent and relevant text by leveraging these learned patterns.</p>
+  <div class="section">
+    <h2>The Architecture of Large Language Models</h2>
+    <p>
+      The core architecture of an LLM can be explained in the following steps:
+    </p>
+    <ul>
+      <li><strong>Input/Output Embedding:</strong> Conversion of words into numerical vectors.</li>
+      <li><strong>Positional Embedding:</strong> Encoding the position of tokens in the sequence.</li>
+      <li><strong>Encoder and Decoder:</strong> Processing input and generating output through a two-part system.</li>
+      <li><strong>Multi-Head Attention:</strong> Capturing different aspects of relationships between tokens.</li>
+      <li><strong>Multi-Masked Attention:</strong> Allowing the model to consider only the relevant context during training.</li>
+    </ul>
+    <p>
+      To ensure high accuracy, LLMs are trained on vast amounts of text data spanning billions of pages. This exhaustive training enables them to grasp deep semantic and conceptual relationships, allowing for the generation of coherent and contextually relevant text.
+    </p>
+  </div>
 
-  <h2>Challenges & Limitations</h2>
-  <ul>
-    <li><strong>Overfitting & Memorization:</strong> May recall patterns without understanding them.</li>
-    <li><strong>Bias:</strong> Models inherit biases present in training data.</li>
-    <li><strong>Data Dependency:</strong> They can't adapt beyond their training corpus.</li>
-  </ul>
+  <div class="section">
+    <h2>Challenges & Limitations</h2>
+    <p>
+      Despite their impressive capabilities, LLMs face several challenges:
+    </p>
+    <ul>
+      <li><strong>Overfitting & Memorization:</strong> Some models may simply recall patterns without truly understanding concepts.</li>
+      <li><strong>Bias in Training Data:</strong> Since LLMs learn from pre-existing datasets, they can inadvertently adopt undesirable biases.</li>
+      <li><strong>Data Dependency:</strong> The model’s knowledge is limited to its training data, restricting its adaptability to new or unseen information.</li>
+    </ul>
+  </div>
 
-  <h2>Where Optimization Comes In: My Experience with GPT-2</h2>
-  <p>I used GPT-2 as a base model due to its balance of performance and size. Key enhancements included:</p>
-  <ul>
-    <li><strong>Fine-Tuning:</strong> Trained on specific database content for domain accuracy.</li>
-    <li><strong>Reinforcement Learning from Human Feedback (RLHF):</strong> Iteratively improved responses based on user ratings.</li>
-    <li><strong>Retrieval-Augmented Generation (RAG):</strong> Integrated external PDF data into outputs without retraining.</li>
-  </ul>
+  <div class="section">
+    <h2>Optimization Techniques</h2>
+    <p>
+      To enhance the performance of the GPT-2 model for my project, I focused on several key optimization techniques:
+    </p>
+    <ul>
+      <li>
+        <strong>Fine-Tuning:</strong> I trained GPT-2 on specific database content to sharpen its accuracy for mental health-related tasks. Fine-tuning involves adapting a pre-trained model for specific domains using a relatively small dataset. While this approach improves task-specific performance, it may not be as effective at assimilating new facts.
+      </li>
+      <li>
+        <strong>Retrieval-Augmented Generation (RAG):</strong> RAG allows the model to incorporate updated information without requiring complete retraining. By building a vector database (using systems like Chroma DB) from PDF documents, the model retrieves relevant context and integrates it into its responses. This approach is especially useful when data changes frequently and retraining is impractical.
+      </li>
+      <li>
+        <strong>Reinforcement Learning from Human Feedback (RLHF):</strong> This technique involves gathering human feedback on model outputs, training a reward model based on this feedback, and then refining the original model through reinforcement learning. RLHF enables continuous improvement based on real-world user interactions.
+      </li>
+    </ul>
+  </div>
 
-  <h3>When to Choose RAG Over Fine-Tuning</h3>
-  <p>RAG is ideal when:</p>
-  <ul>
-    <li>Your data changes frequently.</li>
-    <li>You can't afford expensive retraining cycles.</li>
-    <li>You need factual updates without changing the core model.</li>
-  </ul>
+  <div class="section">
+    <h2>When to Choose RAG Over Fine-Tuning</h2>
+    <p>
+      If your data is highly dynamic or if you are limited by computational resources, RAG is a more practical choice. It does not require complete model retraining; instead, it relies on a robust retrieval system and vector database to fetch updated content. By chunking and embedding documents and then integrating that context into GPT-2 via prompt engineering, you can maintain both accuracy and timeliness.
+    </p>
+  </div>
 
-  <h2>How RAG Works</h2>
-  <ol>
-    <li>PDF content is chunked and embedded into a vector database (e.g., ChromaDB).</li>
-    <li>A retriever identifies relevant chunks based on the user’s query.</li>
-    <li>The prompt is dynamically constructed and sent to the model (e.g., GPT-2/OpenAI).</li>
-  </ol>
+  <div class="section">
+    <h2>Potential Improvements</h2>
+    <ul>
+      <li>Train on larger, more defined datasets.</li>
+      <li>Incorporate additional PDF documents to further enrich the data pool.</li>
+      <li>Enhance response formatting so that the model can extract and present data in structured formats (e.g., summaries or bullet-point reports).</li>
+      <li>Work on reducing the response generation time, as the process can currently be slow.</li>
+    </ul>
+  </div>
 
-  <h2>Reinforcement Learning from Human Feedback (RLHF)</h2>
-  <p>RLHF uses human evaluations to fine-tune model performance. The process:</p>
-  <ol>
-    <li><strong>Feedback:</strong> Humans compare model outputs.</li>
-    <li><strong>Reward Model:</strong> Predicts preferences based on ratings.</li>
-    <li><strong>Fine-Tuning:</strong> Model learns to optimize for human-desired outputs.</li>
-  </ol>
+  <div class="section">
+    <h2>Building a Simple UI with Gradio</h2>
+    <p>
+      To make this project accessible, I built a clean and intuitive front-end using Gradio. With this interface, users can ask questions, receive context-aware answers, and even view the documents that contributed to each response.
+    </p>
+  </div>
 
-  <h2>Building a UI with Streamlit</h2>
-  <p>I created a user interface with <strong>Streamlit</strong> that allows users to interact with the model, ask questions, and view the source documents behind the answers. It provided a clean, intuitive way to explore knowledge through AI.</p>
-
-  <h2>Reference</h2>
-  <p><a href="https://www.ibm.com/think/topics/large-language-models" target="_blank">IBM: Large Language Models</a></p>
-
+  <div class="section">
+    <h2>Reference</h2>
+    <p>
+      For more information on large language models, visit
+      <a href="https://www.ibm.com/think/topics/large-language-models" target="_blank">IBM Think: Large Language Models</a>.
+    </p>
+  </div>
 </body>
 </html>
