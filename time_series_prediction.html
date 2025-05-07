@@ -48,51 +48,62 @@
   <h1>Time Series Prediction for USD/ZAR with Deep Learning Neural Models</h1>
   
   <p>
-    Foreign exchange rates are among the most valuable financial variables, influenced by countless factors including political events, macroeconomic indicators, and investor sentiment. Traders and analysts constantly seek ways to forecast these rates. Traditional statistical methods have proven useful for analyzing financial data, but deep learning models—particularly those based on Recurrent Neural Networks (RNNs) designed for time sequence prediction—offer a powerful alternative. In this report, we explore how these models can be leveraged to predict the USD/ZAR currency pair while examining their strengths and weaknesses in handling sequential data.
+    Foreign exchange rates are among the most valuable financial variables, influenced by countless factors including political events, macroeconomic indicators, and investor sentiment. 
+    Traders and analysts constantly seek ways to forecast these rates. Traditional statistical methods have proven useful for analyzing financial data, but deep learning models—particularly Recurrent Neural Networks (RNNs) which often excel in time sequence prediction.
+    In this report, we explore how these models can be used to predict the USD/ZAR currency pair while also examining their strengths and weaknesses in handling sequential data.
   </p>
   
   <div class="section">
-    <h2>Understanding Time Series Prediction and Why Deep Learning Matters</h2>
+    <h2>Why I choose Deep Learning Models?</h2>
     <p>
-      Time series forecasting revolves around predicting future values based on historical data. Unlike standard regression models that assume independence between observations, time series models must account for temporal dependencies. Deep learning models autonomously learn intricate relationships in the data without extensive feature engineering, making them particularly effective for forecasting financial variables. Traditional methods are often based on linear models, which may not capture the nonlinear trends, seasonality, or sudden spikes caused by unforeseen economic shifts. Hence, RNN-based models are increasingly favored for predicting currency movements.
+      Time series forecasting revolves around predicting future values based on historical data. 
+      Standard regression models often assume independence between observations in the form of a linerar relationship.
+      Wheras, deep learning models learn unique relationships or patterns within the data without extensive feature engineering, making them particularly effective for forecasting financial variables. 
+      Traditional methods that are often based on linear models, which may not capture the nonlinear trends, or sudden changes caused by unforeseen economic shifts. 
+      Hence, deep learning models are increasingly favored for predicting currency exchange.
     </p>
   </div>
   
   <div class="section">
     <h2>Artificial Neural Networks (ANNs) in Time Series Forecasting</h2>
     <p>
-      Although traditionally used for classification and regression tasks, Artificial Neural Networks (ANNs) can also be applied to time series forecasting. However, ANNs tend to underperform relative to recurrent architectures because they do not inherently capture time-dependent relationships. While they can be effective for short-term price movements or feature extraction, deep learning practitioners generally prefer RNN-based models for modeling sequential data.
+      Traditionally used for regression tasks, Artificial Neural Networks (ANNs) can also be applied to time series forecasting. 
+      While Artificial Neural Networks (ANNs) can be applied to sequential data, they are not inherently designed for it and often struggle with capturing the dependencies and order of elements within sequences.
+      This is because ANNs lack the feedback loop to maintain a hidden state and process elements in a sequence sequentially. 
     </p>
   </div>
   
   <div class="section">
-    <h2>Exploring Recurrent Neural Networks (RNNs)</h2>
+    <h2>Recurrent Neural Networks (RNNs)</h2>
     <p>
-      Recurrent Neural Networks are specifically designed to handle sequential data. Unlike traditional feedforward networks, RNNs maintain a hidden state that captures dependencies between past observations and future outcomes, making them well-suited for modeling patterns in exchange rates—where cyclical trends or short-term momentum shifts are common. However, basic RNNs suffer from the vanishing gradient problem, where the impact of earlier observations diminishes over long sequences. This limitation led to the development of more advanced architectures such as Long Short-Term Memory (LSTM) networks.
-    </p>
-    <p>
-      RNNs are ideal for short-term predictions where rapid market changes are influential.
+      Recurrent Neural Networks are specifically designed to handle sequential data. Unlike traditional feedforward networks, RNNs maintain a hidden state that captures dependencies between past observations and future outcomes, 
+      making them well-suited for modeling patterns in exchange rates—where cyclical trends or short-term momentum shifts are common.
+      However, basic RNNs suffer from the vanishing gradient problem, where the impact of earlier observations diminishes over long sequences. 
     </p>
   </div>
   
   <div class="section">
     <h2>LSTM Networks: Addressing Long-Term Dependencies</h2>
     <p>
-      The vanishing gradient issue in RNNs makes it difficult to learn long-term dependencies. To overcome this, Sepp Hochreiter and Jürgen Schmidhuber introduced Long Short-Term Memory (LSTM) networks. LSTMs incorporate memory cells and gating mechanisms (input, forget, and output gates) to control the flow of information. These features allow LSTMs to retain relevant historical data over long sequences, making them especially suitable for predicting financial variables where long-term trends and macroeconomic factors play a significant role. In the context of USD/ZAR forecasting, LSTMs effectively recognize influences such as interest rate decisions and inflation trends.
+      The vanishing gradient issue in RNNs makes it difficult to learn long-term dependencies.
+      To overcome this, Sepp Hochreiter and Jürgen Schmidhuber introduced Long Short-Term Memory (LSTM) networks. LSTMs incorporate memory cells and gating mechanisms (input, forget, and output gates) to control the flow of information.
+      These features allow LSTMs to retain relevant historical data over long sequences, making them especially suitable for predicting financial variables where long-term trends and macroeconomic factors play a significant role.
     </p>
   </div>
   
   <div class="section">
     <h2>Gated Recurrent Units (GRU): A Simplified Yet Powerful Alternative to LSTM</h2>
     <p>
-      Gated Recurrent Units (GRUs) are a streamlined alternative to LSTMs, maintaining much of their effectiveness while reducing computational complexity. GRUs consolidate the forget and input gates into a single gating mechanism, which speeds up training while still capturing sequential dependencies effectively. For USD/ZAR forecasting, GRUs offer efficient modeling of time series patterns, making them particularly useful for capturing short-term fluctuations driven by market sentiment, political events, or central bank interventions.
+      Gated Recurrent Units (GRUs) are a streamlined to LSTMs, maintaining much of their effectiveness while reducing computational complexity. 
+      GRUs consolidate the forget and input gates into a single gating mechanism, which speeds up training while still capturing sequential dependencies effectively. 
+      For USD/ZAR forecasting, GRUs offer efficient modeling of time series patterns, making them particularly useful for capturing short-term fluctuations driven by market or political events.
     </p>
   </div>
   
   <div class="section">
     <h2>Final Thoughts on Outcomes</h2>
     <p>
-      In our experiments, models were trained on USD/ZAR exchange rate data from 2010 to 2020, and then used to predict the following five years. Notably, the ANN and the basic RNN performed surprisingly well compared to the LSTM model, with the GRU delivering the best overall performance.
+      In this experiments, models were trained on USD/ZAR exchange rate data from 2010 to 2025, and then used to predict the following five years. Notably, the ANN and the basic RNN performed surprisingly well compared to the LSTM model, with the GRU delivering the best overall performance.
     </p>
     <p>
       The USD/ZAR exchange rate experienced significant fluctuations from 2010 to 2025 due to economic, political, and global events. From 2010 to 2020, the Rand weakened steadily from around 7.30 ZAR/USD to about 15.00 ZAR/USD, influenced by economic uncertainty, commodity price volatility, political instability, and the COVID-19 pandemic. From 2020 to 2025, the Rand fluctuated between approximately 18.08 and 19.75 ZAR/USD, showing signs of stabilization as the financial environment became more controlled through post-pandemic recovery, interest rate adjustments, geopolitical shifts, and commodity market rebounds.
