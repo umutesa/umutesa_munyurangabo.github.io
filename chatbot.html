@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Quiet Revolution: How Large Language Models Are Changing the Way We Think About Language</title>
+  <title>Optimizing Large Language Models (LLM) to answer South African Food Receipes Questions</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
@@ -41,16 +41,25 @@
   </style>
 </head>
 <body>
-  <h1>The Quiet Revolution: How Large Language Models Are Changing the Way We Think About Language</h1>
+  <h1>Optimizing Large Language Models (LLM) to answer South African Food Receipes Questio</h1>
 
   <p>
-    In this project, I created a chatbot—an increasingly popular application powered by OpenAI. With the ease of constructing and deploying OpenAI large language models (LLMs), chatbots are rapidly becoming an essential tool for businesses such as restaurants and beyond. A key challenge in deploying these chatbots is customizing them to answer specific questions, thereby presenting tailored challenges that significantly enhance user engagement. Whether you’re designing interactive quizzes, achievement tasks, or adaptive conversation flows, aligning the chatbot’s behavior with your goals and the needs of your users is paramount.
+In this project, I developed a chatbot—an increasingly valuable tool in today's digital landscape. 
+  Chatbots are rapidly becoming essential for businesses, serving various functions such as customer service, sales support, and interactive engagement.
+    One of the key challenges in deploying these chatbots is ensuring they are effectively customized to answer specific questions.
+    This requires tailoring responses to align with user needs and expectations, making the chatbot more responsive and intelligent. 
+    By addressing these challenges, businesses can significantly enhance user engagement and improving customer satisfaction.
+
   </p>
 
   <div class="section">
-    <h2>Optimizing GPT-2 for Mental Health Support</h2>
+    <h2>Optimizing GPT-2-medium to answer South African Food Receipes </h2>
     <p>
-      In this project, I focused on optimizing a simple GPT-2 model. GPT-2 was chosen because it does not require an external API, is lightweight enough to run on low-end hardware, and facilitates online collaboration (such as through Jupyter notebooks). My aim was to fine-tune GPT-2 to answer mental health questions accurately and contextually.
+      In this project, I focused on optimizing a simple GPT-2-medium model. 
+      GPT-2 was chosen because it does not require an external API, is lightweight enough to run on low-end hardware.
+      In this project, my goal was to fine-tune GPT-2 to intelligently answer questions about South African recipes, bringing a deeper understanding of the country's rich culinary traditions.
+      South African cuisine is a merge of diverse cultural influences, ranging from indigenous flavors to Cape Malay, Dutch, and Indian inspirations. 
+      By adapting GPT-2, I aimed to create a chatbot capable of providing insights into traditional famous dishes such as Bobotie, Bunny Chow, Koeksisters, and Biltong.  
     </p>
   </div>
 
@@ -64,14 +73,14 @@
   <div class="section">
     <h2>A Brief History of LLMs</h2>
     <p>
-      The evolution of language models has been marked by several key innovations:
+      The evolution of models leading to language models:
     </p>
     <ul>
       <li>
-        <strong>Sequence-to-Sequence (Seq2Seq) Learning:</strong> Introduced by Ilya Sutskever, Oriol Vinyals, and Quoc V. Le, this approach uses an encoder-decoder architecture where the encoder compresses the input into a fixed-size vector and the decoder generates the output.
+        <strong>Sequence-to-Sequence (Seq2Seq) Learning:</strong> Introduced by Ilya Sutskever, Oriol Vinyals, and Quoc V. Le, this paper introduces an encoder-decoder architecture where the encoder compresses the input into a fixed-size vector and the decoder generates the output.
       </li>
       <li>
-        <strong>Attention Mechanisms:</strong> Dzmitry Bahdanau, Kyunghyun Cho, and Yoshua Bengio revolutionized the field by introducing attention in “Neural Machine Translation by Jointly Learning to Align and Translate.” This allowed the decoder to focus dynamically on relevant sections of the input rather than compressing all information into a single vector.
+        <strong>Attention Mechanisms:</strong> Dzmitry Bahdanau, Kyunghyun Cho, and Yoshua Bengio introduced the concept of  attention in “Neural Machine Translation by Jointly Learning to Align and Translate.” This allowed the decoder to focus dynamically on relevant sections of the input rather than compressing all information into a single vector.
       </li>
       <li>
         <strong>Transformers:</strong> Building on these ideas, Ashish Vaswani et al. proposed the transformer model in “Attention is All You Need.” Transformers use self-attention mechanisms to capture relationships between all elements of the input simultaneously.
@@ -83,9 +92,9 @@
   </div>
 
   <div class="section">
-    <h2>The Architecture of Large Language Models</h2>
+    <h2>The Architecture of Transformer</h2>
     <p>
-      The core architecture of an LLM can be explained in the following steps:
+      The core architecture of a transformer can be explained in the following steps:
     </p>
     <ul>
       <li><strong>Input/Output Embedding:</strong> Conversion of words into numerical vectors.</li>
@@ -114,18 +123,28 @@
   <div class="section">
     <h2>Optimization Techniques</h2>
     <p>
-      To enhance the performance of the GPT-2 model for my project, I focused on several key optimization techniques:
+      To enhance the performance of the GPT-2 model to answer questions on South African food receipes. I focused on several key optimization techniques:
     </p>
     <ul>
       <li>
-        <strong>Fine-Tuning:</strong> I trained GPT-2 on specific database content to sharpen its accuracy for mental health-related tasks. Fine-tuning involves adapting a pre-trained model for specific domains using a relatively small dataset. While this approach improves task-specific performance, it may not be as effective at assimilating new facts.
+        <strong>Fine-Tuning:</strong> I fine-tuned GPT-2 using specific database content to enhance its accuracy in responding to questions about traditional South African cuisine. 
+        Fine-tuning involves refining a pre-trained model for specialized domains using a relatively small yet relevant dataset, allowing it to develop a deeper understanding of specific topics. 
+        One significant challenge in this process was the absence of a dedicated dataset exclusively focused on South African recipes. 
+        To overcome this limitation, I utilized a large-scale, generic recipe dataset from Kaggle, which provided a broad foundation for training.
+        However, using datsets which are often static and fixed this can limit the model’s ability to adapt to evolving trends, updated facts, or newexisting knowledge.
       </li>
       <li>
-        <strong>Retrieval-Augmented Generation (RAG):</strong> RAG allows the model to incorporate updated information without requiring complete retraining. By building a vector database (using systems like Chroma DB) from PDF documents, the model retrieves relevant context and integrates it into its responses. This approach is especially useful when data changes frequently and retraining is impractical.
+        <strong>Retrieval-Augmented Generation (RAG):</strong> RAG allows the model to incorporate updated information without requiring complete retraining. 
+        By building a vector database (using systems like Chroma DB) from PDF documents, the model retrieves relevant context and integrates it into its responses. 
+        This approach is especially useful when data changes frequently and retraining is impractical. such as finance, healthcare, or specialized knowledge domains, making periodic retraining impractical.
+        In this project, I implemented RAG by using the "South African Traditional Recipes 50 cookbook" by GJ van Niekerk, enabling the model to provide customized responses tailored to South African cuisine. 
+        By structuring the cookbook content as embeddings in the vector database, the chatbot can retrieve rich culinary details—including traditional recipes, ingredient insights, and preparation techniques—ensuring culturally accurate responses
+        
+
       </li>
       <li>
-        <strong>Reinforcement Learning from Human Feedback (RLHF):</strong> This technique involves gathering human feedback on model outputs, training a reward model based on this feedback, and then refining the original model through reinforcement learning. RLHF enables continuous improvement based on real-world user interactions.
-      </li>
+        <strong>Reinforcement Learning from Human Feedback (RLHF):</strong> This approach focuses on Reinforcement Learning from Human Feedback (RLHF)—a method that significantly enhances model performance by using direct user feedback.
+        The process involves collecting human evaluations of model responses, training a reward model based on this feedback, and then fine-tuning the original  model using reinforcement learning.
     </ul>
   </div>
 
