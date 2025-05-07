@@ -46,16 +46,18 @@
 <body>
   <h1>Image-to-Text Synthesizer: Comparing Diffusion, CNNs, and GANs</h1>
 
-  <p>In today’s fast-evolving AI landscape, image-to-text conversion has become indispensable—for answering questions about images and extracting specific data that can be transformative in fields like medicine and education. This project delves into three fundamental deep learning models: Convolutional Neural Networks (CNNs), Generative Adversarial Networks (GANs), and Diffusion Models (integrated with Vision Transformers and GPT-2) to compare their performance metrics using the CIFAR-10 dataset.</p>
+  <p>Image-to-text conversion has become increasily popular—for answering questions about images and extracting specific data that can be transformative in fields like medicine and education. 
+    This project delves into three fundamental deep learning models for image-text: Convolutional Neural Networks (CNNs), Generative Adversarial Networks (GANs), and Diffusion Models (integrated with Vision Transformers and GPT-2). </p>
 
   <div class="section">
     <h2>Dataset Note</h2>
-    <p>For this project, we used the well-known CIFAR-10 dataset, which comprises 60,000 32x32 color images across 10 classes (airplanes, cars, birds, cats, deer, dogs, frogs, horses, ships, and trucks). Although the low resolution limits fine-grained detail extraction, CIFAR-10 was chosen for its quick training cycles and its ability to test model robustness under less-than-ideal conditions.</p>
+    <p>For this project, we used the well-known CIFAR-10 dataset, which comprises 60,000 32x32 color images across 10 classes (airplanes, cars, birds, cats, deer, dogs, frogs, horses, ships, and trucks). 
+      Although the low resolution limits fine-grained detail extraction, CIFAR-10 was chosen for its simplicity , fast training and its ability to test model robustness under low hardware capabilities.</p>
   </div>
 
   <div class="section">
     <h2>CNNs: The Backbone of Visual Processing</h2>
-    <p>Convolutional Neural Networks represent the earliest and most enduring deep learning approach for image recognition and analysis. Their architecture is inspired by the human visual cortex, extracting features and patterns layer by layer.</p>
+    <p>Convolutional Neural Networks represent the earliest deep learning approach for image recognition.</p>
     
     <h3>How CNNs Work</h3>
     <ul>
@@ -64,37 +66,21 @@
       <li><strong>Pooling Layer:</strong> Pooling (using max or average pooling) reduces spatial dimensions, decreases computational complexity, and provides translation invariance.</li>
     </ul>
     
-    <p>After passing through several convolution and pooling layers, the resulting feature maps are flattened and fed into fully connected layers that perform the final classification or feature extraction. Even with a modest training regime (around 10 epochs on CIFAR-10), the confusion matrix showed that certain classes (e.g., airplanes and cars) were accurately recognized, while others (like birds, cats, and deer) lagged behind.</p>
+    <p>After passing through several convolution and pooling layers, the resulting feature maps are flattened and fed into fully connected layers that perform the final classification or feature extraction. </p>
     
-    <h3>Example CNN Code</h3>
-    <pre><code class="language-python">
-import torch.nn as nn
-
-class SimpleCNN(nn.Module):
-    def __init__(self):
-        super(SimpleCNN, self).__init__()
-        self.conv_layer = nn.Sequential(
-            nn.Conv2d(in_channels=3, out_channels=16, kernel_size=3, padding=1),
-            nn.ReLU(),
-            nn.MaxPool2d(kernel_size=2)
-        )
-        self.fc_layer = nn.Sequential(
-            nn.Linear(16 * 16 * 16, 128),
-            nn.ReLU(),
-            nn.Linear(128, 10)
-        )
-        
-    def forward(self, x):
-        x = self.conv_layer(x)
-        x = x.view(x.size(0), -1)
-        x = self.fc_layer(x)
-        return x
-    </code></pre>
+    <p>  
+      Even with a low training size (I trained around 10 epochs on CIFAR-10), the confusion matrix showed high performance in image classification, i.e Approximate 65% on average for all classes. 
+      However certain classes (e.g., airplanes and cars) were accurately recognized, while others (like birds, cats, and deer) lagged behind as shown in the bar chart per label performance. </p>
+    
   </div>
 
   <div class="section">
-    <h2>GANs: Generative Adversarial Networks and Their Creative Edge</h2>
-    <p>Generative Adversarial Networks (GANs) take image-to-text conversion a step further by not only analyzing images, but also generating missing or unclear text components. This capability is especially useful when obvious parts of textual data are degraded by noise or other distortions.</p>
+    <h2>GANs: Generative Adversarial Networks </h2>
+    <p> 
+      Generative Adversarial Networks (GANs) are a powerful deep learning framework for creating realistic images by utilizing two competing neural networks: a generator and a discriminator.
+      The generator starts by producing images from random noise, while the discriminator assesses whether an image is real (from actual data) or fake (created by the generator).
+      As training progresses, the generator refines its ability to mimic real images, while the discriminator continuously improves at distinguishing real from fake. 
+    </p>
     
     <h3>How GANs Work</h3>
     <p>GANs operate with two distinct but interlinked neural networks:</p>
@@ -103,38 +89,19 @@ class SimpleCNN(nn.Module):
       <li><strong>Discriminator:</strong> Structured similarly to a CNN, the discriminator evaluates both the real images from the dataset and the synthetic images, distinguishing between the two.</li>
     </ul>
     
-    <p>Training is performed as a minimax game: the discriminator improves its ability to differentiate real from fake images, while the generator simultaneously learns to produce images that can fool the discriminator. The loss functions for the generator and discriminator are defined as follows:</p>
+    <p>Training is performed as a minimax game: the discriminator improves its ability to differentiate real from fake images, while the generator simultaneously learns to produce images that can fool the discriminator. 
+    </p>
     
-    <pre><code>
-L_D = -E[log(D(real))] - E[log(1 - D(G(z)))]
-L_G = -E[log(D(G(z)))]
-    </code></pre>
     
-    <h3>Example GAN Training Loop</h3>
-    <pre><code class="language-python">
-for epoch in range(epochs):
-    # Train Discriminator
-    optimizer_D.zero_grad()
-    real_loss = criterion(D(real_images), real_labels)
-    fake_images = G(noise)
-    fake_loss = criterion(D(fake_images.detach()), fake_labels)
-    d_loss = real_loss + fake_loss
-    d_loss.backward()
-    optimizer_D.step()
+    <p>GANs excel in generating realistic images from noisy data , though their training can be challenging due to issues like large training samples and the need for a delicate balance between the generator and discriminator.
+    Training GANs proved to be particularly challenging. While they are generally expected to surpass CNNs in performance, this particular instance the GAN underperform due to limited training sing limited hardware.
     
-    # Train Generator
-    optimizer_G.zero_grad()
-    g_loss = criterion(D(fake_images), real_labels)
-    g_loss.backward()
-    optimizer_G.step()
-    </code></pre>
-    
-    <p>GANs excel in scenarios where generating realistic images from noisy or incomplete data is crucial, though their training can be challenging due to issues like mode collapse and the need for a delicate balance between the generator and discriminator.</p>
+    </p>
   </div>
 
   <div class="section">
-    <h2>Diffusion Models: The Cutting-Edge for Image-to-Text Conversion</h2>
-    <p>Diffusion models, once famed for creating visually stunning AI-generated art, have now expanded their utility into text extraction and recognition. By gradually adding noise to an image and learning to reverse this process, they effectively reconstruct missing or blurry details—enabling richer textual synthesis.</p>
+    <h2>Diffusion Models</h2>
+    <p>Diffusion models, often famed for creating visually stunning AI-generated art, have now expanded their utility into text extraction and recognition. By gradually adding noise to an image and learning to reverse this process, they effectively reconstruct missing or blurry details—enabling richer textual synthesis.</p>
     
     <h3>Vision Transformers (ViTs) and GPT-2 Integration</h3>
     <p>In our application, we combined a Vision Transformer (ViT) with GPT-2 to create an advanced image-to-text synthesizer:</p>
@@ -143,12 +110,6 @@ for epoch in range(epochs):
       <li><strong>GPT-2:</strong> A pre-trained language model that, when provided with features extracted by ViT, generates detailed and contextually rich captions. This synergy produces descriptions that go well beyond simple labels, including details like the background context and object actions.</li>
     </ul>
     
-    <h3>Example ViT + GPT-2 Pipeline</h3>
-    <pre><code>
-# Pseudocode for combined ViT + GPT-2 image-to-text pipeline
-image_features = ViT(image)       # Extract global features using Vision Transformer
-caption = GPT2.generate(image_features)  # Generate descriptive text with GPT-2
-    </code></pre>
     
     <p>This diffusion-based approach not only provided superior accuracy on CIFAR-10, but also generated comprehensive descriptions that enriched the understanding of the scene—a significant advantage in fields like medical diagnostics and educational content creation.</p>
   </div>
@@ -158,13 +119,13 @@ caption = GPT2.generate(image_features)  # Generate descriptive text with GPT-2
     <p>Each model offers unique strengths in the realm of image-to-text synthesis:</p>
     <ul>
       <li><strong>CNNs:</strong> Excellent at efficiently extracting local features and performing image classification, though they may struggle with global contextual understanding on low-resolution images.</li>
-      <li><strong>GANs:</strong> Possess a creative edge by generating realistic images and filling in missing text components. They are ideal for handling noisy inputs, but require careful tuning and stability management.</li>
-      <li><strong>Diffusion Models (ViT + GPT-2):</strong> Deliver the most holistic, context-rich textual interpretations by combining the global insight of ViTs with the nuanced language generation of GPT-2.</li>
+      <li><strong>GANs:</strong> Possess a creative edge by generating realistic images and filling in missing text components. They are ideal for handling noisy inputs, but require powerful tuning and  training.</li>
+      <li><strong>Diffusion Models (ViT + GPT-2):</strong> Deliver the most holistic, context-rich textual descriptions</li>
     </ul>
     
-    <p>A key recommendation is to explore integrating traditional CNN or GAN-based pipelines with large language models like GPT. Such hybrid models can leverage the efficiency of CNNs, the creativity of GANs, and the contextual richness of diffusion approaches—pushing the frontier of automated image understanding in various innovative fields.</p>
+    <p>A key recommendation is to explore integrating traditional CNN or GAN modeks  with large language models (LLM) like GPT. 
+      Such hybrid models can improve the efficiency of CNNs and GANs, and their contextual richness of image understanding.</p>
   </div>
-
-  <p>What are your thoughts on these deep learning approaches? The evolution in AI is not just about improved accuracy—it’s about forging deeper connections between visual data and language, ultimately making technology more intuitive and insightful.</p>
+  
 </body>
 </html>
