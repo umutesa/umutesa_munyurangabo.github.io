@@ -53,10 +53,13 @@
     <h2>Dataset Note</h2>
     <p>For this project, we used the well-known CIFAR-10 dataset, which comprises 60,000 32x32 color images across 10 classes (airplanes, cars, birds, cats, deer, dogs, frogs, horses, ships, and trucks). 
       Although the low resolution limits fine-grained detail extraction, CIFAR-10 was chosen for its simplicity , fast training and its ability to test model robustness under low hardware capabilities.</p>
+
+    <img src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image/cifar10.jpg" alt="Confusion Mtrix 1">
+    
   </div>
 
   <div class="section">
-    <h2>CNNs: The Backbone of Visual Processing</h2>
+    <h2>CNNs: The Backbone of Image Classification</h2>
     <p>Convolutional Neural Networks represent the earliest deep learning approach for image recognition.</p>
     
     <h3>How CNNs Work</h3>
@@ -122,17 +125,19 @@
   </div>
 
   <div class="section">
-    <h2>Conclusion and Recommendations</h2>
-    <p>Each model offers unique strengths in the realm of image-to-text synthesis:</p>
-    <ul>
-      <li><strong>CNNs:</strong> Excellent at efficiently extracting local features and performing image classification, though they may struggle with global contextual understanding on low-resolution images.</li>
-      <li><strong>GANs:</strong> Possess a creative edge by generating realistic images and filling in missing text components. They are ideal for handling noisy inputs, but require powerful tuning and  training.</li>
-      <li><strong>Diffusion Models (ViT + GPT-2):</strong> Deliver the most holistic, context-rich textual descriptions</li>
-    </ul>
-
-    
-    <p>A key recommendation is to explore integrating traditional CNN or GAN modeks  with large language models (LLM) like GPT. 
-      Such hybrid models can improve the efficiency of CNNs and GANs, and their contextual richness of image understanding.</p>
+    <h2>Final thoughts</h2>
+    <p>Each model offers unique strengths in the realm of image-to-text synthesis:
+      
+      Convolutional Neural Networks (CNNs) are highly effective for image classification, delivering reliable results with efficient training. CNNs are Excellent at efficiently extracting local features and performing image classification, though they may on low-resolution images. 
+      On the other hand, Generative Adversarial Networks (GANs)  are a creative edge by generating realistic images and filling in missing text components. They are ideal for handling noisy inputs, but require powerful tuning and  training and are not well-suited for image-to-text synthesis and do not perform classification tasks. 
+      One of the biggest challenges in training GANs is finding the right balance between the generator and discriminator to minimize overall loss, 
+      which requires extensive training and careful parameter tuning. 
+      To classify images into predefined labels, we employed a Conditional GAN (cGAN), leveraging its ability to generate outputs conditioned on specific descriptions.
+      Diffusion Models (ViT + GPT-2) deliver the most holistic, context-rich textual descriptions
+     A key recommendation is to explore integrating traditional CNN or GAN models  with large language models (LLM) like GPT. 
+      Such hybrid models can improve the efficiency of CNNs and GANs, and their contextual richness of image understanding.
+  
+  </p>
   </div>
   
 </body>
