@@ -227,20 +227,36 @@
             <li><a href="mailto:umutesa09@gmail.com">Contact</a></li>
         </ul>
 
-        <div class="social-links">
-            <a href="#" aria-label="GitHub">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                </svg>
-            </a>
-            <a href="#" aria-label="LinkedIn">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                    <rect x="2" y="9" width="4" height="12"></rect>
-                    <circle cx="4" cy="4" r="2"></circle>
-                </svg>
-            </a>
-        </div>
+        <div class="social-links" style="display: flex; gap: 1rem; align-items: center;">
+    <a href="https://github.com/umutesa" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 
+                6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 
+                16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 
+                4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 
+                9 18.13V22">
+            </path>
+        </svg>
+    </a>
+    <a href="https://www.linkedin.com/in/umutesa-munyurangabo/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+        </svg>
+    </a>
+    <a href="https://medium.com/@umutesa" aria-label="Medium" target="_blank" rel="noopener noreferrer">
+        <svg width="24" height="24" viewBox="0 0 1043.63 592.71" fill="currentColor">
+            <g>
+                <path d="M588.67,296.35c0,163.69-131.25,296.35-293.71,296.35S1.25,460.04,1.25,296.35,132.5,0,294.96,0,588.67,132.66,588.67,296.35Z"/>
+                <path d="M726.88,296.35c0,145.55-65.18,263.44-145.6,263.44s-145.59-117.89-145.59-263.44S501.87,32.91,582.28,32.91s145.6,117.89,145.6,263.44Z"/>
+                <path d="M1042.38,296.35c0,129.12-30.8,233.75-68.79,233.75s-68.79-104.63-68.79-233.75,30.8-233.75,68.79-233.75,68.79,104.63,68.79,233.75Z"/>
+            </g>
+        </svg>
+    </a>
+</div>    
     </aside>
 
     <!-- Main Content -->
@@ -261,7 +277,7 @@
             </p>
             <p>
                 I hold a Bachelor of Science in Electrical and Computer Engineering from the University of Cape Town. 
-                I'm pursuing a Master of Science in Engineering at the University of Cape Town (UCT), with my thesis titled <i> Vision-Only Socially Compliant Navigation Robotics. </i>
+                I'm pursuing a Master of Science in Engineering at the University of Cape Town (UCT), with my research titled <i> "Vision-Only Socially Compliant Navigation Robotics." </i>
                 My research explores trajectory prediction in complex dynamic social environments, 
                 specifically addressing the challenges posed by occlusions while optimizing robotic navigation for safe, socially aware compliant navigation.
                 This site serves as a living archive of my professional journey—and a glimpse into my creative pursuits along the way.
@@ -310,7 +326,7 @@
             <div class="project-card">
                 <h3 class="card-title">Uber Customer Review Sentiment Analysis</h3>
                 <div class="card-content">
-                    <p> This project focuses sentiment analysis to assess Uber customer reviews using a structured natural language processing (NLP) pipeline. 
+                    <p> This project applies sentiment analysis to evaluate Uber customer reviews using a natural language processing (NLP) framework.
                      The primary goal is to identify reviews that offer constructive criticism or highlight service gaps, enabling actionable improvements in customer service. 
                      Three models—VADER (SentimentIntensityAnalyzer), BERT (Bidirectional Encoder Representations from Transformers), and BiLSTM (Bidirectional Long Short-Term Memory)—were implemented and evaluated for their effectiveness in classifying sentiment and feedback.
                  </p>
@@ -375,7 +391,7 @@
                 <div class="card-content">
                     <p> Modern NLP models often struggle with interpreting ambiguous linguistic constructs like sarcasm. 
                      This article examines the neuroscience behind human sarcasm and explores how those insights can be applied 
-                     to the development of more context-aware NLP systems, enabling better detection and understanding of sarcastic language. 
+                     to the development of more context-aware NLP systems, enabling better detection and understanding of the sarcastic language. 
                  </p>
                 </div>
                 <a href="#" class="card-link">Read Blog →</a>
