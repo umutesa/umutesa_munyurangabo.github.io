@@ -87,9 +87,9 @@
     </p>
   </div>
   
-  <img src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image//Time_Series/RNN_output.png" alt="Confusion Matrix 1">
+  <img src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image//Time_Series/rnn_output.png" alt="Confusion Matrix 1">
 
-  <img src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image//Time_Series/RNN.png" alt="Confusion Matrix 1">
+  <img src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image//Time_Series/rnn.png" alt="Confusion Matrix 1">
   
   <div class="section">
     <h2>LSTM Networks: Addressing Long-Term Dependencies</h2>
@@ -121,9 +121,20 @@
 
   
   <div class="section">
-    <h2>Final Thoughts on Outcomes</h2>
+    <h2>Thoughts on Outcomes</h2>
     <p>
-      In this experiments, models were trained on USD/ZAR exchange rate data from 2010 to 2025, and then used to predict the following five years. Notably, the ANN and the basic RNN performed surprisingly well compared to the LSTM model, with the GRU delivering the best overall performance.
+      In this experiments, models were trained on USD/ZAR exchange rate data from 2010 to 2025, and then used to predict the following five years. 
+      Notably, the ANN and the RNN performed surprisingly well compared to the LSTM model, with the GRU delivering the best overall performance.
+    </p>
+
+    <p> 
+      Looking at the radar plots, the R² score quantifies the proportion of variance in the dependent variable that can be predicted from the independent variables, essentially 
+      indicating how well the model explains the observed outcomes. When evaluating a regression model, the ideal scenario is to have a high R² score combined with low RMSE and MAE values. 
+      A high R² score demonstrates that the model captures a significant portion of the variance in the data, while low RMSE and MAE values confirm that predictions are accurate and
+      errors are minimal. In this analysis, the ANN model exhibits a high R² score, indicating strong accuracy alongside low RMSE and MSE. 
+      Although the LSTM model produces similar outcomes, its R² score is somewhat lower than that of the ANN, suggesting that the ANN performs better. 
+      On the other hand, both the RNN and GRU models achieve the highest R² scores, signifying even better predictive performance overall.
+      
     </p>
     <p>
       The USD/ZAR exchange rate experienced significant fluctuations from 2010 to 2025 due to economic, political, and global events. From 2010 to 2020, the Rand weakened steadily from around 7.30 ZAR/USD to about 15.00 ZAR/USD, influenced by economic uncertainty, commodity price volatility, political instability, and the COVID-19 pandemic. From 2020 to 2025, the Rand fluctuated between approximately 18.08 and 19.75 ZAR/USD, showing signs of stabilization as the financial environment became more controlled through post-pandemic recovery, interest rate adjustments, geopolitical shifts, and commodity market rebounds.
