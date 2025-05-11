@@ -2,47 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Sentiment Analysis of 2024 Uber Customer Reviews</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time Series Prediction for USD/ZAR with Deep Learning Neural Models</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: "Segoe UI", sans-serif;
-      font-size: 15px;
-      line-height: 1.6;
-      margin: 40px;
+      font-family: 'Inter', sans-serif;
       background-color: #f9f9f9;
-      color: #222;
+      color: #333;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      font-size: 14px;
+      line-height: 1.7;
     }
     h1, h2, h3 {
-      color: #2c3e50;
+      color: #1a1a1a;
     }
-    h1 {
-      font-size: 26px;
-      margin-bottom: 20px;
+    a {
+      color: #0056b3;
+      text-decoration: none;
     }
-    h2 {
-      font-size: 20px;
-      margin-top: 30px;
-      margin-bottom: 15px;
-    }
-    p {
-      margin-bottom: 15px;
-    }
-    ul {
-      margin-bottom: 15px;
-      padding-left: 20px;
-    }
-    li {
-      margin-bottom: 10px;
-    }
-    .reference {
-      font-size: 14px;
-      color: #555;
-      margin-top: 40px;
+    a:hover {
+      text-decoration: underline;
     }
     code {
       background-color: #eee;
-      padding: 2px 6px;
+      padding: 2px 4px;
       border-radius: 4px;
+      font-size: 13px;
+    }
+    pre {
+      background-color: #eee;
+      padding: 10px;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+    .section {
+      margin-bottom: 40px;
+    }
+     .centered-img {
+      display: block;
+      margin: 0 auto;
+      max-width: 75%;
+      height: 75%;
     }
   </style>
 </head>
@@ -54,11 +57,10 @@
 
   <h2>Preparing the Dataset: Cleaning and Processing Uber Reviews</h2>
 
-  <p>The first step in any sentiment analysis project is data preparation. Our dataset contains thousands of Uber customer reviews from 2024, including details such as user ratings, comments, and timestamps. However, raw data often contains noise, requiring thorough preprocessing before analysis.</p>
-
-  <p>To ensure accuracy, we removed unnecessary columns such as <code>review_id</code> and metadata that do not contribute to sentiment classification. Next, we addressed missing values, filtering out empty or incomplete reviews that could distort our insights.</p>
-
-  <p>We then applied text preprocessing techniques to make the data more structured. Reviews were converted to lowercase to maintain consistency, punctuation was stripped to focus on actual words, and emojis were replaced with descriptive text (e.g., 😃 → "happy face"). Lemmatization helped reduce words to their base forms, ensuring the model recognized "running" and "run" as the same concept. Finally, stop words such as "is," "the," and "and" were removed to highlight meaningful words that contribute to sentiment interpretation.</p>
+  <p>The first step in any sentiment analysis project is data preparation. Our dataset contains thousands of Uber customer reviews from 2024, including details such as user ratings, comments, and timestamps. However, raw data often contains noise, requiring thorough preprocessing before analysis.
+  To ensure accuracy, we removed unnecessary columns such as <code>review_id</code> and metadata that do not contribute to sentiment classification. Next, we addressed missing values, filtering out empty or incomplete reviews that could distort our insights.
+  We then applied text preprocessing techniques to make the data more structured. Reviews were converted to lowercase to maintain consistency, punctuation was stripped to focus on actual words, and emojis were replaced with descriptive text (e.g., 😃 → "happy face"). 
+  Lemmatization helped reduce words to their base forms, ensuring the model recognized "running" and "run" as the same concept. Finally, stop words such as "is," "the," and "and" were removed to highlight meaningful words that contribute to sentiment interpretation.</p>
 
   <h2>Using Advanced AI Models for Sentiment Analysis</h2>
 
@@ -71,27 +73,26 @@
 
   <p>Each model was tested on the dataset, and their results were compared based on precision, recall, and overall accuracy.</p>
 
-  <h2>Comparing Sentiment Analysis Models and Insights</h2>
+  <h2>Final thoughts</h2>
 
-  <p>Our analysis revealed distinct patterns across different customer groups. Riders who gave positive reviews frequently praised "friendly drivers," "comfortable rides," and "quick pickups." In contrast, negative reviews highlighted concerns such as "long wait times," "poor vehicle quality," and "rude interactions with drivers."</p>
+  Our analysis revealed distinct patterns across different customer groups. Riders who gave positive reviews frequently praised "friendly drivers," "comfortable rides," and "quick pickups." 
+  In contrast, negative reviews highlighted concerns such as "long wait times," "poor vehicle quality," and "rude interactions with drivers.
+  While VADER worked well for quick sentiment evaluation, it often misinterpreted emotionally charged reviews. 
+  BERT performed the best, accurately recognizing customer emotions even when reviews contained irony or indirect complaints. 
+  BiLSTM showed strong performance, but its computational requirements made it less practical for real-time analysis.
 
-  <p>While VADER worked well for quick sentiment evaluation, it often misinterpreted emotionally charged reviews. BERT performed the best, accurately recognizing customer emotions even when reviews contained irony or indirect complaints. BiLSTM showed strong performance, but its computational requirements made it less practical for real-time analysis.</p>
-
-  <p>For visualization, we plotted sentiment distributions across different cities and ride types. This helped identify regional variations in customer satisfaction, allowing Uber to refine its operations based on localized concerns.</p>
 
   <h2>Actionable Recommendations Based on Negative Sentiment</h2>
 
   <p>Based on negative feedback trends, Uber could implement the following solutions:</p>
   <ul>
-    <li><strong>Reduce Wait Times:</strong> Customers frequently complained about excessive delays in ride arrivals. Uber could optimize its routing algorithms and driver availability strategies to improve service efficiency.</li>
-    <li><strong>Enhance Driver Training:</strong> Negative reviews often mentioned unprofessional behavior. Investing in customer service training and rating-based driver incentives may help improve interactions.</li>
-    <li><strong>Improve Vehicle Quality:</strong> Riders expressed dissatisfaction with outdated or poorly maintained cars. Uber could introduce stricter vehicle inspection policies to ensure a consistent experience.</li>
-    <li><strong>Marketing and Promotions:</strong> Identifying peak dissatisfaction periods could help Uber introduce promotional discounts during high-demand seasons, improving rider satisfaction during service disruptions.</li>
+    <li><i>Reduce Wait Times:</i> Customers frequently complained about excessive delays in ride arrivals. Uber could optimize its routing algorithms and driver availability strategies to improve service efficiency.</li>
+    <li><i>Enhance Driver Training:</i> Negative reviews often mentioned unprofessional behavior. Investing in customer service training and rating-based driver incentives may help improve interactions.</li>
+    <li><i>Improve Vehicle Quality:</i> Riders expressed dissatisfaction with outdated or poorly maintained cars. Uber could introduce stricter vehicle inspection policies to ensure a consistent experience.</li>
+    <li><i>Marketing and Promotions:</i> Identifying peak dissatisfaction periods could help Uber introduce promotional discounts during high-demand seasons, improving rider satisfaction during service disruptions.</li>
   </ul>
 
-  <div class="reference">
-    <p><strong>Reference:</strong> <a href="https://www.ibm.com/think/topics/large-language-models" target="_blank">IBM on Large Language Models</a></p>
-  </div>
+
 
 </body>
 </html>
