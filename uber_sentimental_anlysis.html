@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Time Series Prediction for USD/ZAR with Deep Learning Neural Models</title>
+  <title>Sentimemt Analysis</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
@@ -51,24 +51,40 @@
 </head>
 <body>
 
-  <h1>Sentiment Analysis of 2024 Uber Customer Reviews: Understanding Customer Satisfaction Through AI</h1>
+  <h1>Sentiment Analysis of 2024 Uber Customer Reviews</h1>
 
-  <p>Customer feedback plays a crucial role in shaping any service-oriented company, and Uber is no exception. With thousands of riders using the service daily, analyzing customer sentiment can provide invaluable insights into satisfaction levels, areas for improvement, and overall brand perception. In this blog, we explore a comprehensive approach to sentiment analysis of 2024 Uber customer reviews, using advanced Natural Language Processing (NLP) techniques and machine learning models.</p>
+  <p>Customer feedback plays a crucial role in shaping any service-oriented company, and Uber is no exception. With thousands of riders using the service daily, analyzing customer sentiment 
+    can provide invaluable insights into satisfaction levels, areas for improvement, and overall brand perception. 
+    In this particular project, I explore a comprehensive approach to sentiment analysis of 2024 Uber customer reviews,
+    using advanced Natural Language Processing (NLP) techniques and deep learning models.</p>
 
   <h2>Preparing the Dataset: Cleaning and Processing Uber Reviews</h2>
 
-  <p>The first step in any sentiment analysis project is data preparation. Our dataset contains thousands of Uber customer reviews from 2024, including details such as user ratings, comments, and timestamps. However, raw data often contains noise, requiring thorough preprocessing before analysis.
-  To ensure accuracy, we removed unnecessary columns such as <code>review_id</code> and metadata that do not contribute to sentiment classification. Next, we addressed missing values, filtering out empty or incomplete reviews that could distort our insights.
-  We then applied text preprocessing techniques to make the data more structured. Reviews were converted to lowercase to maintain consistency, punctuation was stripped to focus on actual words, and emojis were replaced with descriptive text (e.g., 😃 → "happy face"). 
-  Lemmatization helped reduce words to their base forms, ensuring the model recognized "running" and "run" as the same concept. Finally, stop words such as "is," "the," and "and" were removed to highlight meaningful words that contribute to sentiment interpretation.</p>
+  <p>The first step in any sentiment analysis project is data preparation. Our dataset contains thousands of Uber customer reviews from 2024, including details such as user ratings, comments, and 
+    timestamps. However, raw data often contains noise, requiring thorough preprocessing before analysis. To ensure accuracy, data is processed the following steps: 
+    
+    <i> Data Cleaning </i>: I remove columns such as user names, images, and timestamps that didn’t contribute to sentiment analysis. I also filtered out incomplete or empty reviews.
 
-  <h2>Using Advanced AI Models for Sentiment Analysis</h2>
+    <i>Text Preprocessing:</i> I standardized the text by converting it to lowercase, stripping punctuation, and removing HTML tags. Spelling corrections and emoji replacement 
+    (e.g., converting 😃 to “happy face”) ensured that each review was clean. 
+    Additionally, lemmatization reduced words to their base forms (so “running” and “run” were treated the same), and stop words like “is,” “the,” and “and” were removed.
+
+    <i> Tokenization: </i> Breaking the text into individual tokens allowed us to better analyze the sentence structure. </p>
+
+    <h2>Insights based on popular words </h2>
+
+    <p> A word cloud generated from the reviews showed that positive adjectives like “good,” “great,” and “nice” were among the most 
+    frequent, suggesting that the bulk of reviews were positive. 
+    Meanwhile, words that appeared less often were either out of context or seemed to reference very specific entities, possibly unique to Uber’s operational environment. </p>
+
+    
+  <h2>Using Advanced Models for Sentiment Analysis</h2>
 
   <p>To extract meaningful sentiment trends, we experimented with three state-of-the-art models:</p>
   <ul>
-    <li><strong>VADER (SentimentIntensityAnalyzer)</strong> – A rule-based sentiment tool that assigns positive, negative, or neutral scores. While fast and efficient, VADER struggles with complex reviews that contain sarcasm or indirect sentiments.</li>
-    <li><strong>BERT (Bidirectional Encoder Representations from Transformers)</strong> – A deep learning model that understands word relationships in context. BERT excels at capturing nuanced meanings, making it ideal for analyzing customer emotions in detailed reviews.</li>
-    <li><strong>BiLSTM (Bidirectional Long Short-Term Memory)</strong> – A model capable of understanding past and future word relationships. By processing reviews bidirectionally, BiLSTM improves accuracy when interpreting sentence structures that express mixed sentiments.</li>
+    <li><i>VADER (SentimentIntensityAnalyzer)</i> – A rule-based sentiment tool that assigns positive, negative, or neutral scores. While fast and efficient, VADER struggles with complex reviews that contain sarcasm or indirect sentiments.</li>
+    <li><i>BERT (Bidirectional Encoder Representations from Transformers)</strong> – A deep learning model that understands word relationships in context. BERT excels at capturing nuanced meanings, making it ideal for analyzing customer emotions in detailed reviews.</li>
+    <li><i>BiLSTM (Bidirectional Long Short-Term Memory)</i> – A model capable of understanding past and future word relationships. By processing reviews bidirectionally, BiLSTM improves accuracy when interpreting sentence structures that express mixed sentiments.</li>
   </ul>
 
   <p>Each model was tested on the dataset, and their results were compared based on precision, recall, and overall accuracy.</p>
@@ -83,13 +99,33 @@
 
 
   <h2>Actionable Recommendations Based on Negative Sentiment</h2>
+  <p> 
+    Our analysis revealed distinct patterns among different customer groups. Positive reviews frequently mentioned “friendly drivers,” “comfortable rides,” and “quick pickups.”
+    Conversely, negative reviews raised concerns about “long wait times,” “poor vehicle quality,” and “rude driver interactions.” High dissatisfaction around driver conduct or slow service points to the need for refined driver guidelines and better route optimization.
+      Errors in pick-up or destination coordinates disrupt journeys and cause delays. Enhancing GPS technology and allowing users to confirm locations could lessen these issues.
+      Frequent cancellations result in irregular wait times and undermine trust. Stricter cancellation policies and enhanced driver training may provide relief.
+      Multiple charges or unexpected fees, often tied to driver lateness, sap customer confidence. Transparent billing practices and clear communication may restore trust.
+  </p>
 
   <p>Based on negative feedback trends, Uber could implement the following solutions:</p>
   <ul>
-    <li><i>Reduce Wait Times:</i> Customers frequently complained about excessive delays in ride arrivals. Uber could optimize its routing algorithms and driver availability strategies to improve service efficiency.</li>
-    <li><i>Enhance Driver Training:</i> Negative reviews often mentioned unprofessional behavior. Investing in customer service training and rating-based driver incentives may help improve interactions.</li>
-    <li><i>Improve Vehicle Quality:</i> Riders expressed dissatisfaction with outdated or poorly maintained cars. Uber could introduce stricter vehicle inspection policies to ensure a consistent experience.</li>
-    <li><i>Marketing and Promotions:</i> Identifying peak dissatisfaction periods could help Uber introduce promotional discounts during high-demand seasons, improving rider satisfaction during service disruptions.</li>
+
+      <li>
+    <i>Reduce Wait Times:</i> Optimize routing algorithms and driver availability. Drivers should be permitted to pick up trips only when they are within 5 minutes of arrival, accounting for traffic.
+  </li>
+  <li>
+    <i>Improve Vehicle Quality:</i> Enforce stricter vehicle inspection policies focused on hygiene, safety, and user comfort. Implement vehicle tracking so that drivers are required to adhere to designated speed limits.
+  </li>
+  <li>
+    <i>Billing Transparency:</i> Audit pricing algorithms and establish a user-friendly dispute resolution process. For example, charge customers only once a trip has started (i.e., when the driver picks them up) rather than including waiting time.
+  </li>
+  <li>
+    <i>Address Location Accuracy:</i> Enhance GPS precision for pick-up locations.
+  </li>
+  <li>
+    <i>Minimize Driver Cancellations:</i> Implement stricter cancellation policies for drivers, such as a penalty fee for frequent trip cancellations.
+  </li>
+
   </ul>
 
 
