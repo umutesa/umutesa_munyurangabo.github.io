@@ -102,12 +102,15 @@
     <p>Training is performed as a minimax game: the discriminator improves its ability to differentiate real from fake images, while the generator simultaneously learns to produce images that can fool the discriminator. 
     </p>
 
-    <div style="display:flex;justify-content:space-between;flex-wrap:nowrap;"><img style="width:25%;height:auto;" src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image/image2text/gan1.png" alt="Output Performance 1"><img style="width:25%;height:auto;" src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image/image2text/gan2.png" alt="Output Performance 2"><img style="width:25%;height:auto;" src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image/image2text/gan3.png" alt="Output Performance 3"><img style="width:25%;height:auto;" src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image/image2text/gan4.png" alt="Output Performance 4"></div>
+    <div style="display:flex;justify-content:space-between;flex-wrap:nowrap;"><img style="width:25%;height:auto;" src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image/image2text/gan1.png" alt="Output Performance 1"><img style="width:25%;height:auto;" src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image/image2text/gan2.png" alt="Output Performance 2"><img style="width:25%;height:auto;" src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image/image2text/gan4.png" alt="Output Performance 3"><img style="width:25%;height:auto;" src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image/image2text/gan3.png" alt="Output Performance 4"></div>
     
     <img src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image/image2text/gan_output.png" alt="Output Performanace">
     
-    <p>GANs excel in generating realistic images from noisy data , though their training can be challenging due to issues like large training samples and the need for a delicate balance between the generator and discriminator.
-    Training GANs proved to be particularly challenging. While they are generally expected to surpass CNNs in performance, this particular instance the GAN underperform due to limited training sing limited hardware.
+    <p>GANs are commonly used to generate realistic images from noisy data , though their training can be challenging due to issues like large training samples and the need to balance between the generator and discriminator losses.
+    Training GANs proved to be particularly challenging as shown in the images above. While they are generally expected to surpass CNNs in performance, this particular instance the GAN underperform due to limited training size and limited hardware
+      capacity. Looking at the confusion matrix that is trained on three set of image labels as shown, the results for image labeling apear to be random. This shows that the GAN requires additional training for more effective results.
+      GANs are designed to work with continuous data (like images) where gradients can be smoothly propagated.
+      Text generation, however, involves discrete tokens (words) and sequences, which makes it difficult to propagate gradients through the generator and discriminator.
     
     </p>
   </div>
@@ -120,7 +123,7 @@
     <p>In our application, we combined a Vision Transformer (ViT) with GPT-2 to create an advanced image-to-text synthesizer:</p>
     <ul>
       <li><strong>Vision Transformer (ViT):</strong> The ViT partitions an image into patches, treating them as tokens and processing them with a transformer architecture to capture global context—a stark contrast to the primarily local feature extraction of CNNs.</li>
-      <li><strong>GPT-2:</strong> A pre-trained language model that, when provided with features extracted by ViT, generates detailed and contextually rich captions. This synergy produces descriptions that go well beyond simple labels, including details like the background context and object actions.</li>
+      <li><strong>GPT-2:</strong> A pre-trained language model that, when provided with features extracted by ViT, generates detailed and contextually rich captions. This model produces descriptions that go well beyond simple labels, including details like the background context and object actions.</li>
     </ul>
 
     <img src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image/image2text/diffusion.png" alt="Output Performanace">
@@ -130,16 +133,21 @@
 
   <div class="section">
     <h2>Final thoughts</h2>
-    <p>Each model offers unique strengths in the realm of image-to-text synthesis:
+    <p>
       
-      Convolutional Neural Networks (CNNs) are highly effective for image classification, delivering reliable results with efficient training. CNNs are Excellent at efficiently extracting local features and performing image classification, though they may on low-resolution images. 
-      On the other hand, Generative Adversarial Networks (GANs)  are a creative edge by generating realistic images and filling in missing text components. They are ideal for handling noisy inputs, but require powerful tuning and  training and are not well-suited for image-to-text synthesis and do not perform classification tasks. 
+      Convolutional Neural Networks (CNNs) are highly effective for image classification, delivering good results with efficient training. 
+      CNNs are excellent at extracting local features and performing image classification, even with low-resolution images as shown within this project. 
+      On the other hand, Generative Adversarial Networks (GANs)  are a creative approach to image reasoning by generating realistic images. They are ideal for handling noisy inputs,
+      but require powerful tuning and 
+      training and are not well-suited for image-to-text synthesis. 
       One of the biggest challenges in training GANs is finding the right balance between the generator and discriminator to minimize overall loss, 
       which requires extensive training and careful parameter tuning. 
-      To classify images into predefined labels, we employed a Conditional GAN (cGAN), leveraging its ability to generate outputs conditioned on specific descriptions.
-      Diffusion Models (ViT + GPT-2) deliver the most holistic, context-rich textual descriptions
-     A key recommendation is to explore integrating traditional CNN or GAN models  with large language models (LLM) like GPT. 
-      Such hybrid models can improve the efficiency of CNNs and GANs, and their contextual richness of image understanding.
+      To classify images into predefined labels, I employed a simple classifier to generate outputs conditioned on specific image labels. However, without sufficient training the 
+      model could not perform very well.
+      Thd Diffusion Model (ViT + GPT-2) deliver the best context-rich textual descriptions, which are even more descriptive than the datasets labels.
+      
+     A key recommendation is to integrate traditional CNN or GAN models  with large language models (LLM) like GPT. 
+      This hybrid approach may improve the efficiency of CNNs and GANs, and their contextual richness of image reasoning and understanding.
   
   </p>
   </div>
