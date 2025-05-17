@@ -111,20 +111,20 @@
   <div class="section">
     <h2>Optimization Techniques</h2>
     <p>
-      To enhance the performance of the GPT-2 model to answer questions on South African food Recipes. I focused on several key optimization techniques:
+      To enhance the performance of the GPT-2 model to answer questions on South African food Recipes. I focused on three optimization methods:
     
    
-        <i>Fine-Tuning:</i> I fine-tuned GPT-2 using specific database content to enhance its accuracy in responding to questions about traditional South African cuisine. 
+        <i> a) Fine-Tuning:</i> I fine-tuned GPT-2 using specific database content to enhance its accuracy in responding to questions about traditional South African cuisine. 
         Fine-tuning involves refining a pre-trained model for specialized domains using a relatively small yet relevant dataset, allowing it to develop a deeper understanding of specific topics. 
         One significant challenge in this process was the absence of a dedicated dataset exclusively focused on South African recipes. 
         To overcome this limitation, I utilized a large-scale, generic recipe dataset from Kaggle, which provided a broad foundation for training.
         However, using datsets which are often static and fixed this can limit the model’s ability to adapt to evolving trends, updated facts, or newexisting knowledge.
-        <i>Retrieval-Augmented Generation (RAG):</i> RAG allows the model to incorporate updated information without requiring complete retraining. 
+        <i>b) Retrieval-Augmented Generation (RAG):</i> RAG allows the model to incorporate updated information without requiring complete retraining. 
         By building a vector database (using systems like Chroma DB) from PDF documents, the model retrieves relevant context and integrates it into its responses. 
         This approach is especially useful when data changes frequently and retraining is impractical. such as finance, healthcare, or specialized knowledge domains, making periodic retraining impractical.
         In this project, I implemented RAG by using the "South African Traditional Recipes 50 cookbook" by GJ van Niekerk, enabling the model to provide customized responses tailored to South African cuisine. 
-        By structuring the cookbook content as embeddings in the vector database, the chatbot can retrieve rich culinary details—including traditional recipes, ingredient insights, and preparation techniques—ensuring culturally accurate responses
-        <i>Reinforcement Learning from Human Feedback (RLHF):</i> This approach focuses on Reinforcement Learning from Human Feedback (RLHF)—a method that significantly enhances model performance by using direct user feedback.
+        By structuring the cookbook content as embeddings in the vector database, the chatbot can retrieve rich culinary details—including traditional recipes, ingredient insights, and preparation techniques—ensuring culturally accurate responses.
+        <i>c) Reinforcement Learning from Human Feedback (RLHF):</i> This approach focuses on Reinforcement Learning from Human Feedback (RLHF)—a method that significantly enhances model performance by using direct user feedback.
         The process involves collecting human evaluations of model responses, training a reward model based on this feedback, and then fine-tuning the original  model using reinforcement learning.
       </p>
     
@@ -134,19 +134,113 @@
   </div>
 
   <div class="section">
-    <h2>Final THoughts</h2>
+    <h2>Final Thoughts</h2>
+
+    <script>
+        // Example of adding dynamic output
+       Initializing CPU-optimized Chatbot...
+Loading dataset from: /root/.cache/kagglehub/datasets/crispen5gar/recipes3k/versions/1/recipes.json
+Loading PDF from: https://yourknow.com/uploads/books/5dd0f9604c895.pdf
+Loading existing vector database from: hybrid_vectors
+Loading language model: gpt2-medium
+
+Device set to use cpu
+
+Setting up language model pipeline...
+Chatbot initialization complete!
+Q: How to make milk tart?
+Feedback saved to rlhf_feedback.json
+A: 
+        I am a Chatbot assistant that can answer questions about South African Food recipes and some general recipes!
+
+        
+
+        QUESTION:
+        How to make milk tart?
+
+        ANSWER:
+         What is the difference between sugar, honey or cream cheese in this recipe?
+
+  Question :    "How do you know if your buttercream will be too soft?" Answer :         You need to use 1/2 cup of melted fat. The more saturated fats are used, it's easier for them not melt into each other when they're mixed with water (like coconut oil). If there isn't enough melting point on top, then its hard to get all the oils from one piece together so just add as much extra cooking liquid like 2 tablespoons at first before adding any additional ingredients until everything melts evenly. It should look something like below after mixing up my mixture...
+                          This was really easy because we had already made our own whipped cream which worked out great but still needed adjusting later - see how different things looked once blended? So here goes... First off let me say thank goodness i didn´t have to buy anything else since these were homemade! They came pre-made ready milled by hand using only 3 cups of flour, no baking powder etc.. And yes those biscuits did come very well packed inside :) But what makes their taste even better than others?? Well thanks again guys!! We'll definitely try making another batch soon!! Thank u!!! Reply Delete Comment Add comment 0 comments Read Comments » Leave a review | View previous reviews <<< Previous Review By Anonymous On Nov 17th 2017 @ 12 PM CST Rating:-5 Thanks everyone who participated today....I'm glad someone took time away from work tonight.....and got back early tomorrow morning......it seems people enjoyed themselves alot yesterday....thank yall!!!!!!!!! Posted by james_bobby on Sep 26nd 2016 @ 10 AM EST Rating:: 5 Love love LOVE IT!!!!!!!! SO GOOD TO SEE YOU ALL COMING BACK FOR MORE SHOWS AND FUNS WITH US...............THANKYOU THANK YOU EVERYONE WHO JOINED TODAY AT 9AM THIS MORNING..WE WILL BE WORKING ON A NEW SHOW IN THE NEXT MONNDAY......PLEASE CHECK OUR PAGE AGAINST EMAIL OR CALL IF WE ARE NOT UP BY THAT TIME.................IF THERE IS ANYTHING ELSE NEEDED PLEASE LET ME KNOW ASap................….thanks Again James B*******Posted Date Jul 27st 2015@ 11PM PSTRating 4 stars(outoffive)Thanks Everyone Who Participated Today In Our New Show Tonight At 8pm ET Join us For More Shows & Fun With Us........................Thankyou To All Of Those That Came Out Tomorrow Evening................For Your Support AswellAsToThoseThat Didn`t Come Back After Work Day Because Of Weather Or Other Reasons
+--------------------------------------------------
+Q: Recipe for Rusks
+Error processing query: index out of range in self
+A: I'm sorry, I encountered an error while processing your question.
+--------------------------------------------------
+Q: Hi, I need help with Egg Avocado Open Sandwich
+Feedback saved to rlhf_feedback.json
+A: 
+        I am a Chatbot assistant that can answer questions about South African Food recipes and some general recipes!
+
+        
+
+        QUESTION:
+        Hi, I need help with Egg Avocado Open Sandwich
+
+        ANSWER:
+         The recipe is simple. You just add 1 egg to the avocado mixture then mix it together until you get an emulsion of eggs all over your sandwich. It's great on toast or sandwiches but also good as side dish for dinner in restaurants where they don't serve any meat so use this instead if possible. This will give them something different from what we usually have at home! If you are looking into making avocados open sesame breads like these, please feel free :) Thanks again!! :) Reply Delete Email Please enter email address below To unsubscribe click here Cancel Subscribe Your information has been sent successfully Check my junk mail box... Thank YOU!!! We'll send another message when new messages arrive.. Send me more info soon? Yes No Comment By clicking Register above (or by using our form),you agree not onlyto receive emails containing news content suchas updates & special offers;but alsothat there may be no spambait articles appearing within e-mail newslettersfrom timeTotimeand other similar communications which donot contain unsolicited commercial advertising - opt-outat any pointby following the instructions providedon each page(if applicable).By submittingthis notification through social media sites/apps ("Sites") including Facebook, Twitter,... [More] View full article » Leave A comment Here | Read More Comments Welcome back everyone who visited us recently....I hope everything was ok out there.....You know how many times i tell people "don´t worry" because things seem fine? Well thats exactly why today its very important...because tomorrow could change alot....So lets start off right now......First thing first let`ve talk about food..so before going further......Let�re clear up one big misconception around SA...............It seems most Southerners dont really understand their own culture!! They think anything imported must be bad since nothing tastes better than eating local foods made locally.........Well actually NO!!!! There are plentyof ways to make delicious dishes without having to import stuff even though those same ingredients would normally cost less money elsewhere….like buying fresh produce etc…which means lots cheaper prices everywhere else too…..And yes Im sure everyones favourite breakfast items were always cooked well done anyway……But still cant believe anyone thinks importing shit makes sense unless someone told him otherwise …Just kidding guys ;-) So next stop being ignorant idiots,,let´r go ahead say hello once again................Now im gonna sharewith yall two amazing meals prepared entirely domestically…………This morning after work lunch came along way sooner rather later compared wth yesterday evening meal........Its called 'Egg Salad' And while she didnt ask her husband whether he wanted his wife to eat hers tonight,,,,he did want to try somethingsnewy tasty nonetheless lol........................................................If u havent tried EGG SALAD yet checkit online www http://www1."http://eagelash.com/?p=5&qid=/search_query". Then follow link under menu item name eg ''egg salad'' Or searchfor ingredient names ie �avocado chicken soup''. Now take 2 tbsp water + ½ tsp salt plus ¼ cup chopped onion finely chop garlic cloves till fragrant Add half red pepper flakes lightly fry onions til golden brown Pour oil slowly onto pan Heat gently stirring constantly adding additional tablespoonfulwater gradually pouring hot liquid evenly Over medium heat cook vegetables thoroughly For 5 minutes turn down flame Remove lid carefully stir occasionally Cook remaining 4 mins addedgarlic powder Once veggiesare tender remove foil cover top generously place lettuce leaves aside In large bowl combine spinach,chicken broth spices blendwelladd extra coconut milk pinch cayenne crackly spice Mixing quickly pour batter Into greased baking tray Bake uncovered 30minsFor serving sprinkle sliced almonds On plate garnishWith freshly grated nutmeg
+--------------------------------------------------
+Q: Ingredients and recipe for Spicy Chicken Avocado wrap
+Feedback saved to rlhf_feedback.json
+A: 
+        I am a Chatbot assistant that can answer questions about South African Food recipes and some general recipes!
+
+        
+
+        QUESTION:
+        Ingredients and recipe for Spicy Chicken Avocado wrap
+
+        ANSWER:
+         Recipe is very simple, just mix together the ingredients in your food processor. You will get thick sauce with lots of avocado slices on top! It's great to serve as appetizer or side dish at dinner time too!! The best thing you can do after eating it? Just add more chicken strips, if desired. Enjoy!! Reply Delete Quote Save To My Recipes Share On Pinterest Write A Comment And share this post using social media buttons below : ) Thankyou so much!!! :) Have fun making these amazing dishes!!!! xo - Mimi & Rachael (M) @mimikitchen #spicyfoods http://www-msnbc3d.com/blogs/?p=128079&sid=1#post_15404724 https:/ / www2...rchaelb@gmail....tteaafoodrecipes...and here are my other posts from last year ;-) Thanks again everyone who visit me online ;) Hope yall enjoy them all :-) Happy Cooking xxx Posted by mimsimonstercooking | September 22nd 2017 11:54 AM Read More Comments » Submit Your Own Blog Post Here 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 Next Page >> View All Posts From This Author Message Bookmark +
+ Share With Others Facebook Twitter Google+ Email Print Delicious Digg Reddit StumbleUpon Tumblr Mail Yummly Telegram Pocket Flipboard LinkedIn Pin Again Copy Link Copied Embed Code Powered By GrabEase Inc. Free Personalize Website Profile Handyman Tools Copyright © 2018 Grocery Hookup LLC ALL rights reserved. Do not reproduce without permission. No part may be reproduced except under limited circumstances including but NOT LIMITED TO COPYING FOR NONcommercial purposes only If you have any comments please contact us via email [email protected] We respect your privacy therefor Please enable JavaScript to view our comment policy before posting Click "I agree" when finished reading content Check out what others think About Me Subscribe Now For free we send over $100 worth Of groceries every month Get instant access to 50% off everything delivered directly to YOUR door Sign up now > See how many people subscribe today < Prev Top Bottom Left Right Back Continue Contents Home Menu Search Results Categories Dishes Prepared Foods Other Items Specialty Restaurants Kitchen Accessories Baking Supplies Snacks Soups Salads Pastries Meat Products Cookbooks Vegetables Seafeed Produce Wine Shops Gifts Shopping Coupons Deals Events HowTo Guides Books News Articles Reviews Apparel Clothing Shoes Bathroom Decorations Hair Care Miscellaneous Craft Projects DIY Services Artwork Design Photography Music Video Games Kids Toys Sports Gear Baby Stuff Flowers Plants Pets Pet Treatments Pottery Furniture Appliances Watches Travel Jewelry Gift Cards
+--------------------------------------------------
+Q: I need the South african Biltong Pasta potjie recipe?
+Feedback saved to rlhf_feedback.json
+A: 
+        I am a Chatbot assistant that can answer questions about South African Food recipes and some general recipes!
+
+        
+
+        QUESTION:
+        I need the South african Biltong Pasta potjie recipe?
+
+        ANSWER:
+          THE RECIPE IS HERE, BUT YOU NEED TO READ IT FIRST. IF YOU DO NOT HAVE A SINGLE POTJIE IN YOUR HOUSE AND ARE STILL TIRED OF THIS THREAD PLEASE COMMENT ON WHAT TYPE OR MODEL MEANS FOR US to make this dish for you (or if it's just something we want) or let us know what kind of pasta would be best in your kitchen so we could try out different ideas on how many ingredients are needed depending upon which type of sauce is used...we're always open-minded when making new dishes :) THANKS SO MUCH!! <3 Reply Delete Post
+Hi there - i'm looking forward reading all these comments because they really help me understand my cooking process better! thanks again :D Thank You very much!!! :-) Hi there –I have been trying various sauces over time but never found one with enough flavor & texture without using too little salt. So today, i decided …to experiment by adding 1/2 tsp extra sea salt into each batch as well as 2 tbsp coconut oil instead..and voila...it was perfect!! It made everything taste even more delicious than before ;-) Thanks also @mikebondi who helped me find exactly where he uses ¼ cup + ½ teaspoon plus 3 drops per serving = 6 teaspoons total amount (= 4 tablespoons). And thank goodness —that makes them easy… ;) Cheers xo ♥ Mika ☆️ http://www."pinterest" Pinterest "http:/ / www."facebook".com/"MikaelleBONDISTAVEONLINE" Twitter "@kimba_tasteoffoods" Instagram "http:\ // instagram@glamourmagazine" Blogspot https:"blogspotapp.net/ michaellindsayyamu">https="blogspoon.com/?utm_source=twitter&utm%3Dwordpress#!/ kimbaltspoon </td> <!--<!--[if gte IE 9]><script src="//ajax.googleapis;noredirect url='//blogsites.msdncdn..js'></Script><div class=\"ft-adidas__branding{margin:-50px 0 20px 40%;padding:#000;}"><img alt="" width="/images\/ads\footer\/\/wp1″ border="0"></iframe></div--></center>" [url=javascript:void(0);} ] [/center][fontc=#9C7FFF]||||||| | ||[/size][/font][/center]"
+
+
+    </script>
+
+    
     <p> 
-        One of the biggest challenges I face in optimizing a Large Language Model (LLM) for South African traditional food is the lack of comprehensive datasets. 
-      Finding well-structured, authentic sources on traditional recipes has proven difficult, which limits the depth and accuracy of my responses. 
-      To address this, I need to expand my dataset by incorporating additional PDF documents, particularly well-known South African cookbooks, 
+
+      The responses generated were informal, lacked proper structure, and were not thoroughly filtered. 
+      Since most available datasets did not include a significant collection of South African recipes, 
+      the primary source for generating content was a PDF cookbook. 
+      However, this cookbook was not well-formatted, as it contained a mix of images, comments, and unstructured text. 
+      Due to the simplicity of the language model built, the selection process was based on filtering data as best as possible to generate relevant responses. 
+      Despite these efforts, the output still required refinement to ensure clarity, consistency, and improved structure.
+A more better approach to data preprocessing is necessary. 
+      This includes extracting and cleaning raw text from the PDF, eliminating unnecessary elements such as images and informal comments, and reorganizing the recipe content to present 
+      well-structured instructions. Additionally, refining the filtering process can help ensure that only the most relevant and accurate information is selected. 
+
+Furthermore, integrating multiple datasets specifically focused on South African cuisine would improve the model’s accuracy and relevance,
+      providing a richer, more culturally representative culinary resource.
+      By applying these improvements, the model can generate well-structured, high-quality recipe responses that align with user expectations. If further optimization techniques are needed, I’d be happy to explore them!
+        One of the biggest challenges I face while optimizing a Large Language Model (LLM) for South African traditional food is the lack of comprehensive datasets. 
+      Finding well-structured, authentic sources on South African traditional recipes has proven difficult, which limits the depth and accuracy of the responses. 
+      To address this, I expand the LLM knowledge by incorporating additional PDF documents, particularly well-known South African cookbooks, 
       as they offer reliable insights into culinary traditions and preparation methods.
 
-Formatting responses in a more structured way is another improvement. By extracting and presenting information in summaries or bullet-point reports, 
-      response can be clearer and easier to understand. This ensures users can quickly grasp key details without having to sift through long paragraphs.
+Formatting responses in a more structured format is another area that requires improvement. By extracting and presenting information in summaries or bullet-point reports, 
+      response can be clearer and easier to understand. This ensures users can quickly grasp key details without having to read through long paragraphs, which areoften direct text from data sources.
 
-Speed is also an area that  needs optimization. The response generation time can sometimes be slow, and improving computational efficiency, 
+Speed is also an area that needs optimization. The response generation time can  be slow, and improving computational efficiency by 
       refining model architecture, and fine-tuning parameters will help provide quicker replies. 
       Another issue is truncated outputs, which may be due to training on a medium-sized LLM model with limited parameters. 
+
+      
 
 
 
@@ -162,12 +256,5 @@ Speed is also an area that  needs optimization. The response generation time can
     </p>
   </div>
 
-  <div class="section">
-    <h2>Reference</h2>
-    <p>
-      For more information on large language models, visit
-      <a href="https://www.ibm.com/think/topics/large-language-models" target="_blank">IBM Think: Large Language Models</a>.
-    </p>
-  </div>
 </body>
 </html>
