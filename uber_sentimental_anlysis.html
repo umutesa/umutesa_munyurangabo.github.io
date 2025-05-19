@@ -69,18 +69,22 @@
     (e.g., converting 😃 to “happy face”) ensured that each review was clean. 
     Additionally, lemmatization reduced words to their base forms (so “running” and “run” were treated the same), and stop words like “is,” “the,” and “and” were removed.
 
-    <i> Tokenization: </i> Breaking the text into individual tokens allowed us to better analyze the sentence structure. </p>
+    <img src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image/UberAnalysis/uber_rating.png" alt="Confusion Matrix 1" class="centered-img">
 
-    <h2>Insights based on popular words </h2>
+    <h2>Insights based on popular and least common  words </h2>
+
+   <img src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image/UberAnalysis/most.png" alt="Confusion Matrix 1" class="centered-img">
+  
+   <img src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image/UberAnalysis/least.png" alt="Confusion Matrix 1" class="centered-img">
 
     <p> A word cloud generated from the reviews showed that positive adjectives like “good,” “great,” and “nice” were among the most 
     frequent, suggesting that the bulk of reviews were positive. 
-    Meanwhile, words that appeared less often were either out of context or seemed to reference very specific entities, possibly unique to Uber’s operational environment. </p>
+    Meanwhile, words that appeared less often were either out of context or seemed to reference very specific entities, like driver's name or location. </p>
 
     
-  <h2>Using Advanced Models for Sentiment Analysis</h2>
+  <h2>Using Deep Models for Sentiment Analysis</h2>
 
-  <p>To extract meaningful sentiment trends, we experimented with three state-of-the-art models:</p>
+  <p>To extract meaningful sentiment trends, I experimented with three state-of-the-art models:</p>
   <ul>
     <li><i>VADER (SentimentIntensityAnalyzer)</i> – A rule-based sentiment tool that assigns positive, negative, or neutral scores. While fast and efficient, VADER struggles with complex reviews that contain sarcasm or indirect sentiments.</li>
     <li><i>BERT (Bidirectional Encoder Representations from Transformers)</i> – A deep learning model that understands word relationships in context. BERT excels at capturing nuanced meanings, making it ideal for analyzing customer emotions in detailed reviews.</li>
