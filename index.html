@@ -155,10 +155,16 @@
             margin-top: 0;
             margin-bottom: 15px;
             color: var(--main-text-color); /* Light mode card title color */
+            font-weight: bold; /* Make card titles bold */
+        }
+        
+        .card-content strong {
+            font-weight: 500; /* Less bold for subheadings/emphasized text within content */
         }
 
         .card-content {
             margin-bottom: 15px;
+            font-weight: normal; /* Ensure content itself is not bold */
         }
 
         .card-link {
@@ -265,7 +271,7 @@
                 <svg width="24" height="24" viewBox="0 0 1043.63 592.71" fill="currentColor">
                     <g>
                         <path d="M588.67,296.35c0,163.69-131.25,296.35-293.71,296.35S1.25,460.04,1.25,296.35,132.5,0,294.96,0,588.67,132.66,588.67,296.35Z"/>
-                        <path d="M726.88,296.35c0,145.55-65.18,263.44-145.6,263.44s-145.59-117.89-145.59-263.44S501.87,32.91,582.28,32.91s145.6,117.89,145.6,263.44Z"/>
+                        <path d="M726.88,296.35c0,145.55-65.18,263.44-145.59-263.44s-145.59-117.89-145.59-263.44S501.87,32.91,582.28,32.91s145.6,117.89,145.6,263.44Z"/>
                         <path d="M1042.38,296.35c0,129.12-30.8,233.75-68.79,233.75s-68.79-104.63-68.79-233.75,30.8-233.75,68.79-233.75,68.79,104.63,68.79,233.75Z"/>
                     </g>
                 </svg>
@@ -314,7 +320,7 @@
             <div class="project-card">
                 <h3 class="card-title">Time Series Prediction for USD/ZAR Exchange Rate using Deep Learning Models</h3>
                 <div class="card-content">
-                    <p> This project delves into deep learning models to analyze and forecast USD/ZAR Exchange Rate using historical data from Yahoo Finance.
+                    <p>This project delves into deep learning models to analyze and forecast USD/ZAR Exchange Rate using historical data from Yahoo Finance.
                         By comparing Recurrent Neural Networks (RNNs), Long Short-Term Memory (LSTM) networks, Artificial Neural Networks (ANNs), and Gated Recurrent Units (GRUs),
                         I aim to uncover patterns and generate accurate predictions that can assist in making informed decisions about the financial market.
                         </p>
@@ -326,7 +332,7 @@
             <div class="project-card">
                 <h3 class="card-title">Image to Text Synthesizer</h3>
                 <div class="card-content">
-                    <p> This project investigates different deep learning models for converting images into text, specifically diffusion models, Convolutional Neural Networks (CNNs), and Generative Adversarial Networks (GANs).
+                    <p>This project investigates different deep learning models for converting images into text, specifically diffusion models, Convolutional Neural Networks (CNNs), and Generative Adversarial Networks (GANs).
                     The goal is to assess each model's performance using the CIFAR-10 dataset, a widely recognized dataset for image classification.
                     </p>
                 </div>
@@ -337,7 +343,7 @@
             <div class="project-card">
                 <h3 class="card-title">Uber Customer Review Sentiment Analysis</h3>
                 <div class="card-content">
-                    <p> This project applies sentiment analysis to evaluate Uber customer reviews using a natural language processing (NLP) framework.
+                    <p>This project applies sentiment analysis to evaluate Uber customer reviews using a natural language processing (NLP) framework.
                     The primary goal is to identify reviews that offer constructive criticism or highlight service gaps, enabling actionable improvements in customer service.
                     Three models—VADER (SentimentIntensityAnalyzer), BERT (Bidirectional Encoder Representations from Transformers), and BiLSTM (Bidirectional Long Short-Term Memory)—were implemented and evaluated for their effectiveness in classifying sentiment and feedback.
                     </p>
@@ -350,7 +356,7 @@
             <div class="project-card">
                 <h3 class="card-title">Optimizing LLM using RAG, Fine-Tuning and Reinforcement Learning from Human Feedback for Answering Questions about South African Recipes </h3>
                 <div class="card-content">
-                    <p> Chatbots have taken center stage in digital interaction, revolutionizing business, customer service, education, and daily assistance.
+                    <p>Chatbots have taken center stage in digital interaction, revolutionizing business, customer service, education, and daily assistance.
                     But the generic models don’t always provide the specialized knowledge users need. This project focuses on fine-tuning a LLM model. i.e., GPT-2-medium to create a chatbot dedicated to answering questions about food recipes.
                     By incorporating Retrieval-Augmented Generation (RAG) and user reinforcement feedback, I enhance its ability to provide better responses to questions about the food recipes.
                     </p>
