@@ -7,40 +7,44 @@
     <style>
         /* Global Styles */
         :root {
-            /* Dark mode colors become the default */
-            --background-color: #1a1a1a;
-            --text-color: #e0e0e0;
-            --sidebar-bg-color: #2a2a2a;
+            /* Light mode colors for main content (default) */
+            --main-background-color: #fff;
+            --main-text-color: #333;
+            --main-card-bg-color: #f9f9f9;
+            --main-card-border-color: #3498db;
+            --main-section-border-color: #eaeaea;
+
+            /* Dark mode colors for sidebar */
+            --sidebar-background-color: #2a2a2a;
+            --sidebar-text-color: #e0e0e0;
             --sidebar-border-color: #3a3a3a;
-            --card-bg-color: #2a2a2a;
-            --card-border-color: #6495ED; /* A slightly different blue for dark mode */
-            --link-color: #6495ED;
-            --link-hover-color: #4169E1;
-            --section-border-color: #3a3a3a;
+            --sidebar-link-color: #6495ED;
+            --sidebar-link-hover-color: #4169E1;
         }
 
         body {
             font-family: 'Georgia', serif;
             line-height: 1.6;
-            color: var(--text-color); /* Use variable */
+            color: var(--main-text-color); /* Main content default text color */
             margin: 0;
             padding: 0;
             display: flex;
             min-height: 100vh;
-            background-color: var(--background-color); /* Use variable */
+            background-color: var(--main-background-color); /* Main content default background */
             font-size: 13px;
         }
 
         /* Sidebar Styles */
         .sidebar {
             width: 250px;
-            background-color: var(--sidebar-bg-color); /* Use variable */
+            background-color: var(--sidebar-background-color); /* Dark mode sidebar background */
             padding: 30px;
             position: fixed;
             height: 100%;
             overflow-y: auto;
             box-sizing: border-box;
-            border-right: 1px solid var(--sidebar-border-color); /* Use variable */
+            border-right: 1px solid var(--sidebar-border-color); /* Dark mode sidebar border */
+            color: var(--sidebar-text-color); /* Dark mode sidebar text color */
         }
 
         .sidebar-header {
@@ -60,13 +64,13 @@
             margin: 0;
             font-size: 1.8em;
             font-weight: 600;
-            color: var(--text-color); /* Use variable */
+            color: var(--sidebar-text-color); /* Dark mode sidebar heading color */
         }
 
         .sidebar-header p {
             margin: 5px 0 0;
             font-size: 1em;
-            color: var(--text-color); /* Use variable */
+            color: var(--sidebar-text-color); /* Dark mode sidebar paragraph color */
         }
 
         .nav-links {
@@ -82,7 +86,7 @@
         .nav-links a {
             display: block;
             padding: 8px 0;
-            color: var(--text-color); /* Use variable */
+            color: var(--sidebar-text-color); /* Dark mode sidebar link color */
             text-decoration: none;
             font-size: 1em;
             font-weight: 500;
@@ -90,7 +94,7 @@
         }
 
         .nav-links a:hover {
-            color: var(--link-hover-color); /* Use variable */
+            color: var(--sidebar-link-hover-color); /* Dark mode sidebar link hover color */
         }
 
         .social-links {
@@ -101,13 +105,13 @@
         .social-links a {
             display: inline-block;
             margin: 0 8px;
-            color: var(--text-color); /* Use variable */
+            color: var(--sidebar-text-color); /* Dark mode social link color */
             font-size: 1.2em;
             transition: color 0.3s;
         }
 
         .social-links a:hover {
-            color: var(--link-hover-color); /* Use variable */
+            color: var(--sidebar-link-hover-color); /* Dark mode social link hover color */
         }
 
         /* Main Content Styles */
@@ -115,6 +119,8 @@
             flex: 1;
             padding: 8px;
             margin-left: 310px;
+            background-color: var(--main-background-color); /* Light mode main content background */
+            color: var(--main-text-color); /* Light mode main content text color */
         }
 
         .section {
@@ -125,8 +131,8 @@
             font-size: 2em;
             font-weight: 600;
             margin-bottom: 25px;
-            color: var(--text-color); /* Use variable */
-            border-bottom: 1px solid var(--section-border-color); /* Use variable */
+            color: var(--main-text-color); /* Light mode section title color */
+            border-bottom: 1px solid var(--main-section-border-color); /* Light mode section border */
             padding-bottom: 10px;
         }
 
@@ -134,21 +140,21 @@
         .project-card, .blog-card {
             margin-bottom: 30px;
             padding: 20px;
-            background-color: var(--card-bg-color); /* Use variable */
-            border-left: 3px solid var(--card-border-color); /* Use variable */
+            background-color: var(--main-card-bg-color); /* Light mode card background */
+            border-left: 3px solid var(--main-card-border-color); /* Light mode card border */
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .project-card:hover, .blog-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Adjust shadow for dark mode */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Light mode shadow */
         }
 
         .card-title {
             font-size: 1.4em;
             margin-top: 0;
             margin-bottom: 15px;
-            color: var(--text-color); /* Use variable */
+            color: var(--main-text-color); /* Light mode card title color */
         }
 
         .card-content {
@@ -157,14 +163,14 @@
 
         .card-link {
             display: inline-block;
-            color: var(--link-color); /* Use variable */
+            color: var(--main-card-border-color); /* Light mode card link color (using same blue) */
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
         }
 
         .card-link:hover {
-            color: var(--link-hover-color); /* Use variable */
+            color: #2980b9; /* Slightly darker blue for hover in light mode */
             text-decoration: underline;
         }
 
@@ -184,7 +190,7 @@
             content: "•";
             position: absolute;
             left: 0;
-            color: var(--link-color); /* Use variable */
+            color: var(--main-card-border-color); /* Light mode bullet color */
             font-weight: bold;
         }
 
@@ -192,10 +198,10 @@
         footer {
             text-align: center;
             font-size: 0.9em;
-            color: var(--text-color); /* Use variable */
+            color: var(--main-text-color); /* Light mode footer text color */
             margin-top: 50px;
             padding-top: 20px;
-            border-top: 1px solid var(--section-border-color); /* Use variable */
+            border-top: 1px solid var(--main-section-border-color); /* Light mode footer border */
         }
 
         /* Responsive Styles */
@@ -264,7 +270,7 @@
                     </g>
                 </svg>
             </a>
-        </div>    
+        </div>
     </aside>
 
     <main class="main-content">
@@ -283,86 +289,86 @@
                 Engineering at its best is not only about creating effective solutions—it involves understanding the human stories behind the challenges to ensure solutions align with people's experiences, values and identities.
             </p>
             <p>
-                I hold a Bachelor of Science in Electrical and Computer Engineering from the University of Cape Town. 
+                I hold a Bachelor of Science in Electrical and Computer Engineering from the University of Cape Town.
                 I'm pursuing a Master of Science in Engineering at the University of Cape Town (UCT), with my research titled <i> "Vision-Only Socially Compliant Navigation Robotics." </i>
-                My research explores trajectory prediction in complex dynamic social environments, 
+                My research explores trajectory prediction in complex dynamic social environments,
                 specifically addressing the challenges posed by occlusions while optimizing robotic navigation for safe, socially aware compliant navigation.
                 This site serves as a living archive of my professional journey—and a glimpse into my creative pursuits along the way.
             </p>
-            
+
             <p>My areas of interest include:</p>
             <ul class="interests-list">
                 <li><strong><i>Machine Learning:</i></strong> Particularly deep learning.</li>
                 <li><strong><i>Autonomous Navigation in Robotics and Vehicles:</i></strong> Safe and Compliant navigation which lies at the heart of my master's research (something I've spent countless hours refining).</li>
                 <li><strong><i>Computer Vision:</i></strong> My interest extends to the contextual understanding within visual data.</li>
                 <li><strong><i>Natural Language Processing (NLP):</i></strong> I'm drawn to the beautiful messiness of human language—the ambiguity, bias, cultural backgrounds, and their misinterpretations. </li>
-                <li><strong><i>Empathy and Psychology in Engineering:</i></strong> Understanding the human stories behind the data, models and decisions we make is what drives meaningful innovation.</li>
+                <li><strong><i>Empathy and Psychology in Engineering:</i></b> Understanding the human stories behind the data, models and decisions we make is what drives meaningful innovation.</li>
                 <li><strong><i>Women in STEM:</i></strong> Representing, and Supporting women in STEM fields.</li>
             </ul>
         </section>
-        
+
         <section id="projects" class="section">
             <h2 class="section-title">Projects</h2>
             <p>Here's a showcase of my ongoing work:</p>
-            
+
             <div class="project-card">
                 <h3 class="card-title">Time Series Prediction for USD/ZAR Exchange Rate using Deep Learning Models</h3>
-                <div class="card-content"> 
-                    <p> This project delves into deep learning models to analyze and forecast USD/ZAR Exchange Rate using historical data from Yahoo Finance. 
+                <div class="card-content">
+                    <p> This project delves into deep learning models to analyze and forecast USD/ZAR Exchange Rate using historical data from Yahoo Finance.
                         By comparing Recurrent Neural Networks (RNNs), Long Short-Term Memory (LSTM) networks, Artificial Neural Networks (ANNs), and Gated Recurrent Units (GRUs),
                         I aim to uncover patterns and generate accurate predictions that can assist in making informed decisions about the financial market.
                         </p>
-                </div> 
+                </div>
                 <a href="time_series_prediction.html" class="card-link">Read Post →</a>
                 <a href="https://github.com/umutesa/Time_Series_Prediction" class="card-link">View on GitHub →</a>
             </div>
-            
+
             <div class="project-card">
                 <h3 class="card-title">Image to Text Synthesizer</h3>
                 <div class="card-content">
                     <p> This project investigates different deep learning models for converting images into text, specifically diffusion models, Convolutional Neural Networks (CNNs), and Generative Adversarial Networks (GANs).
-                    The goal is to assess each model's performance using the CIFAR-10 dataset, a widely recognized dataset for image classification. 
+                    The goal is to assess each model's performance using the CIFAR-10 dataset, a widely recognized dataset for image classification.
                     </p>
                 </div>
                 <a href="image_to_text.html" class="card-link">Read Post →</a>
                 <a href="https://github.com/umutesa/image-to-text-synthesizer" class="card-link">View on GitHub →</a>
             </div>
-            
+
             <div class="project-card">
                 <h3 class="card-title">Uber Customer Review Sentiment Analysis</h3>
                 <div class="card-content">
                     <p> This project applies sentiment analysis to evaluate Uber customer reviews using a natural language processing (NLP) framework.
-                    The primary goal is to identify reviews that offer constructive criticism or highlight service gaps, enabling actionable improvements in customer service. 
+                    The primary goal is to identify reviews that offer constructive criticism or highlight service gaps, enabling actionable improvements in customer service.
                     Three models—VADER (SentimentIntensityAnalyzer), BERT (Bidirectional Encoder Representations from Transformers), and BiLSTM (Bidirectional Long Short-Term Memory)—were implemented and evaluated for their effectiveness in classifying sentiment and feedback.
                     </p>
-                </div> 
+                </div>
                 <a href="uber_sentimental_anlysis.html" class="card-link">Read Post →</a>
                 <a href="https://github.com/umutesa/Uber_Sentiment_Review" class="card-link">View on GitHub →</a>
-                <a href="https://app.powerbi.com/reportEmbed?reportId=2c31566a-9f10-4e5c-80d0-bf814eb3a42f&autoAuth=true&ctid=92454335-564e-4ccf-b0b0-24445b8c03f7&actionBarEnabled=true" class="card-link">View Dashboard →</a>  
+                <a href="https://app.powerbi.com/reportEmbed?reportId=2c31566a-9f10-4e5c-80d0-bf814eb3a42f&autoAuth=true&ctid=92454335-564e-4ccf-b0b0-24445b8c03f7&actionBarEnabled=true" class="card-link">View Dashboard →</a>
             </div>
 
             <div class="project-card">
                 <h3 class="card-title">Optimizing LLM using RAG, Fine-Tuning and Reinforcement Learning from Human Feedback for Answering Questions about South African Recipes </h3>
                 <div class="card-content">
-                    <p> Chatbots have taken center stage in digital interaction, revolutionizing business, customer service, education, and daily assistance. 
+                    <p> Chatbots have taken center stage in digital interaction, revolutionizing business, customer service, education, and daily assistance.
                     But the generic models don’t always provide the specialized knowledge users need. This project focuses on fine-tuning a LLM model. i.e., GPT-2-medium to create a chatbot dedicated to answering questions about food recipes.
                     By incorporating Retrieval-Augmented Generation (RAG) and user reinforcement feedback, I enhance its ability to provide better responses to questions about the food recipes.
                     </p>
-                </div> 
+                </div>
                 <a href="chatbot.html" class="card-link">Read Post →</a>
                 <a href="https://github.com/umutesa/Chatbot" class="card-link">View on GitHub →</a>
-                <a href="https://umutesa.github.io/Chatbot/" class="card-link">Live Chatbot →</a>    
+                <a href="https://umutesa.github.io/Chatbot/" class="card-link">Live Chatbot →</a>
             </div>
-            
+
         </section>
-        
+
         <section id="Blogs" class="section">
             <h2 class="section-title">Blogs</h2>
             <p>
                 I see writing as an exciting opportunity to document my learning journey.
                 As I delve deeper into fascinating subjects like deep learning or natural language processing, writing serves as a tool to reinforce my understanding and share my progress with others.
             </p>
-            
+
             <div class="blog-card">
                 <h3 class="card-title">Understanding Outliers</h3>
                 <div class="card-content">
@@ -372,12 +378,12 @@
                 </div>
                 <a href="https://medium.com/@umutesa/the-significant-of-outliers-bc9fabbd7790" class="card-link">Read Blog →</a>
             </div>
-            
+
             <div class="blog-card">
                 <h3 class="card-title">Bias in Machine Learning Datasets</h3>
                 <div class="card-content">
                     <p>Machine learning datasets often come with hidden biases—whether it’s gender or racial imbalances, limited representation of African languages, or even age issues.
-                    These biases can end up training models that are unfair or skewed. 
+                    These biases can end up training models that are unfair or skewed.
                     In my Medium article, I dive into different ways of spotting these biases. </p>
                 </div>
                 <a href="https://medium.com/@umutesa/unmasking-machine-learning-bias-what-your-data-and-model-isnt-telling-you-8f91bbc5f905" class="card-link">Read Blog →</a>
@@ -386,7 +392,7 @@
             <div class="blog-card">
                 <h3 class="card-title">Visual Perception in Computer Vision</h3>
                 <div class="card-content">
-                    <p> While computer vision has advanced significantly in image recognition and visual understanding, challenges remain in replicating the contextual awareness and 
+                    <p> While computer vision has advanced significantly in image recognition and visual understanding, challenges remain in replicating the contextual awareness and
                     complexity of human perception. This article explores the fundamental differences between human and machine vision,
                     highlighting existing limitations in computer vision and potential challenges for improving visual reasoning to more closely resemble human cognition.</p>
                 </div>
@@ -396,15 +402,15 @@
             <div class="blog-card">
                 <h3 class="card-title">Can machines Understand sarcasm?</h3>
                 <div class="card-content">
-                    <p> Modern NLP models often struggle with interpreting ambiguous linguistic constructs like sarcasm. 
-                    This article examines the neuroscience behind human sarcasm and explores how those insights can be applied 
-                    to the development of more context-aware NLP systems, enabling better detection and understanding of the sarcastic language. 
+                    <p> Modern NLP models often struggle with interpreting ambiguous linguistic constructs like sarcasm.
+                    This article examines the neuroscience behind human sarcasm and explores how those insights can be applied
+                    to the development of more context-aware NLP systems, enabling better detection and understanding of the sarcastic language.
                     </p>
                 </div>
                 <a href="https://medium.com/@umutesa/can-machines-understand-sarcasm-9de8b6edec87" class="card-link">Read Blog →</a>
             </div>
         </section>
-        
+
         <footer>
             <p>&copy; 2025 Umutesa Munyurangabo. All Rights Reserved.</p>
         </footer>
