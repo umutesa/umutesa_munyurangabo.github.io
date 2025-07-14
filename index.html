@@ -26,26 +26,26 @@
         body {
             font-family: 'Roboto', Arial, sans-serif;
             line-height: 1.6;
-            color: var(--main-text-color); /* Main content default text color */
+            color: var(--main-text-color);
             margin: 0;
             padding: 0;
             display: flex;
             min-height: 100vh;
-            background-color: var(--main-background-color); /* Main content default background */
+            background-color: var(--main-background-color);
             font-size: 13px;
         }
 
         /* Sidebar Styles */
         .sidebar {
             width: 250px;
-            background-color: var(--sidebar-background-color); /* Dark mode sidebar background */
+            background-color: var(--sidebar-background-color);
             padding: 30px;
             position: fixed;
             height: 100%;
             overflow-y: auto;
             box-sizing: border-box;
-            border-right: 1px solid var(--sidebar-border-color); /* Dark mode sidebar border */
-            color: var(--sidebar-text-color); /* Dark mode sidebar text color */
+            border-right: 1px solid var(--sidebar-border-color);
+            color: var(--sidebar-text-color);
         }
 
         .sidebar-header {
@@ -65,13 +65,13 @@
             margin: 0;
             font-size: 1.8em;
             font-weight: 600;
-            color: var(--sidebar-text-color); /* Dark mode sidebar heading color */
+            color: var(--sidebar-text-color);
         }
 
         .sidebar-header p {
             margin: 5px 0 0;
             font-size: 1em;
-            color: var(--sidebar-text-color); /* Dark mode sidebar paragraph color */
+            color: var(--sidebar-text-color);
         }
 
         .nav-links {
@@ -87,7 +87,7 @@
         .nav-links a {
             display: block;
             padding: 8px 0;
-            color: var(--sidebar-text-color); /* Dark mode sidebar link color */
+            color: var(--sidebar-text-color);
             text-decoration: none;
             font-size: 1em;
             font-weight: 500;
@@ -95,7 +95,7 @@
         }
 
         .nav-links a:hover {
-            color: var(--sidebar-link-hover-color); /* Dark mode sidebar link hover color */
+            color: var(--sidebar-link-hover-color);
         }
 
         .social-links {
@@ -106,13 +106,13 @@
         .social-links a {
             display: inline-block;
             margin: 0 8px;
-            color: var(--sidebar-text-color); /* Dark mode social link color */
+            color: var(--sidebar-text-color);
             font-size: 1.2em;
             transition: color 0.3s;
         }
 
         .social-links a:hover {
-            color: var(--sidebar-link-hover-color); /* Dark mode social link hover color */
+            color: var(--sidebar-link-hover-color);
         }
 
         /* Main Content Styles */
@@ -120,8 +120,8 @@
             flex: 1;
             padding: 8px;
             margin-left: 310px;
-            background-color: var(--main-background-color); /* Light mode main content background */
-            color: var(--main-text-color); /* Light mode main content text color */
+            background-color: var(--main-background-color);
+            color: var(--main-text-color);
         }
 
         .section {
@@ -132,53 +132,106 @@
             font-size: 2em;
             font-weight: 600;
             margin-bottom: 25px;
-            color: var(--main-text-color); /* Light mode section title color */
-            border-bottom: 1px solid var(--main-section-border-color); /* Light mode section border */
+            color: var(--main-text-color);
+            border-bottom: 1px solid var(--main-section-border-color);
             padding-bottom: 10px;
         }
 
-        /* Project & Blog Styles */
+        /* Project & Blog Card Styles with Images */
         .project-card, .blog-card {
             margin-bottom: 30px;
-            padding: 20px;
-            background-color: var(--main-card-bg-color); /* Light mode card background */
-            border-left: 3px solid var(--main-card-border-color); /* Light mode card border */
+            background-color: var(--main-card-bg-color);
+            border-left: 3px solid var(--main-card-border-color);
             transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 8px;
+            overflow: hidden;
         }
 
         .project-card:hover, .blog-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Light mode shadow */
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .card-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .card-image {
+            flex-shrink: 0;
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 6px;
+            transition: transform 0.3s ease;
+        }
+
+        .card-image:hover {
+            transform: scale(1.05);
+        }
+
+        .card-content-wrapper {
+            flex: 1;
+            padding: 20px;
+            padding-left: 0;
         }
 
         .card-title {
             font-size: 1.4em;
             margin-top: 0;
             margin-bottom: 15px;
-            color: var(--main-text-color); /* Light mode card title color */
-            font-weight: bold; /* Make card titles bold */
+            color: var(--main-text-color);
+            font-weight: bold;
         }
         
         .card-content strong {
-            font-weight: 500; /* Less bold for subheadings/emphasized text within content */
+            font-weight: 500;
         }
 
         .card-content {
             margin-bottom: 15px;
-            font-weight: normal; /* Ensure content itself is not bold */
+            font-weight: normal;
+        }
+
+        .card-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
         .card-link {
             display: inline-block;
-            color: var(--main-card-border-color); /* Light mode card link color (using same blue) */
+            color: var(--main-card-border-color);
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
+            padding: 8px 16px;
+            border: 1px solid var(--main-card-border-color);
+            border-radius: 4px;
+            font-size: 0.9em;
         }
 
         .card-link:hover {
-            color: #2980b9; /* Slightly darker blue for hover in light mode */
-            text-decoration: underline;
+            color: #fff;
+            background-color: var(--main-card-border-color);
+            text-decoration: none;
+        }
+
+        /* Special styling for primary link */
+        .card-link.primary {
+            background-color: var(--main-card-border-color);
+            color: #fff;
+        }
+
+        .card-link.primary:hover {
+            background-color: #2980b9;
+        }
+
+        /* Image-only layout for mobile */
+        .card-image-wrapper {
+            padding: 15px;
+            padding-bottom: 0;
         }
 
         /* Interests List Styling */
@@ -197,7 +250,7 @@
             content: "•";
             position: absolute;
             left: 0;
-            color: var(--main-card-border-color); /* Light mode bullet color */
+            color: var(--main-card-border-color);
             font-weight: bold;
         }
 
@@ -205,10 +258,10 @@
         footer {
             text-align: center;
             font-size: 0.9em;
-            color: var(--main-text-color); /* Light mode footer text color */
+            color: var(--main-text-color);
             margin-top: 50px;
             padding-top: 20px;
-            border-top: 1px solid var(--main-section-border-color); /* Light mode footer border */
+            border-top: 1px solid var(--main-section-border-color);
         }
 
         /* Responsive Styles */
@@ -233,6 +286,37 @@
                 width: 100px;
                 height: 100px;
             }
+
+            .card-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .card-image {
+                width: 100%;
+                height: 200px;
+            }
+
+            .card-content-wrapper {
+                padding: 15px;
+            }
+
+            .card-links {
+                justify-content: center;
+            }
+        }
+
+        /* Placeholder image styling */
+        .placeholder-image {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
         }
     </style>
 </head>
@@ -319,54 +403,81 @@
             <p>Here's a showcase of my ongoing work:</p>
 
             <div class="project-card">
-                <h3 class="card-title">Time Series Prediction for USD/ZAR Exchange Rate using Deep Learning Models</h3>
-                <div class="card-content">
-                    <p>This project delves into deep learning models to analyze and forecast USD/ZAR Exchange Rate using historical data from Yahoo Finance.
-                        By comparing Recurrent Neural Networks (RNNs), Long Short-Term Memory (LSTM) networks, Artificial Neural Networks (ANNs), and Gated Recurrent Units (GRUs),
-                        I aim to uncover patterns and generate accurate predictions that can assist in making informed decisions about the financial market.
+                <div class="card-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&h=300&fit=crop&crop=entropy&auto=format&q=80" alt="Time Series Prediction Chart" class="card-image">
+                </div>
+                <div class="card-content-wrapper">
+                    <h3 class="card-title">Time Series Prediction for USD/ZAR Exchange Rate using Deep Learning Models</h3>
+                    <div class="card-content">
+                        <p>This project delves into deep learning models to analyze and forecast USD/ZAR Exchange Rate using historical data from Yahoo Finance.
+                            By comparing Recurrent Neural Networks (RNNs), Long Short-Term Memory (LSTM) networks, Artificial Neural Networks (ANNs), and Gated Recurrent Units (GRUs),
+                            I aim to uncover patterns and generate accurate predictions that can assist in making informed decisions about the financial market.
                         </p>
+                    </div>
+                    <div class="card-links">
+                        <a href="time_series_prediction.html" class="card-link primary">Read Post</a>
+                        <a href="https://github.com/umutesa/Time_Series_Prediction" class="card-link">View on GitHub</a>
+                    </div>
                 </div>
-                <a href="time_series_prediction.html" class="card-link">Read Post →</a>
-                <a href="https://github.com/umutesa/Time_Series_Prediction" class="card-link">View on GitHub →</a>
             </div>
 
             <div class="project-card">
-                <h3 class="card-title">Image to Text Synthesizer</h3>
-                <div class="card-content">
-                    <p>This project investigates different deep learning models for converting images into text, specifically diffusion models, Convolutional Neural Networks (CNNs), and Generative Adversarial Networks (GANs).
-                    The goal is to assess each model's performance using the CIFAR-10 dataset, a widely recognized dataset for image classification.
-                    </p>
+                <div class="card-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=300&fit=crop&crop=entropy&auto=format&q=80" alt="Neural Network Visualization" class="card-image">
                 </div>
-                <a href="image_to_text.html" class="card-link">Read Post →</a>
-                <a href="https://github.com/umutesa/image-to-text-synthesizer" class="card-link">View on GitHub →</a>
+                <div class="card-content-wrapper">
+                    <h3 class="card-title">Image to Text Synthesizer</h3>
+                    <div class="card-content">
+                        <p>This project investigates different deep learning models for converting images into text, specifically diffusion models, Convolutional Neural Networks (CNNs), and Generative Adversarial Networks (GANs).
+                        The goal is to assess each model's performance using the CIFAR-10 dataset, a widely recognized dataset for image classification.
+                        </p>
+                    </div>
+                    <div class="card-links">
+                        <a href="image_to_text.html" class="card-link primary">Read Post</a>
+                        <a href="https://github.com/umutesa/image-to-text-synthesizer" class="card-link">View on GitHub</a>
+                    </div>
+                </div>
             </div>
 
             <div class="project-card">
-                <h3 class="card-title">Uber Customer Review Sentiment Analysis</h3>
-                <div class="card-content">
-                    <p>This project applies sentiment analysis to evaluate Uber customer reviews using a natural language processing (NLP) framework.
-                    The primary goal is to identify reviews that offer constructive criticism or highlight service gaps, enabling actionable improvements in customer service.
-                    Three models—VADER (SentimentIntensityAnalyzer), BERT (Bidirectional Encoder Representations from Transformers), and BiLSTM (Bidirectional Long Short-Term Memory)—were implemented and evaluated for their effectiveness in classifying sentiment and feedback.
-                    </p>
+                <div class="card-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1551808525-51a94da548ce?w=400&h=300&fit=crop&crop=entropy&auto=format&q=80" alt="Uber App Interface" class="card-image">
                 </div>
-                <a href="uber_sentimental_anlysis.html" class="card-link">Read Post →</a>
-                <a href="https://github.com/umutesa/Uber_Sentiment_Review" class="card-link">View on GitHub →</a>
-                <a href="https://app.powerbi.com/reportEmbed?reportId=2c31566a-9f10-4e5c-80d0-bf814eb3a42f&autoAuth=true&ctid=92454335-564e-4ccf-b0b0-24445b8c03f7&actionBarEnabled=true" class="card-link">View Dashboard →</a>
+                <div class="card-content-wrapper">
+                    <h3 class="card-title">Uber Customer Review Sentiment Analysis</h3>
+                    <div class="card-content">
+                        <p>This project applies sentiment analysis to evaluate Uber customer reviews using a natural language processing (NLP) framework.
+                        The primary goal is to identify reviews that offer constructive criticism or highlight service gaps, enabling actionable improvements in customer service.
+                        Three models—VADER (SentimentIntensityAnalyzer), BERT (Bidirectional Encoder Representations from Transformers), and BiLSTM (Bidirectional Long Short-Term Memory)—were implemented and evaluated for their effectiveness in classifying sentiment and feedback.
+                        </p>
+                    </div>
+                    <div class="card-links">
+                        <a href="uber_sentimental_anlysis.html" class="card-link primary">Read Post</a>
+                        <a href="https://github.com/umutesa/Uber_Sentiment_Review" class="card-link">View on GitHub</a>
+                        <a href="https://app.powerbi.com/reportEmbed?reportId=2c31566a-9f10-4e5c-80d0-bf814eb3a42f&autoAuth=true&ctid=92454335-564e-4ccf-b0b0-24445b8c03f7&actionBarEnabled=true" class="card-link">View Dashboard</a>
+                    </div>
+                </div>
             </div>
 
             <div class="project-card">
-                <h3 class="card-title">Optimizing LLM using RAG, Fine-Tuning and Reinforcement Learning from Human Feedback for Answering Questions about South African Recipes </h3>
-                <div class="card-content">
-                    <p>Chatbots have taken center stage in digital interaction, revolutionizing business, customer service, education, and daily assistance.
-                    But the generic models don’t always provide the specialized knowledge users need. This project focuses on fine-tuning a LLM model. i.e., GPT-2-medium to create a chatbot dedicated to answering questions about food recipes.
-                    By incorporating Retrieval-Augmented Generation (RAG) and user reinforcement feedback, I enhance its ability to provide better responses to questions about the food recipes.
-                    </p>
+                <div class="card-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400&h=300&fit=crop&crop=entropy&auto=format&q=80" alt="South African Traditional Food" class="card-image">
                 </div>
-                <a href="chatbot.html" class="card-link">Read Post →</a>
-                <a href="https://github.com/umutesa/Chatbot" class="card-link">View on GitHub →</a>
-                <a href="https://umutesa.github.io/Chatbot/" class="card-link">Live Chatbot →</a>
+                <div class="card-content-wrapper">
+                    <h3 class="card-title">Optimizing LLM using RAG, Fine-Tuning and Reinforcement Learning from Human Feedback for Answering Questions about South African Recipes</h3>
+                    <div class="card-content">
+                        <p>Chatbots have taken center stage in digital interaction, revolutionizing business, customer service, education, and daily assistance.
+                        But the generic models don't always provide the specialized knowledge users need. This project focuses on fine-tuning a LLM model. i.e., GPT-2-medium to create a chatbot dedicated to answering questions about food recipes.
+                        By incorporating Retrieval-Augmented Generation (RAG) and user reinforcement feedback, I enhance its ability to provide better responses to questions about the food recipes.
+                        </p>
+                    </div>
+                    <div class="card-links">
+                        <a href="chatbot.html" class="card-link primary">Read Post</a>
+                        <a href="https://github.com/umutesa/Chatbot" class="card-link">View on GitHub</a>
+                        <a href="https://umutesa.github.io/Chatbot/" class="card-link">Live Chatbot</a>
+                    </div>
+                </div>
             </div>
-
         </section>
 
         <section id="Blogs" class="section">
@@ -377,44 +488,72 @@
             </p>
 
             <div class="blog-card">
-                <h3 class="card-title">Understanding Outliers</h3>
-                <div class="card-content">
-                    <p>Outliers can make working with data feel a bit uneasy. We tend to want to remove them immediately because they don’t fit our usual expectations.
-                    But what if those outliers are actually pointing to a rare or significant event rather than just being noise?
-                    I explore this idea in my Medium article, breaking down how to tell if an outlier is revealing a real insight or not.</p>
+                <div class="card-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop&crop=entropy&auto=format&q=80" alt="Data Analysis Charts" class="card-image">
                 </div>
-                <a href="https://medium.com/@umutesa/the-significant-of-outliers-bc9fabbd7790" class="card-link">Read Blog →</a>
+                <div class="card-content-wrapper">
+                    <h3 class="card-title">Understanding Outliers</h3>
+                    <div class="card-content">
+                        <p>Outliers can make working with data feel a bit uneasy. We tend to want to remove them immediately because they don't fit our usual expectations.
+                        But what if those outliers are actually pointing to a rare or significant event rather than just being noise?
+                        I explore this idea in my Medium article, breaking down how to tell if an outlier is revealing a real insight or not.</p>
+                    </div>
+                    <div class="card-links">
+                        <a href="https://medium.com/@umutesa/the-significant-of-outliers-bc9fabbd7790" class="card-link primary">Read Blog</a>
+                    </div>
+                </div>
             </div>
 
             <div class="blog-card">
-                <h3 class="card-title">Bias in Machine Learning Datasets</h3>
-                <div class="card-content">
-                    <p>Machine learning datasets often come with hidden biases—whether it’s gender or racial imbalances, limited representation of African languages, or even age issues.
-                    These biases can end up training models that are unfair or skewed.
-                    In my Medium article, I dive into different ways of spotting these biases. </p>
+                <div class="card-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop&crop=entropy&auto=format&q=80" alt="Diverse Group of People" class="card-image">
                 </div>
-                <a href="https://medium.com/@umutesa/unmasking-machine-learning-bias-what-your-data-and-model-isnt-telling-you-8f91bbc5f905" class="card-link">Read Blog →</a>
+                <div class="card-content-wrapper">
+                    <h3 class="card-title">Bias in Machine Learning Datasets</h3>
+                    <div class="card-content">
+                        <p>Machine learning datasets often come with hidden biases—whether it's gender or racial imbalances, limited representation of African languages, or even age issues.
+                        These biases can end up training models that are unfair or skewed.
+                        In my Medium article, I dive into different ways of spotting these biases.</p>
+                    </div>
+                    <div class="card-links">
+                        <a href="https://medium.com/@umutesa/unmasking-machine-learning-bias-what-your-data-and-model-isnt-telling-you-8f91bbc5f905" class="card-link primary">Read Blog</a>
+                    </div>
+                </div>
             </div>
 
             <div class="blog-card">
-                <h3 class="card-title">Visual Perception in Computer Vision</h3>
-                <div class="card-content">
-                    <p> While computer vision has advanced significantly in image recognition and visual understanding, challenges remain in replicating the contextual awareness and
-                    complexity of human perception. This article explores the fundamental differences between human and machine vision,
-                    highlighting existing limitations in computer vision and potential challenges for improving visual reasoning to more closely resemble human cognition.</p>
+                <div class="card-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=300&fit=crop&crop=entropy&auto=format&q=80" alt="Robot Eye Computer Vision" class="card-image">
                 </div>
-                <a href="https://medium.com/@umutesa/redefining-what-it-means-for-machines-to-see-7876c29130b2" class="card-link">Read Blog →</a>
+                <div class="card-content-wrapper">
+                    <h3 class="card-title">Visual Perception in Computer Vision</h3>
+                    <div class="card-content">
+                        <p>While computer vision has advanced significantly in image recognition and visual understanding, challenges remain in replicating the contextual awareness and
+                        complexity of human perception. This article explores the fundamental differences between human and machine vision,
+                        highlighting existing limitations in computer vision and potential challenges for improving visual reasoning to more closely resemble human cognition.</p>
+                    </div>
+                    <div class="card-links">
+                        <a href="https://medium.com/@umutesa/redefining-what-it-means-for-machines-to-see-7876c29130b2" class="card-link primary">Read Blog</a>
+                    </div>
+                </div>
             </div>
 
             <div class="blog-card">
-                <h3 class="card-title">Can machines Understand sarcasm?</h3>
-                <div class="card-content">
-                    <p> Modern NLP models often struggle with interpreting ambiguous linguistic constructs like sarcasm.
-                    This article examines the neuroscience behind human sarcasm and explores how those insights can be applied
-                    to the development of more context-aware NLP systems, enabling better detection and understanding of the sarcastic language.
-                    </p>
+                <div class="card-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=400&h=300&fit=crop&crop=entropy&auto=format&q=80" alt="Speech Bubble with Question Mark" class="card-image">
                 </div>
-                <a href="https://medium.com/@umutesa/can-machines-understand-sarcasm-9de8b6edec87" class="card-link">Read Blog →</a>
+                <div class="card-content-wrapper">
+                    <h3 class="card-title">Can machines Understand sarcasm?</h3>
+                    <div class="card-content">
+                        <p>Modern NLP models often struggle with interpreting ambiguous linguistic constructs like sarcasm.
+                        This article examines the neuroscience behind human sarcasm and explores how those insights can be applied
+                        to the development of more context-aware NLP systems, enabling better detection and understanding of the sarcastic language.
+                        </p>
+                    </div>
+                    <div class="card-links">
+                        <a href="https://medium.com/@umutesa/can-machines-understand-sarcasm-9de8b6edec87" class="card-link primary">Read Blog</a>
+                    </div>
+                </div>
             </div>
         </section>
 
