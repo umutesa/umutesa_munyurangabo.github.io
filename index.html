@@ -137,66 +137,57 @@
             padding-bottom: 10px;
         }
 
-        /* Project & Blog Card Styles with Images */
-        .project-card, .blog-card {
-            margin-bottom: 30px;
+        /* Projects Grid Layout */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        /* Project Card Styles */
+        .project-card {
             background-color: var(--main-card-bg-color);
-            border-left: 3px solid var(--main-card-border-color);
-            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid var(--main-card-border-color);
             border-radius: 8px;
             overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: fit-content;
         }
 
-        .project-card:hover, .blog-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-        }
-
-        .card-container {
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-        }
-
-        .card-image {
-            width: 550px;
-            height: 150px;
-            object-fit: contain;
-            border-radius: 6px;
-            transition: transform 0.3s ease;
-        }
-
-        .card-image:hover {
-            transform: scale(1.05);
+        .project-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
         }
 
         .card-content-wrapper {
-            flex: 1;
-            padding: 20px;
-            padding-left: 0;
+            padding: 25px;
         }
 
         .card-title {
-            font-size: 1.4em;
-            margin-top: 0;
-            margin-bottom: 15px;
+            font-size: 1.3em;
+            margin: 0 0 15px 0;
             color: var(--main-text-color);
-            font-weight: bold;
-        }
-        
-        .card-content strong {
-            font-weight: 500;
+            font-weight: 600;
+            line-height: 1.4;
         }
 
         .card-content {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             font-weight: normal;
+            color: var(--main-text-color);
+            line-height: 1.5;
+        }
+
+        .card-content p {
+            margin: 0 0 10px 0;
         }
 
         .card-links {
             display: flex;
-            gap: 15px;
+            gap: 10px;
             flex-wrap: wrap;
+            margin-top: 15px;
         }
 
         .card-link {
@@ -204,11 +195,11 @@
             color: var(--main-card-border-color);
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s;
-            padding: 8px 16px;
+            transition: all 0.3s ease;
+            padding: 8px 14px;
             border: 1px solid var(--main-card-border-color);
             border-radius: 4px;
-            font-size: 0.9em;
+            font-size: 0.85em;
         }
 
         .card-link:hover {
@@ -227,10 +218,47 @@
             background-color: #2980b9;
         }
 
-        /* Image-only layout for mobile */
-        .card-image-wrapper {
-            padding: 15px;
-            padding-bottom: 0;
+        /* Blog Card Styles - Keep original single column layout */
+        .blog-card {
+            margin-bottom: 30px;
+            background-color: var(--main-card-bg-color);
+            border-left: 3px solid var(--main-card-border-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .blog-card .card-content-wrapper {
+            padding: 20px;
+        }
+
+        .blog-card .card-title {
+            font-size: 1.4em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: var(--main-text-color);
+            font-weight: bold;
+        }
+
+        .blog-card .card-content {
+            margin-bottom: 15px;
+            font-weight: normal;
+        }
+
+        .blog-card .card-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .blog-card .card-link {
+            padding: 8px 16px;
+            font-size: 0.9em;
         }
 
         /* Interests List Styling */
@@ -264,6 +292,12 @@
         }
 
         /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 900px) {
             body {
                 flex-direction: column;
@@ -286,36 +320,46 @@
                 height: 100px;
             }
 
-            .card-container {
-                flex-direction: column;
-                gap: 15px;
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
 
-            .card-image {
-                width: 100%;
-                height: 200px;
+            .project-card {
+                margin-bottom: 20px;
+            }
+
+            .card-content-wrapper {
+                padding: 20px;
+            }
+
+            .card-links {
+                justify-content: flex-start;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
             }
 
             .card-content-wrapper {
                 padding: 15px;
             }
 
-            .card-links {
-                justify-content: center;
+            .card-title {
+                font-size: 1.2em;
             }
-        }
 
-        /* Placeholder image styling */
-        .placeholder-image {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2em;
-            font-weight: bold;
-            text-align: center;
-            padding: 20px;
+            .card-links {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .card-link {
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -400,111 +444,97 @@
         <section id="projects" class="section">
             <h2 class="section-title">Projects</h2>
 
-            <div class="project-card">
-                <div class="card-content-wrapper">
-                    <h3 class="card-title">Time Series Prediction for USD/ZAR Exchange Rate using Deep Learning Models</h3>
-                    <div class="card-content">
-                        <p>This project delves into deep learning models to analyze and forecast USD/ZAR Exchange Rate using historical data from Yahoo Finance.
-                            By comparing Recurrent Neural Networks (RNNs), Long Short-Term Memory (LSTM) networks, Artificial Neural Networks (ANNs), and Gated Recurrent Units (GRUs),
-                            I aim to uncover patterns and generate accurate predictions that can assist in making informed decisions about the financial market.
-                        </p>
-                    </div>
-                    <div class="card-links">
-                        <a href="time_series_prediction.html" class="card-link primary">Read Post</a>
-                        <a href="https://github.com/umutesa/Time_Series_Prediction" class="card-link">View on GitHub</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="card-content-wrapper">
-                    <h3 class="card-title">Image to Text Synthesizer</h3>
-                    <div class="card-content">
-                        <p>This project investigates different deep learning models for converting images into text, specifically diffusion models, Convolutional Neural Networks (CNNs), and Generative Adversarial Networks (GANs).
-                        The goal is to assess each model's performance using the CIFAR-10 dataset, a widely recognized dataset for image classification.
-                        </p>
-                    </div>
-                    <div class="card-links">
-                        <a href="image_to_text.html" class="card-link primary">Read Post</a>
-                        <a href="https://github.com/umutesa/image-to-text-synthesizer" class="card-link">View on GitHub</a>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">Time Series Prediction for USD/ZAR Exchange Rate using Deep Learning Models</h3>
+                        <div class="card-content">
+                            <p>This project delves into deep learning models to analyze and forecast USD/ZAR Exchange Rate using historical data from Yahoo Finance. By comparing RNNs, LSTM networks, ANNs, and GRUs, I aim to uncover patterns and generate accurate predictions for informed financial market decisions.</p>
+                        </div>
+                        <div class="card-links">
+                            <a href="time_series_prediction.html" class="card-link primary">Read Post</a>
+                            <a href="https://github.com/umutesa/Time_Series_Prediction" class="card-link">View on GitHub</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="project-card">
-                <div class="card-content-wrapper">
-                    <h3 class="card-title">Uber Customer Review Sentiment Analysis</h3>
-                    <div class="card-content">
-                        <p>This project applies sentiment analysis to evaluate Uber customer reviews using a natural language processing (NLP) framework.
-                        The primary goal is to identify reviews that offer constructive criticism or highlight service gaps, enabling actionable improvements in customer service.
-                        Three models—VADER (SentimentIntensityAnalyzer), BERT (Bidirectional Encoder Representations from Transformers), and BiLSTM (Bidirectional Long Short-Term Memory)—were implemented and evaluated for their effectiveness in classifying sentiment and feedback.
-                        </p>
-                    </div>
-                    <div class="card-links">
-                        <a href="uber_sentimental_anlysis.html" class="card-link primary">Read Post</a>
-                        <a href="https://github.com/umutesa/Uber_Sentiment_Review" class="card-link">View on GitHub</a>
-                        <a href="https://app.powerbi.com/reportEmbed?reportId=2c31566a-9f10-4e5c-80d0-bf814eb3a42f&autoAuth=true&ctid=92454335-564e-4ccf-b0b0-24445b8c03f7&actionBarEnabled=true" class="card-link">View Dashboard</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="card-content-wrapper">
-                    <h3 class="card-title">Optimizing LLM using RAG, Fine-Tuning and Reinforcement Learning from Human Feedback for Answering Questions about South African Recipes</h3>
-                    <div class="card-content">
-                        <p>Chatbots have taken center stage in digital interaction, revolutionizing business, customer service, education, and daily assistance.
-                        But the generic models don't always provide the specialized knowledge users need. This project focuses on fine-tuning a LLM model. i.e., GPT-2-medium to create a chatbot dedicated to answering questions about food recipes.
-                        By incorporating Retrieval-Augmented Generation (RAG) and user reinforcement feedback, I enhance its ability to provide better responses to questions about the food recipes.
-                        </p>
-                    </div>
-                    <div class="card-links">
-                        <a href="chatbot.html" class="card-link primary">Read Post</a>
-                        <a href="https://github.com/umutesa/Chatbot" class="card-link">View on GitHub</a>
-                        <a href="https://umutesa.github.io/Chatbot/" class="card-link">Live Chatbot</a>
-                    </div>
-                </div>
-            </div>
 
                 <div class="project-card">
-                <div class="card-content-wrapper">
-                    <h3 class="card-title">South Africa Weather Coordinated Web Page</h3>
-                    <div class="card-content">
-                        <p>This project is an interactive weather monitoring dashboard that provides real-time meteorological data and extreme weather alerts for major cities across South Africa. It features an intuitive geospatial interface with temperature, wind, and storm data. The system is built using a Python Flask backend with SQLite for lightweight data storage, while the frontend uses Streamlit and PyDeck for interactive visual dashboard
-                        </p>
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">Image to Text Synthesizer</h3>
+                        <div class="card-content">
+                            <p>This project investigates different deep learning models for converting images into text, specifically diffusion models, CNNs, and GANs. The goal is to assess each model's performance using the CIFAR-10 dataset, a widely recognized dataset for image classification.</p>
+                        </div>
+                        <div class="card-links">
+                            <a href="image_to_text.html" class="card-link primary">Read Post</a>
+                            <a href="https://github.com/umutesa/image-to-text-synthesizer" class="card-link">View on GitHub</a>
+                        </div>
                     </div>
-                    <div class="card-links">
-                        <a href="https://github.com/umutesa/South-Africa-Weather-Web-Page" class="card-link">View on GitHub</a>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">Uber Customer Review Sentiment Analysis</h3>
+                        <div class="card-content">
+                            <p>This project applies sentiment analysis to evaluate Uber customer reviews using an NLP framework. Three models—VADER, BERT, and BiLSTM—were implemented and evaluated for their effectiveness in classifying sentiment and providing actionable customer service improvements.</p>
+                        </div>
+                        <div class="card-links">
+                            <a href="uber_sentimental_anlysis.html" class="card-link primary">Read Post</a>
+                            <a href="https://github.com/umutesa/Uber_Sentiment_Review" class="card-link">View on GitHub</a>
+                            <a href="https://app.powerbi.com/reportEmbed?reportId=2c31566a-9f10-4e5c-80d0-bf814eb3a42f&autoAuth=true&ctid=92454335-564e-4ccf-b0b0-24445b8c03f7&actionBarEnabled=true" class="card-link">Dashboard</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">Optimizing LLM using RAG & Fine-Tuning for South African Recipes</h3>
+                        <div class="card-content">
+                            <p>This project focuses on fine-tuning a GPT-2-medium model to create a specialized chatbot for South African food recipes. By incorporating RAG and reinforcement learning from human feedback, the system provides enhanced responses to recipe-related queries.</p>
+                        </div>
+                        <div class="card-links">
+                            <a href="chatbot.html" class="card-link primary">Read Post</a>
+                            <a href="https://github.com/umutesa/Chatbot" class="card-link">View on GitHub</a>
+                            <a href="https://umutesa.github.io/Chatbot/" class="card-link">Live Chatbot</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">South Africa Weather Coordinated Web Page</h3>
+                        <div class="card-content">
+                            <p>An interactive weather monitoring dashboard providing real-time meteorological data and extreme weather alerts for major South African cities. Features an intuitive geospatial interface built with Python Flask, SQLite, Streamlit, and PyDeck.</p>
+                        </div>
+                        <div class="card-links">
+                            <a href="https://github.com/umutesa/South-Africa-Weather-Web-Page" class="card-link primary">View on GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">Vision-Based Image Question Answering</h3>
+                        <div class="card-content">
+                            <p>This project enables users to upload images and ask questions about their content. The system provides context-aware responses using transformer models to interpret image features and generate accurate visual question answers.</p>
+                        </div>
+                        <div class="card-links">
+                            <a href="https://github.com/umutesa/Question-Answering-about-Visual-Images" class="card-link primary">View on GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">Emotion Detection System</h3>
+                        <div class="card-content">
+                            <p>A facial emotion detection system that analyzes facial features to classify emotional states. The system first detects faces in images, then performs facial analysis to determine the individual's emotional expression through advanced computer vision techniques.</p>
+                        </div>
+                        <div class="card-links">
+                            <a href="https://github.com/umutesa/emotion_detection" class="card-link primary">View on GitHub</a>
+                        </div>
                     </div>
                 </div>
             </div>
-
-                 <div class="project-card">
-                <div class="card-content-wrapper">
-                    <h3 class="card-title">Vision-Based Image Question Answering</h3>
-                    <div class="card-content">
-                        <p>This project enables users to upload an image and ask questions about image. The system  answers to visual questions based on the content of the image. It uses transformer models to interpret image features and generate context-aware responses.
-                        </p>
-                    </div>
-                    <div class="card-links">
-                        <a href="https://github.com/umutesa/Question-Answering-about-Visual-Images" class="card-link">View on GitHub</a>
-                    </div>
-                </div>
-            </div>
-
-              <div class="project-card">
-                <div class="card-content-wrapper">
-                    <h3 class="card-title">Emotion Detection</h3>
-                    <div class="card-content">
-                        <p>A basic emotion detection system conducts facial analysis by first detecting faces in an image, then analyzing facial features to classify the individual's emotional state.
-                        </p>
-                    </div>
-                    <div class="card-links">
-                        <a href="https://github.com/umutesa/emotion_detection" class="card-link">View on GitHub</a>
-                    </div>
-                </div>
-            </div>
-
-            
         </section>
 
         <section id="Blogs" class="section">
