@@ -46,12 +46,12 @@
 <body>
   <h1>Image-to-Text Synthesizer: Comparing Diffusion, CNNs, and GANs</h1>
 
-  <p>Image-to-text conversion has become increasily popular—for answering questions about images and extracting specific data that can be transformative in fields like medicine and education. 
+  <p>Image-to-text conversion has become increasily popular, particular for answering questions about images and extracting visual data that can be transformative in fields like medicine and education. 
     This project delves into three fundamental deep learning models for image-text: Convolutional Neural Networks (CNNs), Generative Adversarial Networks (GANs), and Diffusion Models (integrated with Vision Transformers and GPT-2). </p>
 
   <div class="section">
     <h2>Dataset Note</h2>
-    <p>For this project, we used the well-known CIFAR-10 dataset, which comprises 60,000 32x32 color images across 10 classes (airplanes, cars, birds, cats, deer, dogs, frogs, horses, ships, and trucks). 
+    <p>For this project, we used the well-known CIFAR-10 dataset, which comprises of 60,000 32x32 color images across 10 classes (airplanes, cars, birds, cats, deer, dogs, frogs, horses, ships, and trucks). 
       Although the low resolution limits fine-grained detail extraction, CIFAR-10 was chosen for its simplicity , fast training and its ability to test model robustness under low hardware capabilities.</p>
 
     <img src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image/cifar10.jpg" alt="Confusion Matrix 1" width="600" height="600">
@@ -65,12 +65,13 @@
     
     <h3>How CNNs Work</h3>
     <ul>
-      <li><strong>Convolution Layer:</strong> Filters (or kernels) slide over the image, computing dot products on local regions to create feature maps. This process captures essential features like edges, textures, and shapes, while weight sharing reduces the number of trainable parameters.</li>
+      <li><strong>Convolution Layer:</strong> Filters (or kernels) slide over the image, computing dot products on local regions to create feature maps. 
+        This process captures critical image features like edges, textures, and shapes..</li>
       <li><strong>Activation Layer:</strong> A non-linear activation function, such as ReLU, is applied to introduce non-linearity, allowing the network to model complex relationships.</li>
-      <li><strong>Pooling Layer:</strong> Pooling (using max or average pooling) reduces spatial dimensions, decreases computational complexity, and provides translation invariance.</li>
+      <li><strong>Pooling Layer:</strong> Pooling (using max or average pooling) reduces spatial dimensions.</li>
     </ul>
     
-    <p>After passing through several convolution and pooling layers, the resulting feature maps are flattened and fed into fully connected layers that perform the final classification or feature extraction. </p>
+    <p>After passing through several convolution and pooling layers, the resulting feature maps are flattened and fed into fully connected layers that perform the final classification. </p>
 
    
     <img src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image/image2text/cnn_matrix.png" alt="Confusion Mtrix 1">
@@ -79,8 +80,11 @@
     
     
     <p>  
-      Even with a low training size (I trained around 10 epochs on CIFAR-10), the confusion matrix showed high performance in image classification, i.e Approximate 65% on average for all classes. 
-      However certain classes (e.g., airplanes and cars) were accurately recognized, while others (like birds, cats, and deer) lagged behind as shown in the bar chart per label performance. </p>
+  ---
+
+      Despite a small training size (approximately 10 epochs on CIFAR-10), the confusion matrix revealed strong image classification performance, averaging around 65% across all classes. 
+      However, accuracy varied significantly: certain classes, such as airplanes (label 0) and cars (label 1), were recognized with high precision, while others, 
+      including birds (label 2), cats (label 3) , and deer (label 4), showed comparatively lower performance, as illustrated in the per-label bar chart. </p>
     
   </div>
 
@@ -105,29 +109,46 @@
     <div style="display:flex;justify-content:space-between;flex-wrap:nowrap;"><img style="width:30%;height:auto;" src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image/image2text/gan1.png" alt="Output Performance 1"><img style="width:25%;height:auto;" src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image/image2text/gan2.png" alt="Output Performance 2"><img style="width:25%;height:auto;" src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image/image2text/gan4.png" alt="Output Performance 3"><img style="width:25%;height:auto;" src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image/image2text/gan3.png" alt="Output Performance 4"></div>
     
     
-    <p>GANs are commonly used to generate realistic images from noisy data , though their training can be challenging due to issues like large training samples and the need to balance between the generator and discriminator losses.
-    Training GANs proved to be particularly challenging as shown in the images above. While they are generally expected to surpass CNNs in performance, this particular instance the GAN underperform due to limited training size and limited hardware
-      capacity. Looking at the confusion matrix that is trained on three set of image labels as shown, the results for image labeling apear to be random. This shows that the GAN requires additional training for more effective results.
-      GANs are designed to work with continuous data (like images) where gradients can be smoothly propagated.
-      Text generation, however, involves discrete tokens (words) and sequences, which makes it difficult to propagate gradients through the generator and discriminator.
+    <p>
+        Generative Adversarial Networks (GANs) are highly effective at producing realistic images from noisy inputs, 
+         but achieving strong results can be quite challenging. A major reason for this is their reliance on large , diverse training datasets ; 
+      
+         while carefully balancing the generator and discriminator losses.
+
+      As illustrated in the provided images, training these particular GANs was especially difficult, primarily due to the small size of the training set.
+      
+      Additionally, GANs are designed to work with continuous data (like images) where gradients can be smoothly propagated.  Text generation consists of discrete tokens.
+      
+      This discrete nature makes it much harder for
+      gradients to pass effectively between the generator and discriminator,
+      
     
     </p>
   </div>
 
   <div class="section">
     <h2>Diffusion Models</h2>
-    <p>Diffusion models, often famed for creating visually stunning AI-generated art, have now expanded their utility into text extraction and recognition. By gradually adding noise to an image and learning to reverse this process, they effectively reconstruct missing or blurry details—enabling richer textual synthesis.</p>
+    <p>
+        Diffusion models, originally designed for generating high-quality images, have demonstrated significant promise in the field of image-to-text conversion. 
+      Their core mechanism involves gradually adding random noise to an image. 
+
+For image-to-text applications, diffusion models can be adapted to extract textual information from visual data, such as identifying and recognizing characters in noisy or low-resolution images. 
+      
+    </p>
     
     <h3>Vision Transformers (ViTs) and GPT-2 Integration</h3>
     <p>In our application, we combined a Vision Transformer (ViT) with GPT-2 to create an advanced image-to-text synthesizer:</p>
     <ul>
-      <li><strong>Vision Transformer (ViT):</strong> The ViT partitions an image into patches, treating them as tokens and processing them with a transformer architecture to capture global context—a stark contrast to the primarily local feature extraction of CNNs.</li>
-      <li><strong>GPT-2:</strong> A pre-trained language model that, when provided with features extracted by ViT, generates detailed and contextually rich captions. This model produces descriptions that go well beyond simple labels, including details like the background context and object actions.</li>
+      <li><strong>Vision Transformer (ViT):</strong> The ViT partitions an image into patches, treating them as tokens and processing them with a 
+        transformer architecture to capture global context.</li>
+      <li><strong>GPT-2:</strong> A pre-trained language model that, when provided with features extracted by ViT, generates detailed and contextually rich captions.
+        </li>
     </ul>
 
     <img src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image/image2text/diffusion.png" alt="Output Performanace">
     
-    <p>This diffusion-based approach not only provided superior accuracy on CIFAR-10, but also generated comprehensive descriptions that enriched the understanding of the scene—a significant advantage in fields like medical diagnostics and educational content creation.</p>
+    <p> This diffusion-based model generates descriptions that extend far beyond simple labels, 
+      incorporating details such as background context and thereby providing a richer understanding of the image. </p>
   </div>
 
   <div class="section">
@@ -139,10 +160,8 @@
       On the other hand, Generative Adversarial Networks (GANs)  are a creative approach to image reasoning by generating realistic images. They are ideal for handling noisy inputs,
       but require powerful tuning and 
       training and are not well-suited for image-to-text synthesis. 
-      One of the biggest challenges in training GANs is finding the right balance between the generator and discriminator to minimize overall loss, 
-      which requires extensive training and careful parameter tuning. 
-      To classify images into predefined labels, I employed a simple classifier to generate outputs conditioned on specific image labels. However, without sufficient training the 
-      model could not perform very well.
+        A significant challenge in GAN training lies in achieving the optimal balance between the generator and discriminator to minimize overall loss,  
+  A simple classifier was employed to classify images into predefined labels by generating outputs conditioned on specific image labels; however, performance was suboptimal without sufficient training.
       The Diffusion Model (ViT + GPT-2) deliver the best context-rich textual descriptions, which are even more descriptive than the datasets labels.
       
      A key recommendation is to integrate traditional CNN or GAN models  with large language models (LLM) like GPT. 
