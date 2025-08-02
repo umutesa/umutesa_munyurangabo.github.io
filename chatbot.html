@@ -88,7 +88,7 @@
   <div class="section">
     <h2>Brief introduction to Large Language Model?</h2>
 
-    <img src="https://www.yadavsaurabh.com/content/images/size/w1000/2023/08/image-4.png" alt="Preprocessing pipeline leading to the transformer mode" width="400" height="200 style="object-fit:contain;object-position:center;">
+    <img src="https://www.yadavsaurabh.com/content/images/size/w1000/2023/08/image-4.png" alt="Preprocessing pipeline leading to the transformer mode" width="600" height="400 style="object-fit:contain;object-position:center;">
     
     <p>
       At its core, a Large Language Model (LLM) is a neural network trained to predict the next word in a sentence. It processes billions of lines of text to learn patterns, syntax, and meaning. The process mainly tokenization and embedding; breaks text into manageable pieces, with each token receiving a numerical identity based on its context.
@@ -111,7 +111,7 @@
     <p>
       The core architecture of a transformer can be explained in the following steps:
       
-      <img src="https://miro.medium.com/v2/resize:fit:720/format:webp/0*Qb1YkJkJsh-OjoZg.png" alt="Preprocessing pipeline leading to the transformer mode" width="400" height="200" style="object-fit:contain;object-position:center;
+      <img src="https://miro.medium.com/v2/resize:fit:720/format:webp/0*Qb1YkJkJsh-OjoZg.png" alt="Preprocessing pipeline leading to the transformer mode" width="600" height="400" style="object-fit:contain;object-position:center;
 >
     
     </p>
@@ -143,35 +143,30 @@
     <p>
       To enhance the performance of the GPT-2 model to answer questions on South African food Recipes. I focused on three optimization methods:
 
-      <div class="image-row">
-  <figure>
-    <img src="https://dist.neo4j.com/wp-content/uploads/20230608064931/1LTfNOqZQB_M42KyvttjSyw.png" alt="Preprocessing pipeline">
-    <figcaption>Fine Tuning</figcaption>
-  </figure>
-
-  <figure>
-    <img src="https://bradsol.com/wp-content/uploads/2024/04/image-1-RAG-e1713883898899.jpg" alt="Transformer model">
-    <figcaption>Retrieval-Augmented Generation (RAG)</figcaption>
-  </figure>
-
-  <figure>
-    <img src="https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2023/04/19/arch.png" alt="Transformer model">
-    <figcaption>Reinforcement Learning from Human Feedback (RLHF)</figcaption>
-  </figure>    
-   </div>
-
         <i> a) Fine-Tuning:</i> The model was fine-tuned using specific database content(i.e this is typically as datasets) to enhance its accuracy in responding to questions about traditional South African cuisine. 
         Fine-tuning involves refining a pre-trained model using a relatively small yet relevant dataset, allowing it to develop a deeper understanding of specific topics. 
         A particular challenge within this project was the absence of a dedicated dataset exclusively focused on South African recipes. 
         To overcome this limitation, I utilized a large-scale, generic recipe dataset from Kaggle, which provided a broad foundation for training.
         However, using datsets which are often static and fixed this can limit the model’s ability to adapt to evolving trends, updated facts, or newexisting knowledge.
         <br>
+    
+    <figure>
+    <img src="https://bradsol.com/wp-content/uploads/2024/04/image-1-RAG-e1713883898899.jpg" alt="Transformer model">
+    <figcaption>Retrieval-Augmented Generation (RAG)</figcaption>
+  </figure>
+      
         <i>b) Retrieval-Augmented Generation (RAG):</i> RAG allows the model to incorporate updated information without requiring complete retraining. 
         By building a vector database (using systems like Chroma DB) from PDF documents, the model retrieves relevant context and integrates it into its responses. 
         This approach is especially useful when data changes frequently and retraining is impractical. such as in finance, healthcare, or specialized knowledge domains, making periodic retraining impractical.
         In this project, I implemented RAG by using the *"South African Traditional Recipes 50 cookbook" by GJ van Niekerk*, enabling the model to provide customized responses tailored to South African cuisine. 
         By structuring the cookbook content as embeddings in the vector database, the chatbot can retrieve rich culinary details—including traditional recipes, ingredient insights, and preparation techniques—ensuring culturally accurate responses.
         <br>
+
+    <figure>
+    <img src="https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2023/04/19/arch.png" alt="Transformer model">
+    <figcaption>Reinforcement Learning from Human Feedback (RLHF)</figcaption>
+  </figure>
+      
         <i>c) Reinforcement Learning from Human Feedback (RLHF):</i> This focuses on Reinforcement Learning from Human Feedback (RLHF). A method that enhances model performance by using direct user feedback.
         The process involves collecting human evaluations of model responses, training a reward model based on this feedback, and then fine-tuning the original  model using reinforcement learning.
       </p>
@@ -213,13 +208,24 @@ A:
     <p>
 
 
-Despite the limited availability of datasets on South African cuisine, I successfully built a foundation for generating authentic recipe content. Using a PDF cookbook as the primary source—despite its challenges with mixed formatting, images, and informal notes—I was able to filter and structure the data into meaningful, usable outputs. This marked an important step toward creating a culturally relevant recipe resource.
-<b>
-Through this process, I demonstrated the value of targeted data preprocessing. I extracted and cleaned raw text, removed irrelevant elements, and organized recipes into clearer formats. These efforts allowed the model to deliver more structured and consistent results, showing strong potential for high-quality recipe generation.
-<b>
-Looking ahead, I see opportunities to strengthen the project even further. Integrating multiple datasets dedicated specifically to South African cuisine will expand the model’s cultural depth and ensure even more authentic responses. I also plan to enhance formatting by presenting recipes in concise, easy-to-follow structures—such as step-by-step instructions or bullet points—so users can quickly grasp the essential details.
-<b>
-Performance optimization has also been a key focus. I have identified ways to improve response speed and completeness, including refining the model’s architecture and fine-tuning parameters. These improvements will reduce response times and minimize truncated outputs, ensuring a smoother user experience.
+Despite the limited availability of datasets on South African cuisine, I successfully built a foundation for 
+generating authentic recipe content. Using a PDF cookbook as the primary source. Despite its challenges with mixed formatting, images, and 
+      informal notes I was able to filter and structure the data into meaningful, usable outputs. This marked an important step toward creating a culturally relevant recipe resource.
+
+<br>      
+Through this process, I demonstrated the value of targeted data preprocessing. I extracted and cleaned raw text, removed 
+irrelevant elements, and organized recipes into clearer formats. These efforts allowed the model to deliver more structured and consistent results, 
+      showing strong potential for high-quality recipe generation.
+
+ <br>     
+Looking ahead, I see opportunities to strengthen the project even further. Integrating multiple datasets dedicated 
+specifically to South African cuisine will expand the model’s cultural depth and ensure even more authentic responses.
+      I also plan to enhance formatting by presenting recipes in concise, easy-to-follow structures—such as step-by-step instructions or bullet points—so users can quickly grasp the essential details.
+
+<br>      
+Performance optimization has also been a key focus. I have identified ways to improve response speed and completeness, 
+including refining the model’s architecture and fine-tuning parameters. 
+      These improvements will reduce response times and minimize truncated outputs, ensuring a smoother user experience.
 
       
 
