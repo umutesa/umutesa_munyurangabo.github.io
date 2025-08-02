@@ -45,7 +45,7 @@
       display: block;
       margin: 0 auto;
       max-width: 75%;
-      height: 75%;
+      height: 50%;
     }
   </style>
 </head>
@@ -54,22 +54,21 @@
   
   <p>
     Foreign exchange rates are among the most valuable financial variables, influenced by countless factors including political events, macroeconomic indicators, and investor sentiment. 
-    Traders and analysts constantly seek ways to forecast these rates. Traditional statistical methods have proven useful for analyzing financial data, but deep learning models—particularly Recurrent Neural Networks (RNNs) which often excel in time sequence prediction.
+   While traditional statistical methods remain fundamental for analyzing financial data, deep learning architectures, particularly Recurrent Neural Networks (RNNs) often achieve superior accuracy in time series prediction.
     In this report, we explore how these models can be used to predict the USD/ZAR currency pair while also examining their strengths and weaknesses in handling sequential data.
   </p>
   
   <div class="section">
-    <h2>Why I choose Deep Learning Models?</h2>
+    <h2>Why Deep Learning Models?</h2>
+
+    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240614193911/Linear-Regression-vs-Neural-Networks.webp" alt="Regression vs Deep Learning" width="700" height="500" style="object-fit:contain;object-position:center;" />
+    
     <p>
-      Time series forecasting revolves around predicting future values based on historical data. 
-      Standard regression models often assume independence between observations in the form of a linerar relationship.
-      Wheras, deep learning models learn unique relationships or patterns within the data without extensive feature engineering, making them particularly effective for forecasting financial variables. 
-      Traditional methods that are often based on linear models, which may not capture the nonlinear trends, or sudden changes caused by unforeseen economic shifts. 
-      Hence, deep learning models are increasingly favored for predicting currency exchange.
+Time series forecasting centers on predicting future outcomes by examining recurring patterns within historical data. Traditional regression approaches generally assume independence and often describe relationships in linear terms. While these methods perform well under steady conditions, they tend to fall short when faced with irregular, nonlinear trends or sudden disruptions caused by unexpected economic events. Deep learning techniques, by contrast, are well-suited to uncovering subtle and complex dynamics in time series. Their capacity to model nonlinearities is particularly valuable for forecasting financial indicators such as currency exchange rates. One of the main elements shaping the accuracy of deep learning in this field is the depth of the model. The decision to use a simple regression framework or a multi-layered neural network largely depends on the complexity of the data patterns. Linear regression work well with series that exhibit linear trends, seasonality, or clear autoregressive structures. These methods are less demanding computationally, easier to interpret, and require relatively smaller datasets. However, their simplicity often limits their ability to capture nonlinear relationships or account for long-range dependencies. Deep neural networks—especially architectures like Recurrent Neural Networks (RNNs), Long Short-Term Memory networks (LSTMs) address this gap by automatically extracting higher-level features through multiple hidden layers. LSTMs, in particular, make use of specialized “memory cells” that allow them to retain information from many previous time steps. That said, such models demand greater computing power and careful tuning to prevent issues like overfitting. Given these strengths, deep learning models are becoming the preferred choice for forecasting currency exchange rates. Their adaptability allows them to handle nonlinearities, capture long-term patterns, and adjust to unexpected economic shifts, offering a distinct advantage over more traditional linear methods.
     </p>
   </div>
   
-  <img src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image//Time_Series/rnn_test_train.png" alt="Confusion Matrix 1" class="centered-img" >
+  <img src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image//Time_Series/rnn_test_train.png" alt="Confusion Matrix 1" width="700" height="500" style="object-fit:contain;object-position:center; >
   
   <div class="section">
     <h2>Artificial Neural Networks (ANNs)</h2>
@@ -79,24 +78,62 @@
       This is because ANNs lack the feedback loop to maintain a hidden state and process elements in a sequence sequentially. 
     </p>
   </div>
+
+  <div style="display: flex; gap: 20px; justify-content: center; align-items: flex-start;">
+  <figure style="margin: 0; text-align: center;">
+    <img
+      src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image//Time_Series/ann_output.png"
+      alt="RNN Test vs Train"
+      width="700" height="500"
+      style="object-fit: contain; object-position: center;"
+    />
+    <figcaption>ANN Prediction Results</figcaption>
+  </figure>
+
+  <figure style="margin: 0; text-align: center;">
+    <img
+      src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image//Time_Series/ANN.png"
+      alt="Another Plot"
+      width="700" height="500"
+      style="object-fit: contain; object-position: center;"
+    />
+    <figcaption>Quantitative results</figcaption>
+  </figure>
+</div>
   
-  <img src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image//Time_Series/ann_output.png" alt="Confusion Matrix 1" class="centered-img">
-  
-  <img src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image//Time_Series/ANN.png" alt="Confusion Matrix 1" class="centered-img">
-  
+
   <div class="section">
     <h2>Recurrent Neural Networks (RNNs)</h2>
     <p>
       Recurrent Neural Networks are specifically designed to handle sequential data. Unlike traditional feedforward networks, RNNs maintain a hidden state that captures dependencies between past observations and future outcomes, 
-      making them well-suited for modeling patterns in exchange rates—where cyclical trends or short-term momentum shifts are common.
+      making them well-suited for modeling patterns in exchange rates, where cyclical trends or short-term momentum shifts are common.
       However, basic RNNs suffer from the vanishing gradient problem, where the impact of earlier observations diminishes over long sequences. 
     </p>
   </div>
-  
-  <img src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image//Time_Series/rnn_output.png" alt="Confusion Matrix 1" class="centered-img">
 
-  <img src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image//Time_Series/rnn.png" alt="Confusion Matrix 1" class="centered-img">
+    <div style="display: flex; gap: 20px; justify-content: center; align-items: flex-start;">
+  <figure style="margin: 0; text-align: center;">
+    <img
+      src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image//Time_Series/rnn_output.png"
+      alt="RNN Test vs Train"
+      width="700" height="500"
+      style="object-fit: contain; object-position: center;"
+    />
+    <figcaption>RNN Prediction Results</figcaption>
+  </figure>
+
+  <figure style="margin: 0; text-align: center;">
+    <img
+      src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image//Time_Series/rnn.png"
+      alt="Another Plot"
+      width="700" height="500"
+      style="object-fit: contain; object-position: center;"
+    />
+    <figcaption>Quantitative results</figcaption>
+  </figure>
+</div>
   
+
   <div class="section">
     <h2>LSTM Networks: Addressing Long-Term Dependencies</h2>
     <p>
@@ -106,10 +143,27 @@
     </p>
   </div>
 
-  <img src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image//Time_Series/lstm_output.png" alt="Confusion Matrix 1" class="centered-img">
+    <div style="display: flex; gap: 20px; justify-content: center; align-items: flex-start;">
+  <figure style="margin: 0; text-align: center;">
+    <img
+      src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image//Time_Series/lstm_output.png"
+      alt="RNN Test vs Train"
+      width="700" height="500"
+      style="object-fit: contain; object-position: center;"
+    />
+    <figcaption>LSTM Prediction Results</figcaption>
+  </figure>
 
-  <img src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image//Time_Series/lstm.png" alt="Confusion Matrix 1" class="centered-img">
-
+  <figure style="margin: 0; text-align: center;">
+    <img
+      src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image//Time_Series/lstm.png"
+      alt="Another Plot"
+      width="700" height="500"
+      style="object-fit: contain; object-position: center;"
+    />
+    <figcaption>Quantitative results</figcaption>
+  </figure>
+</div>
   
   <div class="section">
     <h2>Gated Recurrent Units (GRU)</h2>
@@ -120,10 +174,28 @@
     </p>
   </div>
 
-  <img src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image//Time_Series/gru_output.png" alt="Confusion Matrix 1" class="centered-img">
+    <div style="display: flex; gap: 20px; justify-content: center; align-items: flex-start;">
+  <figure style="margin: 0; text-align: center;">
+    <img
+      src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image//Time_Series/gru_output.pn"
+      alt="RNN Test vs Train"
+      width="700" height="500"
+      style="object-fit: contain; object-position: center;"
+    />
+    <figcaption>GRU Prediction Results</figcaption>
+  </figure>
 
+  <figure style="margin: 0; text-align: center;">
+    <img
+      src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image//Time_Series/gru.png"
+      alt="Another Plot"
+      width="700" height="500"
+      style="object-fit: contain; object-position: center;"
+    />
+    <figcaption>Quantitative results</figcaption>
+  </figure>
+</div>
 
-  <img src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image//Time_Series/gru.png" alt="Confusion Matrix 1" class="centered-img">
 
   
   <div class="section">
