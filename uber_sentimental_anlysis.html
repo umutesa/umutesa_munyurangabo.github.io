@@ -53,21 +53,28 @@
 
   <h1>Sentiment Analysis of 2024 Uber Customer Reviews</h1>
 
-  <p>Customer feedback plays a crucial role in shaping any service-oriented company, and Uber is no exception. With thousands of riders using the service daily, analyzing customer sentiment 
-    can provide invaluable insights into satisfaction levels, areas for improvement, and overall brand perception. 
-    In this particular project, I explore a comprehensive approach to sentiment analysis of 2024 Uber customer reviews,
-    using advanced Natural Language Processing (NLP) techniques and deep learning models.</p>
+  <p>Customer feedback plays a crucial role in shaping any service-oriented company, and Uber is no exception. With thousands of riders using the service daily, analyzing customer reviews 
+    can provide valuable insights into satisfaction levels, areas for improvement, and overall brand perception. 
+This project comprehensively explores sentiment analysis on 2024 Uber customer reviews. The approach integrates advanced Natural Language Processing (NLP) techniques with deep learning models.</p>
 
   <h2>Preparing the Dataset: Cleaning and Processing Uber Reviews</h2>
 
-  <p>The first step in any sentiment analysis project is data preparation. Our dataset contains thousands of Uber customer reviews from 2024, including details such as user ratings, comments, and 
-    timestamps. However, raw data often contains noise, requiring thorough preprocessing before analysis. To ensure accuracy, data is processed the following steps: 
-    
-    <i> Data Cleaning </i>: I remove columns such as user names, images, and timestamps that didn’t contribute to sentiment analysis. I also filtered out incomplete or empty reviews.
 
-    <i>Text Preprocessing:</i> I standardized the text by converting it to lowercase, stripping punctuation, and removing HTML tags. Spelling corrections and emoji replacement 
-    (e.g., converting 😃 to “happy face”) ensured that each review was clean. 
-    Additionally, lemmatization reduced words to their base forms (so “running” and “run” were treated the same), and stop words like “is,” “the,” and “and” were removed.
+
+
+Effective sentiment analysis begins with careful data preparation. The dataset for this project consists of thousands of Uber customer reviews from 2024,
+  including user ratings, comments, and timestamps. 
+
+** Data Cleaning :**
+
+Irrelevant columns were removed. Reviews that were incomplete or empty were also filtered out.
+
+ ** Text Preprocessing :**
+
+All reviews were standardized by converting text to lowercase, removing punctuation's and HTML tags, and performing spelling corrections. 
+Emojis were replaced with descriptive text (e.g., 😃 → “happy”). To further refine the text, lemmatization reduced words to their base forms, and common stop words such as 
+  is, the, and and were eliminated.
+
 
     <img src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image/UberAnalysis/uber_rating.png" width="500" height="500" alt="Confusion Matrix 1" class="centered-img">
 
@@ -92,12 +99,11 @@
     <li><i>BiLSTM (Bidirectional Long Short-Term Memory)</i> – A model capable of understanding past and future word relationships. By processing reviews bidirectionally, BiLSTM improves accuracy when interpreting sentence structures that express mixed sentiments.</li>
   </ul>
 
-  <p>Each model was tested on the dataset, and their results were compared based on precision, recall, and overall accuracy.</p>
 
   <h2>Final thoughts</h2>
 
-  Our analysis revealed distinct patterns across different customer groups. Riders who gave positive reviews frequently praised "friendly drivers," "comfortable rides," and "quick pickups." 
-  In contrast, negative reviews highlighted concerns such as "long wait times," "poor vehicle quality," and "rude interactions with drivers.
+  The analysis revealed distinct patterns across different customer groups. Riders who gave positive reviews frequently praised "friendly drivers," "comfortable rides," and "quick pickups." 
+  In contrast, negative reviews highlighted concerns such as "long wait times," "poor vehicle quality," and "rude interactions with drivers".
   While VADER worked well for quick sentiment evaluation, it often misinterpreted emotionally charged reviews. 
   BERT performed the best, accurately recognizing customer emotions even when reviews contained irony or indirect complaints. 
   BiLSTM showed strong performance, but its computational requirements made it less practical for real-time analysis.
@@ -105,10 +111,10 @@
 
   <h2>Actionable Recommendations Based on Negative Sentiment</h2>
   
-     <img src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image/UberAnalysis/complaints.png" width="2000" height="2000" alt="Confusion Matrix 1" class="centered-img">
+    <div style="display:inline-block;overflow:hidden;width:500px;height:500px;cursor:zoom-in;" onmouseover="this.firstElementChild.style.transform='scale(1.5)';this.style.cursor='zoom-out';" onmouseout="this.firstElementChild.style.transform='scale(1)';this.style.cursor='zoom-in';"><img src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image/UberAnalysis/complaints.png" style="display:block;width:100%;height:100%;object-fit:contain;transition:transform .4s ease;"></div>
   
   <p> 
-    Our analysis revealed distinct patterns among different customer groups. Positive reviews frequently mentioned “friendly drivers,” “comfortable rides,” and “quick pickups.”
+    Our analysis uncovered opposing feedback patterns between pleased and frustrated customer groups. Positive reviews frequently mentioned “friendly drivers,” “comfortable rides,” and “quick pickups.”
     Conversely, negative reviews raised concerns about “long wait times,” “poor vehicle quality,” and “rude driver interactions.” High dissatisfaction around driver conduct or slow service points to the need for refined driver guidelines and better route optimization.
       Errors in pick-up or destination coordinates disrupt journeys and cause delays. Enhancing GPS technology and allowing users to confirm locations could lessen these issues.
       Frequent cancellations result in irregular wait times and undermine trust. Stricter cancellation policies and enhanced driver training may provide relief.
