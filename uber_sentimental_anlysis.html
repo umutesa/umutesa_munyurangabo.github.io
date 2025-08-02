@@ -65,11 +65,11 @@ This project comprehensively explores sentiment analysis on 2024 Uber customer r
 Effective sentiment analysis begins with careful data preparation. The dataset for this project consists of thousands of Uber customer reviews from 2024,
   including user ratings, comments, and timestamps. 
 
-** Data Cleaning :**
+<b>  Data Cleaning : </b>
 
 Irrelevant columns were removed. Reviews that were incomplete or empty were also filtered out.
 
- ** Text Preprocessing :**
+ <b> Text Preprocessing : </b>
 
 All reviews were standardized by converting text to lowercase, removing punctuation's and HTML tags, and performing spelling corrections. 
 Emojis were replaced with descriptive text (e.g., 😃 → “happy”). To further refine the text, lemmatization reduced words to their base forms, and common stop words such as 
@@ -111,7 +111,17 @@ Emojis were replaced with descriptive text (e.g., 😃 → “happy”). To furt
 
   <h2>Actionable Recommendations Based on Negative Sentiment</h2>
   
-    <div style="display:inline-block;overflow:hidden;width:500px;height:500px;cursor:zoom-in;" onmouseover="this.firstElementChild.style.transform='scale(1.5)';this.style.cursor='zoom-out';" onmouseout="this.firstElementChild.style.transform='scale(1)';this.style.cursor='zoom-in';"><img src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image/UberAnalysis/complaints.png" style="display:block;width:100%;height:100%;object-fit:contain;transition:transform .4s ease;"></div>
+<div style="display:inline-block;overflow:hidden;width:800px;height:800px;cursor:zoom-in;">
+  <img 
+    src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image/UberAnalysis/complaints.png"
+    srcset="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image/UberAnalysis/complaints.png 1x,
+            https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image/UberAnalysis/complaints@2x.png 2x"
+    style="display:block;width:100%;height:100%;object-fit:contain;transition:transform .4s ease;"
+    alt="Uber Complaints Analysis"
+    onmouseover="this.style.transform='scale(1.5)'; this.parentElement.style.cursor='zoom-out';"
+    onmouseout="this.style.transform='scale(1)'; this.parentElement.style.cursor='zoom-in';"
+  />
+</div>
   
   <p> 
     Our analysis uncovered opposing feedback patterns between pleased and frustrated customer groups. Positive reviews frequently mentioned “friendly drivers,” “comfortable rides,” and “quick pickups.”
