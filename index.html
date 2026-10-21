@@ -1,662 +1,350 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Umutesa Munyurangabo</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Umutesa Munyurangabo · Software Engineer</title>
+<meta name="description" content="Software engineer working across backend, frontend and machine learning. MSc in Engineering (UCT) with a strong foundation in Python, C++ and computer vision.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a0a; --panel:#111111; --ink:#f4f4f2; --muted:#9a9a96; --line:#262626;
+  --accent:#d4ff3a; --accent-ink:#0a0a0a; --grid:rgba(255,255,255,.045);
+  --sans:'Space Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+}
+:root[data-theme="light"]{
+  --bg:#f6f6f3; --panel:#ffffff; --ink:#0a0a0a; --muted:#5c5c58; --line:#d9d9d4;
+  --accent:#3f5f00; --accent-ink:#ffffff; --grid:rgba(0,0,0,.05);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.7 var(--sans);position:relative}
+/* background: fine grid that fades out + soft accent glow */
+body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background:
+    radial-gradient(600px 400px at 85% -5%,color-mix(in srgb,var(--accent) 14%,transparent),transparent 70%),
+    linear-gradient(var(--grid) 1px,transparent 1px) 0 0/44px 44px,
+    linear-gradient(90deg,var(--grid) 1px,transparent 1px) 0 0/44px 44px;
+  -webkit-mask-image:linear-gradient(#000 55%,transparent 100%);mask-image:linear-gradient(#000 55%,transparent 100%)}
+#net{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+.mono{font-family:var(--mono)}
 
-    <style>
-        /* Global Styles */
-        :root {
-            /* Light mode colors for main content (default) */
-            --main-background-color: #f9f9f9;
-            --main-text-color: #333;
-            --main-card-bg-color: #F0F0F0;
-            --main-card-border-color: #000080;
-            --main-section-border-color: #C0C0C0;
+header.nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+.brand{font:700 .95rem var(--mono)}
+.brand i{color:var(--accent);font-style:normal}
+.nav nav{display:flex;gap:22px;align-items:center;font:500 .76rem var(--mono);color:var(--muted)}
+.nav nav a:hover{color:var(--accent)}
+#theme{background:none;border:1px solid var(--line);color:var(--muted);border-radius:4px;padding:2px 9px;font:inherit;cursor:pointer}
+#theme:hover{color:var(--accent);border-color:var(--accent)}
 
-            /* Dark mode colors for sidebar */
-            --sidebar-background-color: #2a2a2a;
-            --sidebar-text-color: #F8F8F8;
-            --sidebar-border-color: #3a3a3a;
-            --sidebar-link-color: #6495ED;
-            --sidebar-link-hover-color: #4169E1;
-        }
+.hero{padding:96px 0 80px;max-width:720px}
+.avatar{width:72px;height:72px;border-radius:50%;object-fit:cover;border:2px solid var(--accent);margin-bottom:18px;filter:grayscale(1) contrast(1.05)}
+.eyebrow{font:500 .76rem var(--mono);color:var(--accent);letter-spacing:.1em;text-transform:uppercase}
+h1{font:700 clamp(2.4rem,6vw,3.9rem)/1.02 var(--sans);letter-spacing:-.03em;margin:.25em 0 .3em}
+h1 em{font-style:normal;background:var(--accent);color:var(--accent-ink);padding:0 .12em}
+.lead{color:var(--muted);max-width:56ch;margin:0 0 26px}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-block;padding:10px 16px;border:1px solid var(--ink);border-radius:3px;font:500 .78rem var(--mono)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:700}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn.primary:hover{color:var(--accent-ink);filter:brightness(1.08)}
 
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--main-text-color);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            min-height: 100vh;
-            background-color: var(--main-background-color);
-            font-size: 12px;
-        }
 
-        /* Sidebar Styles */
-        .sidebar {
-            width: 250px;
-            background-color: var(--sidebar-background-color);
-            padding: 30px;
-            position: fixed;
-            height: 100%;
-            overflow-y: auto;
-            box-sizing: border-box;
-            border-right: 1px solid var(--sidebar-border-color);
-            color: var(--sidebar-text-color);
-        }
+section{padding:64px 0;border-top:1px solid var(--line)}
+h2{font:700 clamp(1.7rem,3.5vw,2.2rem)/1.15 var(--sans);letter-spacing:-.02em;margin:0 0 8px}
+h2 small{display:block;font:500 .72rem var(--mono);color:var(--accent);letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+.sub{color:var(--muted);margin:0 0 32px;max-width:60ch}
 
-        .sidebar-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+/* experience: stacked panels, no timeline */
+.role{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:26px 28px;margin-bottom:18px;transition:border-color .2s}
+.role:hover{border-color:var(--accent)}
+.role .top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 20px;align-items:baseline}
+.role h3{font:600 1.3rem var(--sans);margin:0;letter-spacing:-.01em}
+.role .org{font:500 .85rem var(--mono);color:var(--accent);margin:2px 0 12px}
+.role .date{font:400 .75rem var(--mono);color:var(--muted)}
+.role ul.pts{margin:0 0 14px;padding-left:18px}
+.role ul.pts li{margin-bottom:6px}
+.role ul.pts li::marker{color:var(--accent)}
+.engage{border-top:1px dashed var(--line);margin-top:16px;padding-top:16px}
+.engage h4{font:600 1rem var(--sans);margin:0}
+.engage p{margin:2px 0 0;color:var(--muted);font-size:.93rem}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}
+.tags li{font:400 .7rem var(--mono);border:1px solid var(--line);color:var(--muted);padding:2px 9px;border-radius:3px}
+.tags.hi li{color:var(--ink);border-color:color-mix(in srgb,var(--accent) 45%,var(--line))}
 
-        .sidebar-header img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 15px;
-        }
+.stack{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px}
+.box{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:20px 22px}
+.box h3{font:600 .8rem var(--mono);color:var(--accent);text-transform:uppercase;letter-spacing:.08em;margin:0 0 12px}
+.box p{margin:0 0 12px;color:var(--muted);font-size:.92rem}
+.pipe{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:26px;font:500 .75rem var(--mono)}
+.pipe span{border:1px solid var(--accent);color:var(--accent);padding:4px 10px;border-radius:3px}
+.pipe i{color:var(--muted);font-style:normal}
 
-        .sidebar-header h1 {
-            margin: 0;
-            font-size: 1.8em;
-            font-weight: 600;
-            color: var(--sidebar-text-color);
-        }
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px}
+.repo{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:20px 22px;display:flex;flex-direction:column;transition:transform .2s,border-color .2s}
+.repo:hover{transform:translateY(-3px);border-color:var(--accent)}
+.repo .path{font:500 .78rem var(--mono);color:var(--accent);margin-bottom:8px}
+.repo h3{font:600 1.05rem var(--sans);margin:0 0 6px}
+.repo p{color:var(--muted);font-size:.9rem;margin:0 0 14px;flex:1}
+.repo .links{display:flex;gap:16px;font:500 .75rem var(--mono);margin-top:14px}
+.repo .links a{border-bottom:1px solid var(--line)}
+.repo .links a:hover{color:var(--accent);border-color:var(--accent)}
 
-        .sidebar-header p {
-            margin: 5px 0 0;
-            font-size: 1em;
-            color: var(--sidebar-text-color);
-        }
+.elist{list-style:none;margin:0;padding:0}
+.elist>li{padding:6px 0 22px}
+.elist>li+li{border-top:1px dashed var(--line);padding-top:22px;padding-bottom:6px}
+.elist strong{font:600 1.15rem var(--sans);display:block}
+.elist>li>span{font:500 .78rem var(--mono);color:var(--accent)}
+.elist p{margin:8px 0 10px;color:var(--muted);font-size:.93rem}
+.elist .hon{margin:14px 0 8px}.elist .hon b{font-size:.72rem;color:var(--accent);text-transform:uppercase;letter-spacing:.08em}
+.edu{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.edu h3{font:600 1.1rem var(--sans);margin:0}
+.edu .org{font:500 .8rem var(--mono);color:var(--accent);margin:2px 0 10px}
+.edu p{margin:0;color:var(--muted);font-size:.92rem}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:16px}
+.cols ul{margin:0;padding-left:18px;color:var(--muted);font-size:.92rem}
+.cols li{margin-bottom:4px}
+.cols li::marker{color:var(--accent)}
 
-        .nav-links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+.post{display:flex;justify-content:space-between;gap:20px;padding:16px 0;border-bottom:1px solid var(--line)}
+.post:hover b{color:var(--accent)}
+.post b{font:600 1.05rem var(--sans)}
+.post span{display:block;color:var(--muted);font-size:.9rem}
+.post em{font:400 .75rem var(--mono);color:var(--accent);font-style:normal;white-space:nowrap}
 
-        .nav-links li {
-            margin-bottom: 10px;
-        }
-
-        .nav-links a {
-            display: block;
-            padding: 8px 0;
-            color: var(--sidebar-text-color);
-            text-decoration: none;
-            font-size: 1em;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--sidebar-link-hover-color);
-        }
-
-        .social-links {
-            margin-top: 30px;
-            text-align: center;
-        }
-
-        .social-links a {
-            display: inline-block;
-            margin: 0 8px;
-            color: var(--sidebar-text-color);
-            font-size: 1.2em;
-            transition: color 0.3s;
-        }
-
-        .social-links a:hover {
-            color: var(--sidebar-link-hover-color);
-        }
-
-        /* Main Content Styles */
-        .main-content {
-            flex: 1;
-            padding: 8px;
-            margin-left: 310px;
-            background-color: var(--main-background-color);
-            color: var(--main-text-color);
-        }
-
-        .section {
-            margin-bottom: 50px;
-        }
-
-        .section-title {
-            font-size: 2em;
-            font-weight: 600;
-            margin-bottom: 25px;
-            color: var(--main-text-color);
-            border-bottom: 1px solid var(--main-section-border-color);
-            padding-bottom: 10px;
-        }
-
-        /* Projects Grid Layout */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-
-        /* Project Card Styles */
-        .project-card {
-            background-color: var(--main-card-bg-color);
-            border-left: 4px solid var(--main-card-border-color);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: fit-content;
-        }
-
-        .project-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-        }
-
-        .card-content-wrapper {
-            padding: 25px;
-        }
-
-        .card-title {
-            font-size: 1.3em;
-            margin: 0 0 15px 0;
-            color: var(--main-text-color);
-            font-weight: 600;
-            line-height: 1.4;
-        }
-
-        .card-content {
-            margin-bottom: 20px;
-            font-weight: normal;
-            color: var(--main-text-color);
-            line-height: 1.5;
-        }
-
-        .card-content p {
-            margin: 0 0 10px 0;
-        }
-
-        .card-links {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-top: 15px;
-        }
-
-        .card-link {
-            display: inline-block;
-            color: var(--main-card-border-color);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 8px 14px;
-            border: 1px solid var(--main-card-border-color);
-            border-radius: 4px;
-            font-size: 0.85em;
-        }
-
-        .card-link:hover {
-            color: #fff;
-            background-color: var(--main-card-border-color);
-            text-decoration: none;
-        }
-
-        /* Special styling for primary link */
-        .card-link.primary {
-            background-color: var(--main-card-border-color);
-            color: #fff;
-        }
-
-        .card-link.primary:hover {
-            background-color: #2980b9;
-        }
-
-        /* Blog Card Styles - Keep original single column layout */
-        .blog-card {
-            margin-bottom: 30px;
-            background-color: var(--main-card-bg-color);
-            border-left: 3px solid var(--main-card-border-color);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .blog-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-        }
-
-        .blog-card .card-content-wrapper {
-            padding: 20px;
-        }
-
-        .blog-card .card-title {
-            font-size: 1.4em;
-            margin-top: 0;
-            margin-bottom: 15px;
-            color: var(--main-text-color);
-            font-weight: bold;
-        }
-
-        .blog-card .card-content {
-            margin-bottom: 15px;
-            font-weight: normal;
-        }
-
-        .blog-card .card-links {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .blog-card .card-link {
-            padding: 8px 16px;
-            font-size: 0.9em;
-        }
-
-        /* Interests List Styling */
-        .interests-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .interests-list li {
-            margin-bottom: 6px;
-            padding-left: 16px;
-            position: relative;
-        }
-
-        .interests-list li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--main-card-border-color);
-            font-weight: bold;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            font-size: 0.9em;
-            color: var(--main-text-color);
-            margin-top: 50px;
-            padding-top: 20px;
-            border-top: 1px solid var(--main-section-border-color);
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 1200px) {
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 900px) {
-            body {
-                flex-direction: column;
-            }
-
-            .sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
-                padding: 20px;
-            }
-
-            .main-content {
-                margin-left: 0;
-                padding: 20px;
-            }
-
-            .sidebar-header img {
-                width: 100px;
-                height: 100px;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .project-card {
-                margin-bottom: 20px;
-            }
-
-            .card-content-wrapper {
-                padding: 20px;
-            }
-
-            .card-links {
-                justify-content: flex-start;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .projects-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .card-content-wrapper {
-                padding: 15px;
-            }
-
-            .card-title {
-                font-size: 1.2em;
-            }
-
-            .card-links {
-                flex-direction: column;
-                gap: 8px;
-            }
-
-            .card-link {
-                text-align: center;
-            }
-        }
-    </style>
+.contact p{max-width:54ch;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font:400 .75rem var(--mono)}
+@media (max-width:760px){
+  .hero{padding-top:48px}
+  .nav nav a{display:none}
+  .role{padding:20px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.repo{transition:none}}
+</style>
 </head>
 <body>
-    <aside class="sidebar">
-        <div class="sidebar-header">
-            <img src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image/profile-image.png" alt="Umutesa Munyurangabo">
-            <h1>Umutesa Munyurangabo</h1>
-            <p>Electrical and Computer Engineer</p>
-        </div>
+<canvas id="net" aria-hidden="true"></canvas>
 
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#blogs">Blogs</a></li>
-            <li><a href="mailto:umutesa09@gmail.com">Contact</a></li>
-        </ul>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><i>&gt;</i> umutesa<i>_</i></a>
+    <nav>
+      <a href="#experience">experience</a>
+      <a href="#education">education</a>
+      <a href="#skills">skills</a>
+      <a href="#writing">writing</a>
+      <a href="#projects">projects</a>
+      <a href="#contact">contact</a>
+      <button id="theme" type="button" aria-label="Toggle light or dark theme">◐</button>
+    </nav>
+  </div>
+</header>
 
-        <div class="social-links" style="display: flex; gap: 1rem; align-items: center;">
-            <a href="https://github.com/umutesa" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                    </path>
-                </svg>
-            </a>
-            <a href="https://www.linkedin.com/in/umutesa-munyurangabo/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                    <rect x="2" y="9" width="4" height="12"></rect>
-                    <circle cx="4" cy="4" r="2"></circle>
-                </svg>
-            </a>
-            <a href="https://medium.com/@umutesa" aria-label="Medium" target="_blank" rel="noopener noreferrer">
-                <svg width="24" height="24" viewBox="0 0 1043.63 592.71" fill="currentColor">
-                    <g>
-                        <path d="M588.67,296.35c0,163.69-131.25,296.35-293.71,296.35S1.25,460.04,1.25,296.35,132.5,0,294.96,0,588.67,132.66,588.67,296.35Z"/>
-                        <path d="M726.88,296.35c0,145.55-65.18,263.44-145.59-263.44s-145.59-117.89-145.59-263.44S501.87,32.91,582.28,32.91s145.6,117.89,145.6,263.44Z"/>
-                        <path d="M1042.38,296.35c0,129.12-30.8,233.75-68.79,233.75s-68.79-104.63-68.79-233.75,30.8-233.75,68.79-233.75,68.79,104.63,68.79,233.75Z"/>
-                    </g>
-                </svg>
-            </a>
-        </div>
-    </aside>
+<main id="top" class="wrap">
+  <div class="hero">
+    <div>
+      <img class="avatar" src="image/profile-image.png" alt="Umutesa Munyurangabo" onerror="this.style.display='none'">
+      <div class="eyebrow">Software Engineer · Johannesburg, ZA</div>
+      <h1>Umutesa<br>Munyurangabo<em>.</em></h1>
+      <p class="lead">An Electrical and Computer Engineer fascinated by machine learning, AI and software engineering. I enjoy experimenting with software to solve cool and exciting problems, with a strong foundation in C++, Python and machine learning and a problem-solving mindset.</p>
+      <div class="btns">
+        <a class="btn primary" href="#experience">View experience</a>
+        <a class="btn" href="https://github.com/umutesa">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/umutesa-munyurangabo/">LinkedIn</a>
+      </div>
+    </div>
+  </div>
 
-    <main class="main-content">
-        <section id="home" class="section">
-            <h2 class="section-title">Hi, there!</h2>
-            <p>
-                I'm Umutesa Munyurangabo, a Electrical and Computer Engineer driven by a passion for merging engineering with empathy to create meaningful solutions within the African context.
-                My academic interests include computer vision, deep learning, software development and natural language processing.
-            </p>
-        </section>
+  <!-- ============ EXPERIENCE ============ -->
+  <section id="experience">
+    <h2><small>01 / Experience</small>Professional Experience</h2>
+    <p class="sub">Building software across the stack, shipping computer vision models, and teaching engineering.</p>
 
-        <section id="about" class="section">
-            <h2 class="section-title">About Me</h2>
-            <p>
-                As a woman, I advocate for approaches that reflect the broader social contexts women represent, this means challenging biases and grounding decisions in empathy and ethics.
-                Engineering at its best is not only about creating effective solutions, it involves understanding the human stories behind the challenges to ensure solutions align with people's experiences, values and identities.
-            </p>
-            <p>
-                I hold a Bachelor of Science in Electrical and Computer Engineering from the University of Cape Town.
-                I'm pursuing a Master of Science in Engineering at the University of Cape Town (UCT), with my research titled <i> Vision-Only Socially Compliant Navigation Robotics. </i>
-                My research explores trajectory prediction in complex dynamic social environments,
-                specifically addressing the challenges posed by occlusions while optimizing solutions for safe, socially aware compliant navigation.
-                This site serves as a living archive of my professional journey and provides a glimpse into my creative pursuits along the way.
-            </p>
+    <article class="role">
+      <div class="top"><h3>Junior Software Engineer</h3><span class="date">Oct 2025 – Present</span></div>
+      <div class="org">Digiata · Johannesburg, South Africa</div>
+      <ul class="pts">
+        <li>Design, develop and maintain scalable software solutions across both frontend and backend.</li>
+      </ul>
+      <ul class="tags hi"><li>Backend</li><li>Frontend</li><li>APIs</li><li>Scalable systems</li></ul>
+      <div class="engage">
+        <h4>Software Engineer · Vitality (UK)</h4>
+        <p>Client engagement through Digiata, from Jan 2026 to present.</p>
+      </div>
+    </article>
 
-            <p>My areas of interest include:</p>
-            <ul class="interests-list">
-                <li><strong><i>Machine Learning:</i></strong> Particularly deep learning.</li>
-                <li><strong><i>Autonomous Navigation in Robotics and Vehicles:</i></strong> Safe and Compliant navigation which lies at the heart of my master's research (something I've spent countless hours refining).</li>
-                <li><strong><i>Computer Vision:</i></strong> My interest extends to the contextual understanding within visual data.</li>
-                <li><strong><i>Natural Language Processing (NLP):</i></strong> I'm drawn to the beautiful messiness of human language (the ambiguity, bias, cultural backgrounds, and their misinterpretations). </li>
-                <li><strong><i>Empathy and Psychology in Engineering:</i></strong> Understanding the human stories behind the data, models and decisions we make is what drives meaningful innovation.</li>
-                <li><strong><i>Women in STEM:</i></strong> Representing, and Supporting women in STEM fields.</li>
-            </ul>
-        </section>
+    <article class="role">
+      <div class="top"><h3>Computer Vision Engineer</h3><span class="date">Jan 2024 – Dec 2024</span></div>
+      <div class="org">Hawktivity · Stellenbosch, South Africa</div>
+      <ul class="pts">
+        <li>Helped develop object detection models that improved retail operations and customer experience, contributing to recognition for AI innovation in the catering industry.</li>
+        <li>Optimised a YOLO model to detect specific objects in fast-food restaurants.</li>
+        <li>Applied Gaussian filtering, edge detection, adaptive thresholding and SIFT/SURF feature extraction with OpenCV and scikit-image to handle non-static cameras with dirty lenses.</li>
+        <li>Annotated and labelled datasets to improve training quality, and used AWS S3 for scalable storage and retrieval of large datasets.</li>
+      </ul>
+      <ul class="tags hi"><li>Python</li><li>YOLO</li><li>OpenCV</li><li>scikit-image</li><li>Object Detection</li><li>AWS S3</li></ul>
+    </article>
 
-        <section id="projects" class="section">
-            <h2 class="section-title">Projects</h2>
+    <article class="role">
+      <div class="top"><h3>Teaching Assistant, Engineering</h3><span class="date">2023 &amp; Jan – Oct 2025</span></div>
+      <div class="org">University of Cape Town · Cape Town, South Africa</div>
+      <ul class="pts">
+        <li>Supported students in the UCT Engineering Department while completing my master’s degree.</li>
+        <li>Guided students through a micromouse maze-design project, troubleshooting design challenges in MATLAB and evaluating project milestones.</li>
+        <li>Planned the 2023 UCT Open Day showcasing research projects from the Electrical-Mechatronics Engineering department.</li>
+      </ul>
+      <ul class="tags hi"><li>MATLAB</li><li>Embedded design</li><li>Mentoring</li><li>Technical communication</li></ul>
+    </article>
+  </section>
 
+  <!-- ============ EDUCATION ============ -->
+  <section id="education">
+    <h2><small>02 / Education</small>Education</h2>
+    <p class="sub">University of Cape Town, South Africa.</p>
+    <div class="box">
+      <ul class="elist">
+        <li>
+          <strong>MSc in Engineering (Electrical–Mechatronics)</strong>
+          <span class="mono">2023 – 2025</span>
+          <p>Research: <em>Vision-Only Socially Compliant Navigation Robotics</em>, covering trajectory prediction in dynamic social environments and occlusion handling.</p>
+        </li>
+        <li>
+          <strong>BSc in Electrical &amp; Computer Engineering</strong>
+          <span class="mono">2019 – 2022</span>
+          <p>Key courses: C++ and Machine Learning, Data Structures and Databases, Concurrent Programming, Digital Signal Processing, Embedded Systems.</p>
+          <p class="hon"><b class="mono">Honours &amp; Awards</b></p>
+          <ul class="tags hi"><li>UCT Dean’s Merit List</li><li>UCT Mentorship Award</li><li>UCT Plus Bronze Leadership Award</li></ul>
+        </li>
+      </ul>
+    </div>
+  </section>
 
-            <div class="projects-grid">
+  <!-- ============ SKILLS ============ -->
+  <section id="skills">
+    <h2><small>03 / Stack</small>Technical Skills</h2>
+    <p class="sub">The languages, frameworks and tooling I reach for, from model training to production services.</p>
+    <div class="stack">
+      <div class="box"><h3>Languages</h3><ul class="tags hi"><li>Python</li><li>C++</li><li>Java</li><li>MATLAB</li><li>JavaScript</li><li>SQL</li></ul></div>
+      <div class="box"><h3>Machine Learning</h3><p>CNNs, GANs, LSTMs, Transformers, diffusion models, LLM fine-tuning, RAG and RLHF.</p><ul class="tags hi"><li>PyTorch</li><li>TensorFlow</li><li>BERT</li><li>NLP</li></ul></div>
+      <div class="box"><h3>Computer Vision</h3><ul class="tags hi"><li>Object Detection</li><li>YOLO</li><li>Image Segmentation</li><li>Feature Extraction</li><li>OpenCV</li></ul></div>
+      <div class="box"><h3>Software Engineering</h3><ul class="tags hi"><li>OOP</li><li>Multithreading</li><li>Unit Testing</li><li>Agile / Scrum</li><li>REST APIs</li></ul></div>
+      <div class="box"><h3>Web &amp; Backend</h3><ul class="tags hi"><li>Flask</li><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Front-end development</li></ul></div>
+      <div class="box"><h3>Data &amp; Tooling</h3><ul class="tags hi"><li>MySQL</li><li>PySpark</li><li>SparkSQL</li><li>Azure Databricks</li><li>Power BI</li><li>Tableau</li><li>AWS</li><li>Docker</li><li>Git</li><li>Linux</li><li>ROS2</li></ul></div>
+    </div>
+    <div class="pipe" aria-label="Machine learning workflow">
+      <span>annotate</span><i>→</i><span>preprocess</span><i>→</i><span>train</span><i>→</i><span>evaluate</span><i>→</i><span>deploy</span>
+    </div>
+  </section>
 
-                <div class="project-card">
-                    <div class="card-content-wrapper">
-                        <h3 class="card-title">E-commence Web</h3>
-                        <div class="card-content">
-                            <p> Hair Haven is an e-commerce web application repository designed for selling Hair Food products. The codebase is primarily built using HTML and CSS, with JavaScript integrated to 
-                                enable client-side interactivity.</p>
-                        </div>
-                        <div class="card-links">
-                            <a href="https://github.com/umutesa/Hair_Haven/tree/main" class="card-link">View on GitHub</a>
-                            <a href="https://umutesa.github.io/Hair_Haven/" class="card-link primary">View Site</a>
-                        </div>
-                    </div>
-                </div>
+  <!-- ============ WRITING ============ -->
+  <section id="writing">
+    <h2><small>04 / Writing</small>Articles</h2>
+    <p class="sub">Notes on data, bias and machine perception, published on Medium.</p>
+    <a class="post" href="https://medium.com/@umutesa/unmasking-machine-learning-bias-what-your-data-and-model-isnt-telling-you-8f91bbc5f905"><div><b>Bias in Machine Learning Datasets</b><span>Ways to spot and reduce bias before it trains unfair models.</span></div><em>read →</em></a>
+    <a class="post" href="https://medium.com/@umutesa/redefining-what-it-means-for-machines-to-see-7876c29130b2"><div><b>Visual Perception in Computer Vision</b><span>How contextual cues can improve state-of-the-art vision models.</span></div><em>read →</em></a>
+    <a class="post" href="https://medium.com/@umutesa/can-machines-understand-sarcasm-9de8b6edec87"><div><b>Can Machines Understand Sarcasm?</b><span>Extending NLP systems to handle the ambiguity of human language.</span></div><em>read →</em></a>
+    <a class="post" href="https://medium.com/@umutesa/the-significant-of-outliers-bc9fabbd7790"><div><b>Understanding Outliers</b><span>Telling noise apart from a rare but meaningful signal.</span></div><em>read →</em></a>
+  </section>
 
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects">
+    <h2><small>05 / Projects</small>Projects</h2>
+    <p class="sub">Machine learning and code, selected from <a href="https://github.com/umutesa?tab=repositories" style="color:var(--accent)">github.com/umutesa</a>.</p>
+    <div class="grid">
+      <div class="repo"><div class="path">~/Chatbot</div><h3>GPT-2 South African Cuisine Chatbot</h3><p>Fine-tunes GPT-2 on a domain dataset of local recipes, aligns responses with RLHF and adds retrieval-augmented generation for better context.</p><ul class="tags"><li>LLM</li><li>RAG</li><li>RLHF</li></ul><div class="links"><a href="https://umutesa.github.io/umutesa_munyurangabo.github.io/chatbot.html">write-up</a><a href="https://github.com/umutesa/Chatbot">source</a></div></div>
+      <div class="repo"><div class="path">~/Uber_Sentiment_Review</div><h3>Uber Review Sentiment Analysis</h3><p>Classifies sentiment on 10K+ reviews with BERT, VADER and BiLSTM, with an interactive Power BI dashboard.</p><ul class="tags"><li>NLP</li><li>BERT</li><li>BiLSTM</li><li>Power BI</li></ul><div class="links"><a href="https://umutesa.github.io/umutesa_munyurangabo.github.io/uber_sentimental_anlysis.html">write-up</a><a href="https://github.com/umutesa/Uber_Sentiment_Review">source</a></div></div>
+      <div class="repo"><div class="path">~/Time_Series_Prediction</div><h3>USD/ZAR Time Series Forecasting</h3><p>Compares RNN, LSTM, ANN and GRU architectures on historical exchange-rate data from Yahoo Finance.</p><ul class="tags"><li>LSTM</li><li>GRU</li><li>Forecasting</li></ul><div class="links"><a href="https://umutesa.github.io/umutesa_munyurangabo.github.io/time_series_prediction.html">write-up</a><a href="https://github.com/umutesa/Time_Series_Prediction">source</a></div></div>
+      <div class="repo"><div class="path">~/image-to-text-synthesizer</div><h3>Image-to-Text Synthesizer</h3><p>Generates descriptions for CIFAR-10 using GANs, diffusion models and Transformers in TensorFlow.</p><ul class="tags"><li>GAN</li><li>Diffusion</li><li>TensorFlow</li></ul><div class="links"><a href="https://umutesa.github.io/umutesa_munyurangabo.github.io/image_to_text.html">write-up</a><a href="https://github.com/umutesa/image-to-text-synthesizer">source</a></div></div>
+      <div class="repo"><div class="path">~/social_traj_simulator</div><h3>Trajectory Forecasting Simulator</h3><p>Interactive simulation of pedestrian trajectories built on the Social Force model, tied to my MSc research.</p><ul class="tags"><li>Social Force</li><li>Simulation</li><li>JavaScript</li></ul><div class="links"><a href="https://umutesa.github.io/social_traj_simulator/">live demo</a><a href="https://github.com/umutesa/social_traj_simulator">source</a></div></div>
+      <div class="repo"><div class="path">~/YODA_project</div><h3>YODA: Your Own Digital Accelerator</h3><p>Image-denoising tool with a conventional C++ implementation and a high-performance OpenCL-accelerated version.</p><ul class="tags"><li>C++</li><li>OpenCL</li><li>Image Processing</li></ul><div class="links"><a href="https://github.com/umutesa/YODA_project">source</a></div></div>
+      <div class="repo"><div class="path">~/South-Africa-Weather-Web-Page</div><h3>South Africa Weather Dashboard</h3><p>Real-time weather and extreme-alert dashboard: Flask and SQLite backend, Streamlit and PyDeck geospatial frontend, live weather APIs.</p><ul class="tags"><li>Flask</li><li>SQLite</li><li>Streamlit</li><li>PyDeck</li></ul><div class="links"><a href="https://github.com/umutesa/South-Africa-Weather-Web-Page">source</a></div></div>
+      <div class="repo"><div class="path">~/Question-Answering-about-Visual-Images</div><h3>Visual Question Answering</h3><p>Deep models that interpret image content and answer questions about it in context.</p><ul class="tags"><li>Multimodal</li><li>Vision</li></ul><div class="links"><a href="https://github.com/umutesa/Question-Answering-about-Visual-Images">source</a></div></div>
+    </div>
+  </section>
 
-             <div class="project-card">
-                    <div class="card-content-wrapper">
-                        <h3 class="card-title">South Africa Weather Coordinated Web Page</h3>
-                        <div class="card-content">
-                            <p>An interactive weather monitoring dashboard providing real-time meteorological data and extreme weather alerts for major South African cities. 
-                                Features an intuitive geospatial interface built with Python Flask, SQLite, Streamlit, and PyDeck.</p>
-                        </div>
-                        <div class="card-links">
-                            <a href="https://github.com/umutesa/South-Africa-Weather-Web-Page" class="card-link primary">View on GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="card-content-wrapper">
-                        <h3 class="card-title">Time Series Prediction for USD/ZAR Exchange Rate using Deep Learning Models</h3>
-                        <div class="card-content">
-                            <p> This project explores deep learning models to analyze and predict the USD/ZAR exchange rate using historical data from Yahoo Finance. 
-                                By evaluating RNNs, LSTM networks, ANNs, and GRUs, the goal is to identify patterns and produce accurate forecasts to support informed financial market decisions.
-                            
-                            </p>
-                        </div>
-                        <div class="card-links">
-                            <a href="time_series_prediction.html" class="card-link primary">Read Post</a>
-                            <a href="https://github.com/umutesa/Time_Series_Prediction" class="card-link">View on GitHub</a>
-                        </div>
-                    </div>
-                </div>
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="contact">
+    <h2><small>06 / Contact</small>Let’s build something</h2>
+    <p>Open to conversations about software engineering, machine learning and computer vision work.</p>
+    <div class="btns">
+      <a class="btn primary" href="mailto:umutesa09@gmail.com">umutesa09@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/umutesa-munyurangabo/">LinkedIn</a>
+      <a class="btn" href="https://github.com/umutesa">GitHub</a>
+      <a class="btn" href="https://medium.com/@umutesa">Medium</a>
+    </div>
+  </section>
+</main>
 
-                <div class="project-card">
-                    <div class="card-content-wrapper">
-                        <h3 class="card-title">Image to Text Synthesizer</h3>
-                        <div class="card-content">
-                            <p>This project explores various deep learning approaches; including diffusion models, CNNs, and GANs for translating images into text. 
-                                The performance of each model is evaluated using the CIFAR-10 dataset, a well-known benchmark for image classification.
-                         </p>
-                        </div>
-                        <div class="card-links">
-                            <a href="image_to_text.html" class="card-link primary">Read Post</a>
-                            <a href="https://github.com/umutesa/image-to-text-synthesizer" class="card-link">View on GitHub</a>
-                        </div>
-                    </div>
-                </div>
+<footer><div class="wrap">© <span id="yr">2026</span> Umutesa Munyurangabo</div></footer>
 
-                <div class="project-card">
-                    <div class="card-content-wrapper">
-                        <h3 class="card-title">Uber Customer Review Sentiment Analysis</h3>
-                        <div class="card-content">
-                            <p>
-                                Sentiment analysis of Uber customer reviews is applied using an NLP framework. 
-                                VADER, BERT, and BiLSTM models were implemented and evaluated for effectiveness in classifying sentiment and providing actionable customer service improvements.
-                            </p>
-                        </div>
-                        <div class="card-links">
-                            <a href="uber_sentimental_anlysis.html" class="card-link primary">Read Post</a>
-                            <a href="https://github.com/umutesa/Uber_Sentiment_Review" class="card-link">View on GitHub</a>
-                            <a href="https://app.powerbi.com/reportEmbed?reportId=2c31566a-9f10-4e5c-80d0-bf814eb3a42f&autoAuth=true&ctid=92454335-564e-4ccf-b0b0-24445b8c03f7&actionBarEnabled=true" class="card-link">Dashboard</a>
-                        </div>
-                    </div>
-                </div>
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
 
-                <div class="project-card">
-                    <div class="card-content-wrapper">
-                        <h3 class="card-title">Optimizing LLM using RAG & Fine-Tuning for South African Recipes</h3>
-                        <div class="card-content">
-                            <p> A GPT-2-medium model is fine-tuned to develop a dedicated chatbot for South African food recipes. By integrating retrieval-augmented generation (RAG) and reinforcement learning from human feedback, 
-                                the system delivers improved and more accurate responses to recipe-related questions. </p>
-                        </div>
-                        <div class="card-links">
-                            <a href="chatbot.html" class="card-link primary">Read Post</a>
-                            <a href="https://github.com/umutesa/Chatbot" class="card-link">View on GitHub</a>
-                        </div>
-                    </div>
-                </div>
+/* theme toggle (dark default) */
+(function(){
+  var root=document.documentElement;
+  try{var s=localStorage.getItem('theme'); if(s) root.setAttribute('data-theme',s);}catch(e){}
+  document.getElementById('theme').addEventListener('click',function(){
+    var n=root.getAttribute('data-theme')==='dark'?'light':'dark';
+    root.setAttribute('data-theme',n);
+    try{localStorage.setItem('theme',n);}catch(e){}
+  });
+})();
 
-                <div class="project-card">
-                    <div class="card-content-wrapper">
-                        <h3 class="card-title">Vision-Based Image Question Answering</h3>
-                        <div class="card-content">
-                            <p>This project use deep learning models to interpret image content and deliver intelligent, context-aware responses to visual questions.</p>
-                        </div>
-                        <div class="card-links">
-                            <a href="https://github.com/umutesa/Question-Answering-about-Visual-Images" class="card-link primary">View on GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="card-content-wrapper">
-                        <h3 class="card-title">Emotion Detection System</h3>
-                        <div class="card-content">
-                            <p>A facial emotion detection system that analyzes facial features to classify emotional states. 
-                                The system first detects faces within images, then performs facial analysis to determine the individual's emotional expression using computer vision. </p>
-                        </div>
-                        <div class="card-links">
-                            <a href="https://github.com/umutesa/emotion_detection" class="card-link primary">View on GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                 <div class="project-card">
-                    <div class="card-content-wrapper">
-                        <h3 class="card-title">Trajectory Forecasting Simulator</h3>
-                        <div class="card-content">
-                            <p> This is a trajectory prediction simulation tool built on the concept of the Social Force model. </p>
-                        </div>
-                        <div class="card-links">
-                            <a href="https://umutesa.github.io/social_traj_simulator/" class="card-link primary">View Live</a>
-                        </div>
-                    </div>
-                </div>
-                
-            
-
-             <div class="project-card">
-                    <div class="card-content-wrapper">
-                        <h3 class="card-title">YODA (Your Own Digital Accelerator)</h3>
-                        <div class="card-content">
-                            <p>The YODA project centers on developing an image processing tool for filtering noisy images, 
-                                offering both a conventional C++ implementation and a high-performance OpenCL-accelerated version..</p>
-                        </div>
-                        <div class="card-links">
-                            <a href="https://github.com/umutesa/YODA_project" class="card-link primary">View on GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            
-        </section>
-
-        <section id="blogs" class="section">
-            <h2 class="section-title">Medium Articles</h2>
-            
-            <div class="blog-card">
-                <div class="card-content-wrapper">
-                    <h3 class="card-title">Understanding Outliers</h3>
-                    <div class="card-content">
-                        <p>Outliers can make working with data feel a bit uneasy. We tend to want to remove ouliers immediately because they don't fit our usual expectations.
-                        But what if those outliers are actually pointing to a rare or significant event?
-                        I explore this idea in my Medium article, breaking down on how to tell if an outlier is revealing a valuable insight or not.</p>
-                    </div>
-                    <div class="card-links">
-                        <a href="https://medium.com/@umutesa/the-significant-of-outliers-bc9fabbd7790" class="card-link primary">Read Blog</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="blog-card">
-                <div class="card-content-wrapper">
-                    <h3 class="card-title">Bias in Machine Learning Datasets</h3>
-                    <div class="card-content">
-                        <p>Machine learning datasets often come with hidden biases, whether it's gender or racial imbalances or limited representation of African languages.
-                        These biases can end up training models that are unfair or skewed.
-                        In my Medium article, I dive into the different ways of spotting these biases.</p>
-                    </div>
-                    <div class="card-links">
-                        <a href="https://medium.com/@umutesa/unmasking-machine-learning-bias-what-your-data-and-model-isnt-telling-you-8f91bbc5f905" class="card-link primary">Read Blog</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="blog-card">
-                <div class="card-content-wrapper">
-                    <h3 class="card-title">Visual Perception in Computer Vision</h3>
-                    <div class="card-content">
-                        <p>While computer vision has advanced significantly in image recognition and visual understanding, challenges remain in replicating the contextual awareness and
-                        complexity of human perception. This article explores the fundamental differences between human and machine vision,
-                        highlighting existing limitations in computer vision and potential challenges for improving visual reasoning to closely resemble human cognition.</p>
-                    </div>
-                    <div class="card-links">
-                        <a href="https://medium.com/@umutesa/redefining-what-it-means-for-machines-to-see-7876c29130b2" class="card-link primary">Read Blog</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="blog-card">
-                <div class="card-content-wrapper">
-                    <h3 class="card-title">Can machines Understand sarcasm?</h3>
-                    <div class="card-content">
-                        <p>Modern NLP models often struggle with interpreting ambiguous linguistic constructs like sarcasm.
-                        This article examines the neuroscience behind human sarcasm and explores how those insights can be applied
-                        to the development of more context-aware NLP systems for better understanding of the sarcastic language.
-                        </p>
-                    </div>
-                    <div class="card-links">
-                        <a href="https://medium.com/@umutesa/can-machines-understand-sarcasm-9de8b6edec87" class="card-link primary">Read Blog</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <footer>
-            <p>&copy; 2025 Umutesa Munyurangabo. All Rights Reserved.</p>
-        </footer>
-    </main>
+/* background: starfield, drifting equations, orbiting bodies */
+(function(){
+  var c=document.getElementById('net'), x=c.getContext('2d'), W, H, D=Math.min(window.devicePixelRatio||1,2);
+  var still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var EQ=['E = mc²','∇·E = ρ/ε₀','∇×B = μ₀J + μ₀ε₀ ∂E/∂t','iħ ∂ψ/∂t = Ĥψ','F = G m₁m₂ / r²','ΔxΔp ≥ ħ/2','e^{iπ} + 1 = 0','F(ω) = ∫ f(t) e^{-iωt} dt','∂²u/∂t² = c²∇²u','S = k ln W','λ = h/p','ΣF = ma','ds² = −c²dt² + dx²','G_{μν} + Λg_{μν} = 8πG T_{μν}/c⁴','∮ B·dl = μ₀I','ω = 2πf','∇²φ = 0','v = √(GM/r)','ħ','ψ','∇','∂','Σ','Ω','Δ','θ','λ','π','∫','∞'];
+  var stars=[], eqs=[], ink, acc, t=0, shoot=null;
+  function colors(){var cs=getComputedStyle(document.documentElement);ink=cs.getPropertyValue('--ink').trim()||'#fff';acc=cs.getPropertyValue('--accent').trim()||'#d4ff3a';}
+  function size(){
+    W=innerWidth;H=innerHeight;c.width=W*D;c.height=H*D;x.setTransform(D,0,0,D,0,0);
+    stars=[];var n=Math.round(Math.min(220,W*H/6500));
+    for(var i=0;i<n;i++)stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.3+.2,p:Math.random()*6.28,s:Math.random()*.02+.005,z:Math.random()*.15+.03});
+    eqs=[];var m=Math.round(Math.min(24,W*H/45000));
+    for(var j=0;j<m;j++){var sym=Math.random()<.35;
+      eqs.push({t:EQ[(Math.random()*EQ.length)|0],x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.18,vy:-(Math.random()*.12+.03),
+        f:sym?Math.random()*22+22:Math.random()*5+12,a:Math.random()*.1+.09,hi:Math.random()<.22,rot:(Math.random()-.5)*.35});}
+  }
+  function orbit(cx,cy,a,b,tilt,speed,ph,size){
+    x.save();x.translate(cx,cy);x.rotate(tilt);
+    x.globalAlpha=.16;x.strokeStyle=ink;x.lineWidth=.7;x.beginPath();x.ellipse(0,0,a,b,0,0,6.283);x.stroke();
+    var ang=t*speed+ph;x.globalAlpha=.85;x.fillStyle=acc;x.beginPath();x.arc(a*Math.cos(ang),b*Math.sin(ang),size,0,6.283);x.fill();
+    x.restore();
+  }
+  function draw(){
+    x.clearRect(0,0,W,H);t+=1;
+    for(var i=0;i<stars.length;i++){var s=stars[i];
+      if(!still){s.y-=s.z;if(s.y<0){s.y=H;s.x=Math.random()*W;}}
+      x.globalAlpha=.25+.45*Math.abs(Math.sin(s.p+t*s.s));x.fillStyle=ink;x.beginPath();x.arc(s.x,s.y,s.r,0,6.283);x.fill();}
+    /* orbital system, upper right */
+    var cx=W*.82,cy=H*.22,k=Math.min(W,H)/700+.4;
+    x.globalAlpha=.9;x.fillStyle=acc;x.beginPath();x.arc(cx,cy,3.5,0,6.283);x.fill();
+    orbit(cx,cy,90*k,34*k,-.35,.012,0,3);orbit(cx,cy,150*k,58*k,-.35,.007,2,4);orbit(cx,cy,230*k,92*k,-.35,.004,4,2.5);
+    /* equations */
+    x.textBaseline='middle';
+    for(var j=0;j<eqs.length;j++){var q=eqs[j];
+      if(!still){q.x+=q.vx;q.y+=q.vy;if(q.y<-40){q.y=H+40;q.x=Math.random()*W;}if(q.x<-300)q.x=W+50;if(q.x>W+300)q.x=-50;}
+      x.save();x.translate(q.x,q.y);x.rotate(q.rot);x.globalAlpha=q.a;x.fillStyle=q.hi?acc:ink;
+      x.font='italic '+q.f+'px "Times New Roman",Georgia,serif';x.fillText(q.t,0,0);x.restore();}
+    /* shooting star */
+    if(!still){if(!shoot&&Math.random()<.004)shoot={x:Math.random()*W*.8+W*.2,y:Math.random()*H*.4,l:0};
+      if(shoot){shoot.x-=7;shoot.y+=3.5;shoot.l++;var g=x.createLinearGradient(shoot.x,shoot.y,shoot.x+60,shoot.y-30);
+        g.addColorStop(0,acc);g.addColorStop(1,'transparent');x.globalAlpha=Math.max(0,1-shoot.l/50);x.strokeStyle=g;x.lineWidth=1.4;
+        x.beginPath();x.moveTo(shoot.x,shoot.y);x.lineTo(shoot.x+60,shoot.y-30);x.stroke();if(shoot.l>50)shoot=null;}
+      requestAnimationFrame(draw);}
+  }
+  colors();size();draw();
+  addEventListener('resize',function(){size();if(still)draw();});
+  document.getElementById('theme').addEventListener('click',function(){setTimeout(function(){colors();if(still)draw();},0);});
+})();
+</script>
 </body>
 </html>
