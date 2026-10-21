@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umutesa Munyurangabo</title>
+
+    <style>
+        /* Global Styles */
+        :root {
+            /* Light mode colors for main content (default) */
+            --main-background-color: #f9f9f9;
+            --main-text-color: #333;
+            --main-card-bg-color: #F0F0F0;
+            --main-card-border-color: #000080;
+            --main-section-border-color: #C0C0C0;
+
+            /* Dark mode colors for sidebar */
+            --sidebar-background-color: #2a2a2a;
+            --sidebar-text-color: #F8F8F8;
+            --sidebar-border-color: #3a3a3a;
+            --sidebar-link-color: #6495ED;
+            --sidebar-link-hover-color: #4169E1;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--main-text-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            min-height: 100vh;
+            background-color: var(--main-background-color);
+            font-size: 12px;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 250px;
+            background-color: var(--sidebar-background-color);
+            padding: 30px;
+            position: fixed;
+            height: 100%;
+            overflow-y: auto;
+            box-sizing: border-box;
+            border-right: 1px solid var(--sidebar-border-color);
+            color: var(--sidebar-text-color);
+        }
+
+        .sidebar-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .sidebar-header img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .sidebar-header h1 {
+            margin: 0;
+            font-size: 1.8em;
+            font-weight: 600;
+            color: var(--sidebar-text-color);
+        }
+
+        .sidebar-header p {
+            margin: 5px 0 0;
+            font-size: 1em;
+            color: var(--sidebar-text-color);
+        }
+
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-links li {
+            margin-bottom: 10px;
+        }
+
+        .nav-links a {
+            display: block;
+            padding: 8px 0;
+            color: var(--sidebar-text-color);
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--sidebar-link-hover-color);
+        }
+
+        .social-links {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 8px;
+            color: var(--sidebar-text-color);
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--sidebar-link-hover-color);
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            flex: 1;
+            padding: 8px;
+            margin-left: 310px;
+            background-color: var(--main-background-color);
+            color: var(--main-text-color);
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 2em;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: var(--main-text-color);
+            border-bottom: 1px solid var(--main-section-border-color);
+            padding-bottom: 10px;
+        }
+
+        /* Projects Grid Layout */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        /* Project Card Styles */
+        .project-card {
+            background-color: var(--main-card-bg-color);
+            border-left: 4px solid var(--main-card-border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: fit-content;
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .card-content-wrapper {
+            padding: 25px;
+        }
+
+        .card-title {
+            font-size: 1.3em;
+            margin: 0 0 15px 0;
+            color: var(--main-text-color);
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .card-content {
+            margin-bottom: 20px;
+            font-weight: normal;
+            color: var(--main-text-color);
+            line-height: 1.5;
+        }
+
+        .card-content p {
+            margin: 0 0 10px 0;
+        }
+
+        .card-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .card-link {
+            display: inline-block;
+            color: var(--main-card-border-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 14px;
+            border: 1px solid var(--main-card-border-color);
+            border-radius: 4px;
+            font-size: 0.85em;
+        }
+
+        .card-link:hover {
+            color: #fff;
+            background-color: var(--main-card-border-color);
+            text-decoration: none;
+        }
+
+        /* Special styling for primary link */
+        .card-link.primary {
+            background-color: var(--main-card-border-color);
+            color: #fff;
+        }
+
+        .card-link.primary:hover {
+            background-color: #2980b9;
+        }
+
+        /* Blog Card Styles - Keep original single column layout */
+        .blog-card {
+            margin-bottom: 30px;
+            background-color: var(--main-card-bg-color);
+            border-left: 3px solid var(--main-card-border-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .blog-card .card-content-wrapper {
+            padding: 20px;
+        }
+
+        .blog-card .card-title {
+            font-size: 1.4em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: var(--main-text-color);
+            font-weight: bold;
+        }
+
+        .blog-card .card-content {
+            margin-bottom: 15px;
+            font-weight: normal;
+        }
+
+        .blog-card .card-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .blog-card .card-link {
+            padding: 8px 16px;
+            font-size: 0.9em;
+        }
+
+        /* Interests List Styling */
+        .interests-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .interests-list li {
+            margin-bottom: 6px;
+            padding-left: 16px;
+            position: relative;
+        }
+
+        .interests-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--main-card-border-color);
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            font-size: 0.9em;
+            color: var(--main-text-color);
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--main-section-border-color);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 900px) {
+            body {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding: 20px;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+
+            .sidebar-header img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .project-card {
+                margin-bottom: 20px;
+            }
+
+            .card-content-wrapper {
+                padding: 20px;
+            }
+
+            .card-links {
+                justify-content: flex-start;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .card-content-wrapper {
+                padding: 15px;
+            }
+
+            .card-title {
+                font-size: 1.2em;
+            }
+
+            .card-links {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .card-link {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="https://raw.githubusercontent.com/umutesa/umutesa_munyurangabo.github.io/main/image/profile-image.png" alt="Umutesa Munyurangabo">
+            <h1>Umutesa Munyurangabo</h1>
+            <p>Electrical and Computer Engineer</p>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#blogs">Blogs</a></li>
+            <li><a href="mailto:umutesa09@gmail.com">Contact</a></li>
+        </ul>
+
+        <div class="social-links" style="display: flex; gap: 1rem; align-items: center;">
+            <a href="https://github.com/umutesa" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                    </path>
+                </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/umutesa-munyurangabo/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+            </a>
+            <a href="https://medium.com/@umutesa" aria-label="Medium" target="_blank" rel="noopener noreferrer">
+                <svg width="24" height="24" viewBox="0 0 1043.63 592.71" fill="currentColor">
+                    <g>
+                        <path d="M588.67,296.35c0,163.69-131.25,296.35-293.71,296.35S1.25,460.04,1.25,296.35,132.5,0,294.96,0,588.67,132.66,588.67,296.35Z"/>
+                        <path d="M726.88,296.35c0,145.55-65.18,263.44-145.59-263.44s-145.59-117.89-145.59-263.44S501.87,32.91,582.28,32.91s145.6,117.89,145.6,263.44Z"/>
+                        <path d="M1042.38,296.35c0,129.12-30.8,233.75-68.79,233.75s-68.79-104.63-68.79-233.75,30.8-233.75,68.79-233.75,68.79,104.63,68.79,233.75Z"/>
+                    </g>
+                </svg>
+            </a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <section id="home" class="section">
+            <h2 class="section-title">Hi, there!</h2>
+            <p>
+                I'm Umutesa Munyurangabo, a Electrical and Computer Engineer driven by a passion for merging engineering with empathy to create meaningful solutions within the African context.
+                My academic interests include computer vision, deep learning, software development and natural language processing.
+            </p>
+        </section>
+
+        <section id="about" class="section">
+            <h2 class="section-title">About Me</h2>
+            <p>
+                As a woman, I advocate for approaches that reflect the broader social contexts women represent, this means challenging biases and grounding decisions in empathy and ethics.
+                Engineering at its best is not only about creating effective solutions, it involves understanding the human stories behind the challenges to ensure solutions align with people's experiences, values and identities.
+            </p>
+            <p>
+                I hold a Bachelor of Science in Electrical and Computer Engineering from the University of Cape Town.
+                I'm pursuing a Master of Science in Engineering at the University of Cape Town (UCT), with my research titled <i> Vision-Only Socially Compliant Navigation Robotics. </i>
+                My research explores trajectory prediction in complex dynamic social environments,
+                specifically addressing the challenges posed by occlusions while optimizing solutions for safe, socially aware compliant navigation.
+                This site serves as a living archive of my professional journey and provides a glimpse into my creative pursuits along the way.
+            </p>
+
+            <p>My areas of interest include:</p>
+            <ul class="interests-list">
+                <li><strong><i>Machine Learning:</i></strong> Particularly deep learning.</li>
+                <li><strong><i>Autonomous Navigation in Robotics and Vehicles:</i></strong> Safe and Compliant navigation which lies at the heart of my master's research (something I've spent countless hours refining).</li>
+                <li><strong><i>Computer Vision:</i></strong> My interest extends to the contextual understanding within visual data.</li>
+                <li><strong><i>Natural Language Processing (NLP):</i></strong> I'm drawn to the beautiful messiness of human language (the ambiguity, bias, cultural backgrounds, and their misinterpretations). </li>
+                <li><strong><i>Empathy and Psychology in Engineering:</i></strong> Understanding the human stories behind the data, models and decisions we make is what drives meaningful innovation.</li>
+                <li><strong><i>Women in STEM:</i></strong> Representing, and Supporting women in STEM fields.</li>
+            </ul>
+        </section>
+
+        <section id="projects" class="section">
+            <h2 class="section-title">Projects</h2>
+
+
+            <div class="projects-grid">
+
+                <div class="project-card">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">E-commence Web</h3>
+                        <div class="card-content">
+                            <p> Hair Haven is an e-commerce web application repository designed for selling Hair Food products. The codebase is primarily built using HTML and CSS, with JavaScript integrated to 
+                                enable client-side interactivity.</p>
+                        </div>
+                        <div class="card-links">
+                            <a href="https://github.com/umutesa/Hair_Haven/tree/main" class="card-link">View on GitHub</a>
+                            <a href="https://umutesa.github.io/Hair_Haven/" class="card-link primary">View Site</a>
+                        </div>
+                    </div>
+                </div>
+
+
+             <div class="project-card">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">South Africa Weather Coordinated Web Page</h3>
+                        <div class="card-content">
+                            <p>An interactive weather monitoring dashboard providing real-time meteorological data and extreme weather alerts for major South African cities. 
+                                Features an intuitive geospatial interface built with Python Flask, SQLite, Streamlit, and PyDeck.</p>
+                        </div>
+                        <div class="card-links">
+                            <a href="https://github.com/umutesa/South-Africa-Weather-Web-Page" class="card-link primary">View on GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">Time Series Prediction for USD/ZAR Exchange Rate using Deep Learning Models</h3>
+                        <div class="card-content">
+                            <p> This project explores deep learning models to analyze and predict the USD/ZAR exchange rate using historical data from Yahoo Finance. 
+                                By evaluating RNNs, LSTM networks, ANNs, and GRUs, the goal is to identify patterns and produce accurate forecasts to support informed financial market decisions.
+                            
+                            </p>
+                        </div>
+                        <div class="card-links">
+                            <a href="time_series_prediction.html" class="card-link primary">Read Post</a>
+                            <a href="https://github.com/umutesa/Time_Series_Prediction" class="card-link">View on GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">Image to Text Synthesizer</h3>
+                        <div class="card-content">
+                            <p>This project explores various deep learning approaches; including diffusion models, CNNs, and GANs for translating images into text. 
+                                The performance of each model is evaluated using the CIFAR-10 dataset, a well-known benchmark for image classification.
+                         </p>
+                        </div>
+                        <div class="card-links">
+                            <a href="image_to_text.html" class="card-link primary">Read Post</a>
+                            <a href="https://github.com/umutesa/image-to-text-synthesizer" class="card-link">View on GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">Uber Customer Review Sentiment Analysis</h3>
+                        <div class="card-content">
+                            <p>
+                                Sentiment analysis of Uber customer reviews is applied using an NLP framework. 
+                                VADER, BERT, and BiLSTM models were implemented and evaluated for effectiveness in classifying sentiment and providing actionable customer service improvements.
+                            </p>
+                        </div>
+                        <div class="card-links">
+                            <a href="uber_sentimental_anlysis.html" class="card-link primary">Read Post</a>
+                            <a href="https://github.com/umutesa/Uber_Sentiment_Review" class="card-link">View on GitHub</a>
+                            <a href="https://app.powerbi.com/reportEmbed?reportId=2c31566a-9f10-4e5c-80d0-bf814eb3a42f&autoAuth=true&ctid=92454335-564e-4ccf-b0b0-24445b8c03f7&actionBarEnabled=true" class="card-link">Dashboard</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">Optimizing LLM using RAG & Fine-Tuning for South African Recipes</h3>
+                        <div class="card-content">
+                            <p> A GPT-2-medium model is fine-tuned to develop a dedicated chatbot for South African food recipes. By integrating retrieval-augmented generation (RAG) and reinforcement learning from human feedback, 
+                                the system delivers improved and more accurate responses to recipe-related questions. </p>
+                        </div>
+                        <div class="card-links">
+                            <a href="chatbot.html" class="card-link primary">Read Post</a>
+                            <a href="https://github.com/umutesa/Chatbot" class="card-link">View on GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">Vision-Based Image Question Answering</h3>
+                        <div class="card-content">
+                            <p>This project use deep learning models to interpret image content and deliver intelligent, context-aware responses to visual questions.</p>
+                        </div>
+                        <div class="card-links">
+                            <a href="https://github.com/umutesa/Question-Answering-about-Visual-Images" class="card-link primary">View on GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">Emotion Detection System</h3>
+                        <div class="card-content">
+                            <p>A facial emotion detection system that analyzes facial features to classify emotional states. 
+                                The system first detects faces within images, then performs facial analysis to determine the individual's emotional expression using computer vision. </p>
+                        </div>
+                        <div class="card-links">
+                            <a href="https://github.com/umutesa/emotion_detection" class="card-link primary">View on GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="project-card">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">Trajectory Forecasting Simulator</h3>
+                        <div class="card-content">
+                            <p> This is a trajectory prediction simulation tool built on the concept of the Social Force model. </p>
+                        </div>
+                        <div class="card-links">
+                            <a href="https://umutesa.github.io/social_traj_simulator/" class="card-link primary">View Live</a>
+                        </div>
+                    </div>
+                </div>
+                
+            
+
+             <div class="project-card">
+                    <div class="card-content-wrapper">
+                        <h3 class="card-title">YODA (Your Own Digital Accelerator)</h3>
+                        <div class="card-content">
+                            <p>The YODA project centers on developing an image processing tool for filtering noisy images, 
+                                offering both a conventional C++ implementation and a high-performance OpenCL-accelerated version..</p>
+                        </div>
+                        <div class="card-links">
+                            <a href="https://github.com/umutesa/YODA_project" class="card-link primary">View on GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+        </section>
+
+        <section id="blogs" class="section">
+            <h2 class="section-title">Medium Articles</h2>
+            
+            <div class="blog-card">
+                <div class="card-content-wrapper">
+                    <h3 class="card-title">Understanding Outliers</h3>
+                    <div class="card-content">
+                        <p>Outliers can make working with data feel a bit uneasy. We tend to want to remove ouliers immediately because they don't fit our usual expectations.
+                        But what if those outliers are actually pointing to a rare or significant event?
+                        I explore this idea in my Medium article, breaking down on how to tell if an outlier is revealing a valuable insight or not.</p>
+                    </div>
+                    <div class="card-links">
+                        <a href="https://medium.com/@umutesa/the-significant-of-outliers-bc9fabbd7790" class="card-link primary">Read Blog</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blog-card">
+                <div class="card-content-wrapper">
+                    <h3 class="card-title">Bias in Machine Learning Datasets</h3>
+                    <div class="card-content">
+                        <p>Machine learning datasets often come with hidden biases, whether it's gender or racial imbalances or limited representation of African languages.
+                        These biases can end up training models that are unfair or skewed.
+                        In my Medium article, I dive into the different ways of spotting these biases.</p>
+                    </div>
+                    <div class="card-links">
+                        <a href="https://medium.com/@umutesa/unmasking-machine-learning-bias-what-your-data-and-model-isnt-telling-you-8f91bbc5f905" class="card-link primary">Read Blog</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blog-card">
+                <div class="card-content-wrapper">
+                    <h3 class="card-title">Visual Perception in Computer Vision</h3>
+                    <div class="card-content">
+                        <p>While computer vision has advanced significantly in image recognition and visual understanding, challenges remain in replicating the contextual awareness and
+                        complexity of human perception. This article explores the fundamental differences between human and machine vision,
+                        highlighting existing limitations in computer vision and potential challenges for improving visual reasoning to closely resemble human cognition.</p>
+                    </div>
+                    <div class="card-links">
+                        <a href="https://medium.com/@umutesa/redefining-what-it-means-for-machines-to-see-7876c29130b2" class="card-link primary">Read Blog</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blog-card">
+                <div class="card-content-wrapper">
+                    <h3 class="card-title">Can machines Understand sarcasm?</h3>
+                    <div class="card-content">
+                        <p>Modern NLP models often struggle with interpreting ambiguous linguistic constructs like sarcasm.
+                        This article examines the neuroscience behind human sarcasm and explores how those insights can be applied
+                        to the development of more context-aware NLP systems for better understanding of the sarcastic language.
+                        </p>
+                    </div>
+                    <div class="card-links">
+                        <a href="https://medium.com/@umutesa/can-machines-understand-sarcasm-9de8b6edec87" class="card-link primary">Read Blog</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Umutesa Munyurangabo. All Rights Reserved.</p>
+        </footer>
+    </main>
+</body>
+</html>
